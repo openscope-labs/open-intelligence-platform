@@ -1,0 +1,359 @@
+================================================================================
+                      MEMORANDUM OF UNDERSTANDING
+              Perjanjian Kerja Sama Pengembangan Sistem
+          PROJECT TRACKING & INTELLIGENCE PLATFORM
+================================================================================
+
+  Nomor Dokumen  : MOU/OSL/DLA/2026-001
+  Tanggal        : 12 Mei 2026
+  Pihak Pertama  : Openscopelabs
+  Pihak Kedua    : Datalink Analysis
+
+================================================================================
+
+
+MEMORANDUM OF UNDERSTANDING
+
+Pada hari ini, tanggal sebagaimana tercantum pada halaman penandatanganan,
+telah disepakati Memorandum of Understanding oleh dan antara:
+
+
+PIHAK PERTAMA
+  Nama           : Openscopelabs
+  Alamat         : .........................................................
+  No. Telepon    : .........................................................
+  Email          : .........................................................
+  Diwakili oleh  : .........................................................
+
+PIHAK KEDUA
+  Nama           : Datalink Analysis
+  Alamat         : .........................................................
+  No. Telepon    : .........................................................
+  Email          : .........................................................
+  Diwakili oleh  : .........................................................
+
+PIHAK PERTAMA dan PIHAK KEDUA secara bersama-sama selanjutnya disebut
+"Para Pihak".
+
+
+--------------------------------------------------------------------------------
+PASAL 1. LATAR BELAKANG DAN TUJUAN
+--------------------------------------------------------------------------------
+
+1.1. PIHAK KEDUA membutuhkan pengembangan platform perangkat lunak berbasis
+     web bernama "Project Tracking & Intelligence Platform" yang berfungsi
+     untuk mendukung operasi pelacakan dan pencarian di area pegunungan
+     (Search and Rescue).
+
+1.2. PIHAK PERTAMA memiliki kompetensi dan kapasitas teknis untuk merancang,
+     mengembangkan, dan men-deploy platform dimaksud.
+
+1.3. Para Pihak sepakat untuk menjalin kerja sama pengembangan perangkat
+     lunak sesuai ketentuan yang diatur dalam Memorandum of Understanding
+     ini beserta seluruh lampirannya.
+
+
+--------------------------------------------------------------------------------
+PASAL 2. RUANG LINGKUP PEKERJAAN
+--------------------------------------------------------------------------------
+
+2.1. Ruang lingkup pekerjaan secara rinci diatur dalam Statement of Work
+     (SOW) Nomor SOW/OSL/DLA/2026-001 yang merupakan lampiran dan bagian
+     tidak terpisahkan dari Memorandum of Understanding ini.
+
+2.2. Secara garis besar, pekerjaan meliputi:
+     a) Pengembangan platform web dengan fitur pelacakan GPS real-time
+        dan dashboard peta multi-layer.
+     b) Pengembangan sistem komunikasi real-time.
+     c) Pengembangan asisten kecerdasan buatan (AI) dengan kemampuan RAG
+        dan prediksi pergerakan dasar.
+     d) Integrasi aliran video CCTV dan drone pada peta.
+     e) Deployment sistem ke server produksi milik PIHAK KEDUA.
+
+2.3. Spesifikasi teknis sistem diatur dalam Solutions Design Document (SDD)
+     yang juga merupakan lampiran dari Memorandum of Understanding ini.
+
+2.4. Pekerjaan yang tidak tercantum dalam SOW dianggap berada di luar
+     ruang lingkup dan tunduk pada prosedur Perubahan Scope sebagaimana
+     diatur dalam Pasal 7.
+
+
+--------------------------------------------------------------------------------
+PASAL 3. JANGKA WAKTU
+--------------------------------------------------------------------------------
+
+3.1. Masa pengerjaan proyek adalah 6 (enam) bulan kalender, terhitung
+     sejak Memorandum of Understanding ini ditandatangani DAN pembayaran
+     Termin 1 diterima oleh PIHAK PERTAMA.
+
+3.2. Pengerjaan dibagi menjadi 4 (empat) fase sebagaimana dirinci dalam SOW.
+
+3.3. Memorandum of Understanding ini berlaku selama 8 (delapan) bulan sejak
+     tanggal penandatanganan, mencakup masa pengerjaan dan periode garansi.
+
+3.4. Perpanjangan jangka waktu dapat dilakukan atas kesepakatan tertulis
+     Para Pihak.
+
+
+--------------------------------------------------------------------------------
+PASAL 4. NILAI KONTRAK DAN PEMBAYARAN
+--------------------------------------------------------------------------------
+
+4.1. Total biaya pengembangan yang disepakati adalah sebesar
+     Rp 60.000.000,- (Enam Puluh Juta Rupiah).
+
+4.2. Nilai tersebut merupakan biaya jasa pengembangan perangkat lunak
+     yang mencakup perancangan, pengembangan, pengujian, dan deployment.
+
+4.3. Skema pembayaran disepakati sebagai berikut:
+
+     Termin    Waktu Pembayaran           Persentase    Nominal
+     -------   -------------------------  ----------    ---------------
+     Termin 1  Penandatanganan MOU        30%           Rp 18.000.000
+     Termin 2  Penyelesaian Fase 1        25%           Rp 15.000.000
+     Termin 3  Penyelesaian Fase 2        25%           Rp 15.000.000
+     Termin 4  Serah terima akhir         20%           Rp 12.000.000
+
+4.4. Pembayaran dilakukan melalui transfer bank ke rekening yang ditunjuk
+     oleh PIHAK PERTAMA.
+
+4.5. Jatuh tempo pembayaran adalah 7 (tujuh) hari kalender setelah
+     penerbitan invoice.
+
+4.6. Apabila PIHAK KEDUA terlambat melakukan pembayaran melebihi
+     14 (empat belas) hari kalender dari jatuh tempo, PIHAK PERTAMA
+     berhak menghentikan sementara seluruh pekerjaan hingga pembayaran
+     diterima. Timeline proyek akan disesuaikan sesuai durasi keterlambatan.
+
+4.7. Biaya-biaya berikut TIDAK TERMASUK dalam nilai kontrak dan menjadi
+     tanggung jawab PIHAK KEDUA:
+     a) Biaya server dan hosting, baik untuk pengembangan maupun produksi.
+     b) Biaya berlangganan layanan API pihak ketiga.
+     c) Biaya pengadaan perangkat keras (drone, kamera CCTV, perangkat GPS,
+        dan lain-lain).
+     d) Biaya domain dan sertifikat SSL.
+     e) Biaya internet dan infrastruktur jaringan.
+
+
+--------------------------------------------------------------------------------
+PASAL 5. HAK DAN KEWAJIBAN
+--------------------------------------------------------------------------------
+
+5.1. Kewajiban PIHAK PERTAMA
+     a) Melaksanakan pekerjaan sesuai ruang lingkup yang tertuang dalam SOW.
+     b) Menyerahkan deliverables sesuai timeline yang disepakati.
+     c) Melakukan presentasi hasil kerja di setiap pencapaian milestone.
+     d) Memberikan laporan kemajuan pekerjaan secara berkala, minimal
+        1 (satu) kali per 2 (dua) minggu.
+     e) Memperbaiki cacat perangkat lunak selama masa pengembangan dan garansi.
+     f) Menyerahkan kode sumber dan dokumentasi teknis.
+     g) Melakukan deployment ke server milik PIHAK KEDUA.
+
+5.2. Kewajiban PIHAK KEDUA
+     a) Melakukan pembayaran sesuai jadwal yang disepakati.
+     b) Menyediakan server untuk keperluan pengembangan dan produksi.
+     c) Menyediakan akses ke perangkat keras (CCTV, drone) untuk integrasi.
+     d) Menyediakan dan menanggung biaya layanan API pihak ketiga.
+     e) Menunjuk 1 (satu) orang sebagai penanggung jawab (Person in Charge).
+     f) Memberikan persetujuan atau umpan balik dalam waktu 5 (lima)
+        hari kerja setelah presentasi milestone.
+     g) Menyediakan materi dan konten untuk basis pengetahuan AI.
+
+5.3. Hak PIHAK PERTAMA
+     a) Menerima pembayaran sesuai jadwal yang disepakati.
+     b) Menghentikan sementara pekerjaan apabila pembayaran terlambat
+        melebihi 14 hari kalender.
+     c) Menolak permintaan yang berada di luar ruang lingkup SOW tanpa
+        melalui prosedur Perubahan Scope.
+     d) Mencantumkan proyek dalam portofolio tanpa mengungkapkan
+        informasi sensitif.
+
+5.4. Hak PIHAK KEDUA
+     a) Menerima deliverables sesuai SOW.
+     b) Mendapatkan presentasi dan laporan kemajuan secara berkala.
+     c) Mengajukan umpan balik dan revisi yang masih berada dalam
+        ruang lingkup SOW.
+     d) Memperoleh kode sumber dan hak kepemilikan penuh setelah
+        pembayaran dilunasi.
+     e) Mengajukan Perubahan Scope untuk penambahan fitur.
+
+
+--------------------------------------------------------------------------------
+PASAL 6. HAK KEKAYAAN INTELEKTUAL
+--------------------------------------------------------------------------------
+
+6.1. Seluruh kode sumber yang dikembangkan dalam proyek ini menjadi
+     milik PIHAK KEDUA setelah seluruh pembayaran dilunasi.
+
+6.2. PIHAK KEDUA berhak memodifikasi, mengembangkan, dan menggunakan
+     kode sumber tersebut.
+
+6.3. Komponen perangkat lunak sumber terbuka (open-source) yang digunakan
+     tunduk pada lisensi masing-masing. PIHAK PERTAMA akan mendokumentasikan
+     seluruh dependensi beserta lisensinya.
+
+6.4. PIHAK PERTAMA berhak mencantumkan proyek ini dalam portofolio tanpa
+     mengungkapkan informasi sensitif milik PIHAK KEDUA.
+
+6.5. Selama pembayaran belum dilunasi, kode sumber tetap menjadi milik
+     PIHAK PERTAMA dan tidak wajib diserahkan.
+
+
+--------------------------------------------------------------------------------
+PASAL 7. PERUBAHAN RUANG LINGKUP
+--------------------------------------------------------------------------------
+
+7.1. Setiap permintaan perubahan atau penambahan fitur yang berada di luar
+     SOW wajib diajukan secara tertulis.
+
+7.2. Prosedur perubahan ruang lingkup:
+     a) PIHAK KEDUA mengajukan permintaan perubahan secara tertulis.
+     b) PIHAK PERTAMA melakukan analisis dampak dalam waktu 3 (tiga)
+        hari kerja.
+     c) PIHAK PERTAMA menyampaikan estimasi biaya tambahan dan dampak
+        terhadap timeline.
+     d) Biaya tambahan dihitung berdasarkan tarif
+        Rp 750.000,-/orang/hari kerja.
+     e) Pekerjaan tambahan dimulai setelah addendum ditandatangani
+        oleh Para Pihak.
+
+7.3. PIHAK PERTAMA berhak menolak permintaan perubahan yang berdampak
+     signifikan terhadap arsitektur sistem atau memerlukan kompetensi
+     di luar kapasitas tim.
+
+
+--------------------------------------------------------------------------------
+PASAL 8. KERAHASIAAN
+--------------------------------------------------------------------------------
+
+8.1. Para Pihak sepakat untuk menjaga kerahasiaan seluruh informasi yang
+     diperoleh selama kerja sama, termasuk namun tidak terbatas pada
+     informasi teknis, operasional, kode sumber, dan informasi keuangan.
+
+8.2. Kewajiban kerahasiaan berlaku selama masa kerja sama dan 2 (dua)
+     tahun setelah berakhirnya Memorandum of Understanding ini.
+
+8.3. Pengecualian berlaku untuk informasi yang telah menjadi domain publik
+     atau yang diwajibkan untuk diungkapkan berdasarkan ketentuan hukum
+     yang berlaku.
+
+
+--------------------------------------------------------------------------------
+PASAL 9. KEADAAN KAHAR (FORCE MAJEURE)
+--------------------------------------------------------------------------------
+
+9.1. Keadaan Kahar meliputi namun tidak terbatas pada: bencana alam,
+     pandemi, kebijakan pemerintah yang menghalangi pelaksanaan pekerjaan,
+     perang atau kerusuhan, serta kerusakan infrastruktur internet nasional.
+
+9.2. Pihak yang terdampak wajib memberitahukan secara tertulis dalam waktu
+     7 (tujuh) hari kalender sejak terjadinya Keadaan Kahar.
+
+9.3. Selama Keadaan Kahar berlangsung, kewajiban pihak yang terdampak
+     ditangguhkan tanpa dikenakan sanksi.
+
+9.4. Apabila Keadaan Kahar berlangsung melebihi 60 (enam puluh) hari
+     kalender, masing-masing pihak berhak mengakhiri Memorandum of
+     Understanding ini dengan ketentuan bahwa pekerjaan yang telah
+     diselesaikan tetap dibayarkan secara proporsional.
+
+
+--------------------------------------------------------------------------------
+PASAL 10. PEMBATALAN DAN PENGAKHIRAN
+--------------------------------------------------------------------------------
+
+10.1. Pembatalan oleh PIHAK KEDUA
+
+      Waktu Pembatalan            Konsekuensi
+      -------------------------   -----------------------------------------------
+      Sebelum Fase 1 dimulai      Pembayaran Termin 1 tidak dapat dikembalikan.
+      Selama Fase 1 berlangsung   Termin 1 + biaya proporsional pekerjaan selesai.
+      Selama Fase 2 berlangsung   Termin 1 & 2 + biaya proporsional pekerjaan selesai.
+      Selama Fase 3-4             Seluruh pembayaran tidak dapat dikembalikan.
+
+10.2. Pembatalan oleh PIHAK PERTAMA
+
+      PIHAK PERTAMA dapat mengakhiri perjanjian ini apabila PIHAK KEDUA
+      gagal memenuhi kewajiban pembayaran atau menyediakan sumber daya yang
+      menjadi tanggung jawabnya selama lebih dari 30 (tiga puluh) hari
+      kalender. Pekerjaan yang telah dibayar akan diserahkan; pekerjaan
+      yang belum dibayar tidak wajib diserahkan.
+
+10.3. Pengakhiran Bersama
+
+      Para Pihak dapat sepakat secara tertulis untuk mengakhiri kerja sama
+      ini kapan saja dengan ketentuan yang disepakati bersama.
+
+
+--------------------------------------------------------------------------------
+PASAL 11. PENYELESAIAN PERSELISIHAN
+--------------------------------------------------------------------------------
+
+11.1. Segala perselisihan yang timbul akan diselesaikan secara musyawarah
+      untuk mufakat.
+
+11.2. Apabila musyawarah tidak mencapai kesepakatan dalam 30 (tiga puluh)
+      hari kalender, penyelesaian dilanjutkan melalui mediasi.
+
+11.3. Apabila mediasi tidak berhasil, perselisihan akan diselesaikan
+      melalui Pengadilan Negeri yang berwenang di wilayah domisili
+      PIHAK PERTAMA.
+
+
+--------------------------------------------------------------------------------
+PASAL 12. KETENTUAN PENUTUP
+--------------------------------------------------------------------------------
+
+12.1. Hal-hal yang belum atau belum cukup diatur dalam Memorandum of
+      Understanding ini akan diatur kemudian melalui addendum yang
+      disepakati secara tertulis oleh Para Pihak.
+
+12.2. Addendum merupakan bagian yang tidak terpisahkan dari Memorandum
+      of Understanding ini.
+
+12.3. Memorandum of Understanding ini dibuat dalam 2 (dua) rangkap
+      bermaterai cukup, masing-masing memiliki kekuatan hukum yang sama.
+
+
+--------------------------------------------------------------------------------
+PASAL 13. LAMPIRAN
+--------------------------------------------------------------------------------
+
+Dokumen-dokumen berikut merupakan bagian yang tidak terpisahkan dari
+Memorandum of Understanding ini:
+
+  1. Lampiran A — Solutions Design Document (SDD) No. SDD/OSL/DLA/2026-001
+  2. Lampiran B — Statement of Work (SOW) No. SOW/OSL/DLA/2026-001
+
+
+================================================================================
+                          PENANDATANGANAN
+================================================================================
+
+Memorandum of Understanding ini ditandatangani oleh Para Pihak dalam
+keadaan sadar, sehat jasmani dan rohani, serta tanpa paksaan dari
+pihak manapun.
+
+
+PIHAK PERTAMA                         PIHAK KEDUA
+Openscopelabs                          Datalink Analysis
+
+
+Nama Lengkap:                          Nama Lengkap:
+____________________________           ____________________________
+
+Jabatan:                               Jabatan:
+____________________________           ____________________________
+
+Tanda Tangan:                          Tanda Tangan:
+
+
+____________________________           ____________________________
+
+Tanggal:                               Tanggal:
+____________________________           ____________________________
+
+
+================================================================================
+MOU/OSL/DLA/2026-001 | Versi 1.0 | 12 Mei 2026
+================================================================================

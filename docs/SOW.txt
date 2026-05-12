@@ -1,0 +1,315 @@
+================================================================================
+                        STATEMENT OF WORK
+          PROJECT TRACKING & INTELLIGENCE PLATFORM
+              Dokumen Ruang Lingkup Pekerjaan
+================================================================================
+
+  Nomor Dokumen  : SOW/OSL/DLA/2026-001
+  Tanggal        : 12 Mei 2026
+  Pihak Pertama  : Openscopelabs
+  Pihak Kedua    : Datalink Analysis
+
+================================================================================
+
+
+--------------------------------------------------------------------------------
+1. PENDAHULUAN
+--------------------------------------------------------------------------------
+
+PIHAK KEDUA membutuhkan pengembangan platform perangkat lunak berbasis web
+untuk mendukung operasi pelacakan dan pencarian di area pegunungan
+(Search and Rescue). Platform dimaksud harus mampu menampilkan posisi tim
+lapangan secara real-time, mengintegrasikan data dari berbagai sumber,
+serta menyediakan kemampuan analisis berbasis kecerdasan buatan.
+
+Dokumen Statement of Work ini mendefinisikan secara mengikat ruang lingkup
+pekerjaan, deliverables, timeline, dan ketentuan terkait lainnya. Segala
+pekerjaan yang TIDAK TERCANTUM dalam dokumen ini dianggap BERADA DI LUAR
+RUANG LINGKUP dan akan dikenakan biaya tambahan melalui prosedur Perubahan
+Ruang Lingkup sebagaimana diatur pada Bagian 9.
+
+
+--------------------------------------------------------------------------------
+2. PARA PIHAK
+--------------------------------------------------------------------------------
+
+  Pihak           Nama                Peran
+  --------------  ------------------  ------------------------------------------
+  PIHAK PERTAMA   Openscopelabs       Perancangan, pengembangan, dan deployment
+  PIHAK KEDUA     Datalink Analysis   Pemilik proyek dan penyedia infrastruktur
+
+
+--------------------------------------------------------------------------------
+3. RUANG LINGKUP PEKERJAAN
+--------------------------------------------------------------------------------
+
+A. Dashboard Peta Real-time dan Multi-Layer Map
+   - Dashboard peta interaktif sebagai pusat kendali operasi.
+   - 8 (delapan) layer peta: Simple Map (OSM), Satelit, Topografi,
+     Cuaca real-time, Heat Map, Petir, Awan, dan Prediksi Cuaca.
+   - Perangkat menggambar (drawing tools): marker, polyline, polygon, circle.
+   - Perangkat pengukuran (measurement tools) untuk jarak dan luas area.
+   - Mode layar penuh dan tema gelap untuk pusat kendali.
+
+B. Pelacakan GPS Real-time
+   - Pelacakan posisi seluruh anggota tim lapangan secara real-time.
+   - Visualisasi riwayat rute (trail), indikator kecepatan dan arah.
+   - Interval pembaruan yang dapat dikonfigurasi (5-30 detik).
+   - Peringatan geofencing dan ekspor data dalam format GPX/KML.
+
+C. Pengiriman Data dari Lapangan
+   - Formulir pengiriman data berupa lokasi, foto, dan catatan dari
+     perangkat mobile.
+   - Penandaan otomatis pada peta berdasarkan koordinat GPS perangkat.
+   - Kategorisasi temuan: jejak, barang, tanda, titik bahaya, titik istirahat.
+   - Antrean offline (offline queue) dengan sinkronisasi otomatis.
+
+D. Komunikasi Real-time
+   - Sistem percakapan berbasis ruang (room-based) per misi atau per tim.
+   - Pesan teks real-time, berbagi lokasi dan foto.
+   - Riwayat pesan dan fitur pencarian.
+
+E. Asisten AI dan RAG
+   - Antarmuka percakapan dengan asisten kecerdasan buatan berbasis RAG.
+   - Basis pengetahuan: prosedur SAR, data terrain, dan panduan survival.
+   - Kemampuan query data operasi dengan bahasa natural dan rekomendasi
+     pola pencarian.
+
+F. Prediksi Pergerakan Dasar
+   - Peta probabilitas (heat map) berdasarkan titik terakhir diketahui
+     (last known position).
+   - Faktor analisis: terrain, jalur, sumber air, cuaca, dan profil korban.
+   - Rekomendasi area pencarian prioritas dan estimasi radius jangkauan.
+
+G. Integrasi Aliran Video CCTV
+   - Tampilan aliran video CCTV langsung pada peta (popup atau panel samping).
+   - Input: aliran RTSP/HLS dari perangkat kamera milik PIHAK KEDUA.
+   - Indikator status per kamera, dukungan minimum 4 aliran simultan.
+
+H. Integrasi Aliran Video Drone
+   - Tampilan aliran video drone langsung dan pelacakan posisi drone pada peta.
+   - Input: aliran RTMP/WebRTC dari drone milik PIHAK KEDUA.
+   - Integrasi berupa stream relay — bukan integrasi SDK vendor spesifik.
+
+I. Aplikasi Web Responsif
+   - Tampilan desktop: dashboard pusat kendali.
+   - Tampilan mobile: antarmuka untuk tim lapangan.
+   - Kompatibel dengan Chrome, Firefox, Safari, dan Edge.
+
+J. Manajemen Pengguna
+   - Autentikasi berbasis JWT dengan 4 tingkat akses
+     (Admin, Commander, Field Operator, Viewer).
+   - Kontrol akses berbasis peran (role-based access control).
+
+K. Deployment Produksi
+   - Deployment ke server PIHAK KEDUA menggunakan Docker.
+   - Konfigurasi Nginx reverse proxy dan SSL/HTTPS.
+   - Pengaturan monitoring dan logging dasar.
+
+
+--------------------------------------------------------------------------------
+4. PENGECUALIAN RUANG LINGKUP
+--------------------------------------------------------------------------------
+
+Item-item berikut secara tegas TIDAK TERMASUK dalam ruang lingkup pekerjaan
+dan biaya yang disepakati:
+
+  No   Item                          Keterangan
+  ---  ----------------------------  ------------------------------------------
+  1    Pengadaan perangkat keras      Drone, kamera CCTV, server fisik, GPS
+  2    Biaya server dan hosting       Biaya operasional bulanan/tahunan
+  3    Biaya layanan API pihak ke-3   LLM API, layanan peta, API cuaca
+  4    Aplikasi mobile native         Aplikasi iOS dan Android native
+  5    Integrasi SDK drone            SDK vendor spesifik (DJI, Parrot, dll)
+  6    Instalasi perangkat keras      Instalasi dan konfigurasi fisik CCTV/drone
+  7    Mode offline penuh             Hanya antrean data submission offline
+  8    Pelatihan model AI kustom      Pelatihan model deep learning kustom
+  9    Migrasi data                   Migrasi dari sistem yang sudah ada
+  10   Pemeliharaan pasca-produksi    Perbaikan setelah masa garansi
+  11   Pelatihan pengguna             Pelatihan pengoperasian untuk end-user
+  12   Dokumentasi pengguna           Buku panduan operasional pengguna
+  13   Pengujian keamanan             Penetration testing oleh pihak ketiga
+
+
+--------------------------------------------------------------------------------
+5. DELIVERABLES
+--------------------------------------------------------------------------------
+
+  No   Deliverable                                     Format
+  ---  ----------------------------------------------  ---------------------
+  1    Kode sumber lengkap                             Git repository
+  2    Dokumentasi teknis (README, dokumentasi API)     Markdown
+  3    Skema database dan skrip migrasi                 SQL / ORM migration
+  4    Konfigurasi deployment (Docker Compose)          YAML
+  5    Sistem ter-deploy di server PIHAK KEDUA          Running application
+  6    Panduan konfigurasi environment                  Markdown
+
+
+--------------------------------------------------------------------------------
+6. TIMELINE DAN MILESTONES
+--------------------------------------------------------------------------------
+
+Total durasi    : 6 (enam) bulan
+Estimasi mulai  : Juni 2026
+Estimasi selesai: November 2026
+
+  Fase      Periode     Ruang Lingkup                        Milestone
+  --------  ----------  -----------------------------------  --------------------
+  Fase 1    Bulan 1-2   Infrastruktur, autentikasi,          Demo: peta interaktif
+  Platform              dashboard peta multi-layer,          dengan pelacakan GPS
+  Inti                  pelacakan GPS, data lapangan         berfungsi
+
+  Fase 2    Bulan 3-4   Percakapan real-time, layer          Demo: sistem chat dan
+  Komunikasi            cuaca/overlay, heat map,             seluruh layer peta
+                        prediksi cuaca                       berfungsi
+
+  Fase 3    Bulan 5     Asisten AI dan RAG, prediksi         Demo: asisten AI
+  Intelijen             pergerakan dasar                     dengan basis
+                                                             pengetahuan
+
+  Fase 4    Bulan 6     Integrasi CCTV dan drone,            Serah terima: sistem
+  Integrasi             deployment produksi, pengujian       siap produksi
+  & Deploy
+
+Setiap akhir fase dilaksanakan demonstrasi hasil kerja. PIHAK KEDUA memiliki
+waktu 5 (lima) hari kerja setelah demonstrasi untuk menyampaikan umpan balik.
+
+
+--------------------------------------------------------------------------------
+7. PEMBAYARAN
+--------------------------------------------------------------------------------
+
+Total nilai kontrak: Rp 60.000.000,- (Enam Puluh Juta Rupiah)
+
+Nilai di atas merupakan biaya jasa pengembangan perangkat lunak. Seluruh
+biaya infrastruktur, server, layanan API pihak ketiga, dan perangkat keras
+menjadi tanggung jawab PIHAK KEDUA.
+
+  Termin      Waktu Pembayaran           %      Nominal         Kondisi
+  ----------  -------------------------  -----  --------------  ----------------
+  Termin 1    Penandatanganan kontrak    30%    Rp 18.000.000   Sebelum dimulai
+  Termin 2    Penyelesaian Fase 1        25%    Rp 15.000.000   Demo & approval
+  Termin 3    Penyelesaian Fase 2        25%    Rp 15.000.000   Demo & approval
+  Termin 4    Serah terima akhir         20%    Rp 12.000.000   Serah terima
+
+Pembayaran via transfer bank. Jatuh tempo: 7 hari kalender setelah invoice.
+Keterlambatan >14 hari memberikan hak kepada PIHAK PERTAMA untuk menghentikan
+sementara seluruh pekerjaan.
+
+
+--------------------------------------------------------------------------------
+8. TANGGUNG JAWAB PARA PIHAK
+--------------------------------------------------------------------------------
+
+8.1 PIHAK PERTAMA (Openscopelabs)
+    1. Merancang dan mengembangkan seluruh fitur sesuai ruang lingkup SOW.
+    2. Menyerahkan deliverables sesuai timeline.
+    3. Melaksanakan demonstrasi di setiap pencapaian milestone.
+    4. Memperbaiki cacat perangkat lunak selama pengembangan dan garansi.
+    5. Menyerahkan kode sumber dan dokumentasi teknis.
+    6. Melakukan deployment ke server PIHAK KEDUA.
+
+8.2 PIHAK KEDUA (Datalink Analysis)
+    1. Melakukan pembayaran sesuai jadwal yang disepakati.
+    2. Menyediakan server untuk pengembangan dan produksi.
+    3. Menyediakan akses ke perangkat keras (CCTV, drone) untuk integrasi.
+    4. Menyediakan dan menanggung biaya layanan API pihak ketiga.
+    5. Menunjuk 1 (satu) penanggung jawab (Person in Charge).
+    6. Memberikan umpan balik dalam 5 hari kerja setelah demonstrasi.
+    7. Menyediakan materi untuk basis pengetahuan AI.
+
+
+--------------------------------------------------------------------------------
+9. PROSEDUR PERUBAHAN RUANG LINGKUP
+--------------------------------------------------------------------------------
+
+Setiap permintaan perubahan atau penambahan fitur di luar SOW ini wajib
+melalui prosedur berikut:
+
+    1. PIHAK KEDUA mengajukan permintaan perubahan secara TERTULIS.
+    2. PIHAK PERTAMA melakukan analisis dampak dalam 3 (tiga) hari kerja.
+    3. PIHAK PERTAMA menyampaikan estimasi biaya tambahan dan dampak timeline.
+    4. Biaya tambahan: Rp 750.000,-/orang/hari kerja.
+    5. Pekerjaan tambahan dimulai setelah addendum SOW ditandatangani.
+
+
+--------------------------------------------------------------------------------
+10. KRITERIA PENERIMAAN
+--------------------------------------------------------------------------------
+
+Fase 1 — Platform Inti
+  - Pengguna dapat masuk sesuai peran yang ditetapkan.
+  - Peta interaktif menampilkan minimal 3 layer.
+  - Pelacakan GPS menampilkan posisi real-time minimal 2 perangkat.
+  - Pengiriman data lapangan berhasil ditandai pada peta.
+
+Fase 2 — Komunikasi
+  - Percakapan real-time berfungsi antar 2 pengguna atau lebih.
+  - Layer cuaca, awan, dan petir tampil pada peta.
+  - Heat map menampilkan area cakupan pencarian.
+
+Fase 3 — Intelijen
+  - Asisten AI merespons pertanyaan terkait operasi pencarian.
+  - Peta prediksi muncul berdasarkan masukan titik terakhir diketahui.
+
+Fase 4 — Integrasi dan Deployment
+  - Aliran video CCTV dan drone tampil pada peta.
+  - Sistem berjalan di server produksi PIHAK KEDUA.
+  - Seluruh fitur berfungsi di peramban desktop dan mobile.
+
+Pengujian Penerimaan: Dilaksanakan selama 5 hari kerja setelah serah terima.
+Cacat dalam ruang lingkup diperbaiki dalam 10 hari kerja. Setelah penerimaan
+ditandatangani, proyek dinyatakan selesai.
+
+
+--------------------------------------------------------------------------------
+11. GARANSI
+--------------------------------------------------------------------------------
+
+  Aspek                  Ketentuan
+  ---------------------  -------------------------------------------------------
+  Periode                30 hari kalender setelah penandatanganan penerimaan
+  Cakupan                Perbaikan cacat perangkat lunak sesuai ruang lingkup
+  Tidak termasuk         Fitur baru, perubahan desain, masalah infrastruktur
+  Pemeliharaan lanjutan  Tersedia melalui kontrak terpisah
+
+
+--------------------------------------------------------------------------------
+12. HAK KEKAYAAN INTELEKTUAL
+--------------------------------------------------------------------------------
+
+  - Kode sumber menjadi milik PIHAK KEDUA setelah seluruh pembayaran dilunasi.
+  - PIHAK KEDUA berhak memodifikasi dan mengembangkan kode sumber.
+  - Komponen sumber terbuka mengikuti lisensi masing-masing.
+  - PIHAK PERTAMA berhak mencantumkan proyek dalam portofolio tanpa
+    informasi sensitif.
+  - Selama pembayaran belum lunas, kode sumber tetap milik PIHAK PERTAMA.
+
+
+================================================================================
+                          PENANDATANGANAN
+================================================================================
+
+
+PIHAK PERTAMA                         PIHAK KEDUA
+Openscopelabs                          Datalink Analysis
+
+
+Nama Lengkap:                          Nama Lengkap:
+____________________________           ____________________________
+
+Jabatan:                               Jabatan:
+____________________________           ____________________________
+
+Tanda Tangan:                          Tanda Tangan:
+
+
+____________________________           ____________________________
+
+Tanggal:                               Tanggal:
+____________________________           ____________________________
+
+
+================================================================================
+SOW/OSL/DLA/2026-001 | Versi 1.0 | 12 Mei 2026
+================================================================================
