@@ -91,24 +91,24 @@
 </table>
 
 <h2 id="s2-2">2.2 Tumpukan Teknologi</h2>
+<p>Seluruh komponen menggunakan ekosistem <strong>TypeScript/Node.js</strong> secara konsisten dari frontend hingga backend, sehingga mempercepat pengembangan dan memudahkan pemeliharaan.</p>
 <table>
   <thead><tr><th>Lapisan</th><th>Teknologi</th><th>Justifikasi</th></tr></thead>
   <tbody>
     <tr><td>Frontend</td><td>React.js + Vite + TypeScript</td><td>Performa tinggi, type-safe, ekosistem matang</td></tr>
     <tr><td>Mesin Peta</td><td>MapLibre GL JS</td><td>Sumber terbuka, dukungan 3D/tilted view, multi-layer, WebGL</td></tr>
     <tr><td>Backend</td><td>NestJS + TypeScript</td><td>Modular, dependency injection, enterprise-grade</td></tr>
-    <tr><td>ORM</td><td>Prisma + PostGIS extension</td><td>Type-safe database access, migration tools</td></tr>
-    <tr><td>Real-time</td><td>Socket.IO</td><td>WebSocket dengan mekanisme fallback, arsitektur berbasis ruang</td></tr>
+    <tr><td>ORM</td><td>Prisma + PostGIS extension</td><td>Type-safe database access dengan migration tools</td></tr>
+    <tr><td>Real-time</td><td>Socket.IO</td><td>WebSocket dengan mekanisme fallback otomatis</td></tr>
     <tr><td>Database</td><td>PostgreSQL 16 + PostGIS</td><td>Kueri geospasial native, matang, dan reliabel</td></tr>
-    <tr><td>Cache</td><td>Redis 7</td><td>Performa in-memory, pub/sub untuk broadcast data</td></tr>
-    <tr><td>AI/LLM</td><td>OpenAI GPT-4o-mini (Token)</td><td>Kualitas RAG tinggi, latensi rendah, harga efisien</td></tr>
-    <tr><td>Embedding</td><td>OpenAI text-embedding-3-small</td><td>Embedding berkualitas tinggi untuk pencarian semantik</td></tr>
-    <tr><td>Penyimpanan Vektor</td><td>Qdrant (self-hosted)</td><td>Open-source, performa tinggi, REST API</td></tr>
-    <tr><td>Server Media</td><td>Node-Media-Server</td><td>Relay aliran RTSP/RTMP ke HLS/WebRTC</td></tr>
+    <tr><td>Cache &amp; Pub/Sub</td><td>Redis 7</td><td>In-memory cache dan broadcast data real-time</td></tr>
+    <tr><td>AI (LLM + Embedding)</td><td>OpenAI API (GPT-4o-mini + text-embedding-3-small)</td><td>RAG berkualitas tinggi, latensi rendah, efisien</td></tr>
+    <tr><td>Penyimpanan Vektor</td><td>Qdrant (self-hosted)</td><td>Open-source, performa tinggi untuk pencarian semantik</td></tr>
+    <tr><td>Server Media</td><td>Node-Media-Server</td><td>Relay aliran RTSP/RTMP ke HLS/WebRTC (ekosistem Node.js)</td></tr>
     <tr><td>Kontainerisasi</td><td>Docker + Kubernetes</td><td>Orkestrasi produksi, auto-scaling, reproducible</td></tr>
-    <tr><td>CI/CD</td><td>GitHub Actions</td><td>Integrasi dengan repository, free tier</td></tr>
-    <tr><td>Monitoring</td><td>Grafana + Prometheus</td><td>Observabilitas sistem, alerting, dashboard</td></tr>
-    <tr><td>SSL</td><td>Let's Encrypt + Certbot</td><td>Sertifikat SSL gratis, auto-renewal</td></tr>
+    <tr><td>CI/CD</td><td>GitHub Actions</td><td>Integrasi langsung dengan repository</td></tr>
+    <tr><td>Monitoring</td><td>Grafana + Prometheus</td><td>Observabilitas sistem, alerting, dan dashboard</td></tr>
+    <tr><td>SSL</td><td>Let’s Encrypt + Certbot</td><td>Sertifikat SSL gratis dengan auto-renewal</td></tr>
   </tbody>
 </table>
 
@@ -118,13 +118,13 @@
   <thead><tr><th>Layanan</th><th>Kontainer</th><th>Port Internal</th></tr></thead>
   <tbody>
     <tr><td>Reverse Proxy + SSL</td><td>Nginx + Certbot</td><td>80, 443</td></tr>
-    <tr><td>Frontend (Statis)</td><td>Nginx / Node</td><td>3000</td></tr>
-    <tr><td>Backend API + WebSocket</td><td>NestJS (TypeScript)</td><td>4000</td></tr>
-    <tr><td>Database</td><td>PostgreSQL 16 + PostGIS</td><td>5112</td></tr>
-    <tr><td>Cache</td><td>Redis 7</td><td>6379</td></tr>
-    <tr><td>Vector Database</td><td>Qdrant</td><td>6333</td></tr>
-    <tr><td>Server Media</td><td>Node-Media-Server</td><td>1935, 8000</td></tr>
-    <tr><td>Monitoring</td><td>Grafana + Prometheus</td><td>3001, 9090</td></tr>
+    <tr><td>Frontend (Statis)</td><td>Nginx / Node</td><td>3100</td></tr>
+    <tr><td>Backend API + WebSocket</td><td>NestJS (TypeScript)</td><td>4100</td></tr>
+    <tr><td>Database</td><td>PostgreSQL 16 + PostGIS</td><td>5433</td></tr>
+    <tr><td>Cache</td><td>Redis 7</td><td>6380</td></tr>
+    <tr><td>Vector Database</td><td>Qdrant</td><td>6334</td></tr>
+    <tr><td>Server Media</td><td>Node-Media-Server</td><td>1936, 8100</td></tr>
+    <tr><td>Monitoring</td><td>Grafana + Prometheus</td><td>3200, 9091</td></tr>
   </tbody>
 </table>
 
@@ -229,30 +229,24 @@
 <div class="page-break"></div>
 
 <h1 id="s4"><span class="section-num">4.</span> Model Data</h1>
-
-<h3>4.1 Entitas dan Relasi</h3>
+<p>Sistem menggunakan PostgreSQL 16 + PostGIS untuk penyimpanan data geospasial. Berikut adalah entitas utama beserta fungsinya:</p>
 <table>
-  <thead><tr><th>Entitas</th><th>Atribut Utama</th><th>Relasi</th></tr></thead>
+  <thead><tr><th>Entitas</th><th>Fungsi</th><th>Relasi Utama</th></tr></thead>
   <tbody>
-    <tr><td>Users</td><td>id, username, email, password_hash, role, is_active, avatar</td><td>Memiliki: TrackingData, FieldReports, ChatMessages, Sessions</td></tr>
-    <tr><td>Sessions</td><td>id, user_id, token, expires_at, device_info</td><td>Milik: Users</td></tr>
-    <tr><td>Missions</td><td>id, name, description, last_known_position, status, created_by</td><td>Memiliki: Targets, TrackingData, FieldReports, ChatRooms, MapDrawings, AlertRules</td></tr>
-    <tr><td>Targets</td><td>id, mission_id, name, description, last_seen_at, profile, status</td><td>Milik: Missions</td></tr>
-    <tr><td>TrackingData</td><td>id, user_id, mission_id, position, altitude, speed, heading, timestamp</td><td>Milik: Users, Missions</td></tr>
-    <tr><td>FieldReports</td><td>id, user_id, mission_id, location, category, description, attachments</td><td>Milik: Users, Missions</td></tr>
-    <tr><td>MapDrawings</td><td>id, mission_id, user_id, type, geometry, style, label</td><td>Milik: Missions, Users</td></tr>
-    <tr><td>ChatRooms</td><td>id, mission_id, name, type</td><td>Milik: Missions; Memiliki: ChatMessages</td></tr>
-    <tr><td>ChatMessages</td><td>id, room_id, user_id, content, type, metadata, location</td><td>Milik: ChatRooms, Users</td></tr>
-    <tr><td>StreamSources</td><td>id, name, type (cctv/drone), stream_url, location, status</td><td>Mandiri</td></tr>
-    <tr><td>AlertRules</td><td>id, mission_id, type, condition, threshold, is_active</td><td>Milik: Missions; Memiliki: AlertLogs</td></tr>
-    <tr><td>AlertLogs</td><td>id, rule_id, triggered_at, data, acknowledged</td><td>Milik: AlertRules</td></tr>
-    <tr><td>TelcoDevices</td><td>id, msisdn, imsi, imei, device_name, last_seen</td><td>Memiliki: TelcoPositions</td></tr>
-    <tr><td>TelcoPositions</td><td>id, device_id, cid, tower_name, location, band, timestamp</td><td>Milik: TelcoDevices</td></tr>
-    <tr><td>Documents</td><td>id, title, file_path, file_type, uploaded_by, indexed_at</td><td>Memiliki: DocumentChunks</td></tr>
-    <tr><td>DocumentChunks</td><td>id, document_id, content, embedding_id, chunk_index</td><td>Milik: Documents; Ref: Qdrant</td></tr>
+    <tr><td>Users</td><td>Data pengguna dan autentikasi</td><td>Memiliki: TrackingData, FieldReports, ChatMessages</td></tr>
+    <tr><td>Missions</td><td>Operasi atau misi yang sedang berjalan</td><td>Memiliki: Targets, TrackingData, ChatRooms, AlertRules</td></tr>
+    <tr><td>Targets</td><td>Subjek atau objek pencarian dalam misi</td><td>Milik: Missions</td></tr>
+    <tr><td>TrackingData</td><td>Data posisi GPS real-time tim lapangan</td><td>Milik: Users, Missions</td></tr>
+    <tr><td>FieldReports</td><td>Laporan temuan dari lapangan</td><td>Milik: Users, Missions</td></tr>
+    <tr><td>ChatRooms / ChatMessages</td><td>Ruang percakapan dan riwayat pesan</td><td>Milik: Missions, Users</td></tr>
+    <tr><td>MapDrawings</td><td>Objek gambar pada peta (polygon, marker)</td><td>Milik: Missions, Users</td></tr>
+    <tr><td>StreamSources</td><td>Sumber aliran video CCTV dan drone</td><td>Mandiri</td></tr>
+    <tr><td>AlertRules / AlertLogs</td><td>Aturan peringatan otomatis dan log pemicu</td><td>Milik: Missions</td></tr>
+    <tr><td>TelcoDevices / TelcoPositions</td><td>Data perangkat telekomunikasi dan posisi Cell ID</td><td>Relasi internal</td></tr>
+    <tr><td>Documents / DocumentChunks</td><td>Dokumen yang diunggah dan potongan teks untuk RAG</td><td>Ref: Qdrant (vektor embedding)</td></tr>
   </tbody>
 </table>
-<p>Database menggunakan PostgreSQL 16 dengan ekstensi PostGIS. Semua kolom <code>position</code> dan <code>location</code> menggunakan tipe <code>geography(Point, 4326)</code>. ORM Prisma digunakan untuk type-safe database access dan migrasi skema.</p>
+<p>Detail skema teknis (kolom, tipe data, dan indeks) didokumentasikan secara terpisah dalam <strong>Entity Relationship Diagram (ERD)</strong> yang merupakan dokumen pendukung pengembangan.</p>
 
 <h1 id="s5"><span class="section-num">5.</span> Keamanan Sistem</h1>
 <table>
