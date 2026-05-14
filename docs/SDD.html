@@ -41,7 +41,6 @@
     <li class="toc-sub"><a href="#s3-7">Prediksi Pergerakan</a></li>
     <li class="toc-sub"><a href="#s3-8">Integrasi CCTV</a></li>
     <li class="toc-sub"><a href="#s3-9">Integrasi Drone</a></li>
-    <li class="toc-sub"><a href="#s3-10">Antarmuka Pengguna (Wireframes)</a></li>
     <li><a href="#s4">Model Data</a></li>
     <li><a href="#s5">Keamanan Sistem</a></li>
     <li><a href="#s6">Layanan Eksternal</a></li>
@@ -133,6 +132,7 @@
 <h1 id="s3"><span class="section-num">3.</span> Modul dan Fitur Sistem</h1>
 
 <h2 id="s3-1">3.1 Autentikasi dan Manajemen Pengguna</h2>
+<img src="wireframes/admin.png" alt="Admin Panel Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Sistem autentikasi berbasis JWT (<em>JSON Web Token</em>) dengan kontrol akses berbasis peran untuk mengatur hak akses setiap pengguna sesuai perannya dalam operasi.</p>
 <ul>
   <li>Mekanisme login/logout dengan JWT access token dan refresh token.</li>
@@ -142,6 +142,7 @@
 </ul>
 
 <h2 id="s3-2">3.2 Dashboard Peta Real-time dan Multi-Layer Map</h2>
+<img src="wireframes/dashboard.png" alt="Dashboard Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Dashboard peta interaktif sebagai pusat kendali utama operasi. Mendukung pergantian layer peta sesuai kebutuhan analisis.</p>
 <table>
   <thead><tr><th>Layer</th><th>Sumber Data</th><th>Deskripsi</th></tr></thead>
@@ -170,6 +171,7 @@
 </ul>
 
 <h2 id="s3-4">3.4 Pengiriman Data Lapangan</h2>
+<img src="wireframes/reports.png" alt="Field Reports Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Mekanisme pengiriman data dan temuan dari lapangan yang otomatis ditandai pada peta berdasarkan koordinat GPS perangkat pengirim atau berdasarkan input operator pusat operasi.</p>
 <ul>
   <li>Formulir pengiriman: lokasi, foto, video, suara, dan catatan deskriptif.</li>
@@ -180,6 +182,7 @@
 </ul>
 
 <h2 id="s3-5">3.5 Komunikasi Real-time</h2>
+<img src="wireframes/chat.png" alt="Chat Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Sistem percakapan teks real-time berbasis ruang untuk koordinasi antar tim.</p>
 <ul>
   <li>Arsitektur berbasis ruang (<em>room-based</em>) — kanal per misi atau per tim.</li>
@@ -190,16 +193,19 @@
 </ul>
 
 <h2 id="s3-6">3.6 Asisten AI dan RAG</h2>
+<img src="wireframes/ai-assistant.png" alt="AI Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Asisten kecerdasan buatan terintegrasi yang menggunakan arsitektur <em>Retrieval-Augmented Generation</em> (RAG) untuk menjawab pertanyaan berdasarkan basis pengetahuan operasi SAR dan bentuk operasi lainnya.</p>
 <p><strong>Sumber basis pengetahuan:</strong> prosedur standar operasi SAR, data topografi, panduan survival di lingkungan pegunungan, log operasi sebelumnya, segala dokumen, pesan dan informasi yang dilaporkan, dan data cuaca historis.</p>
 <p><strong>Kapabilitas:</strong> antarmuka percakapan, kueri data dengan bahasa natural, rekomendasi pola pencarian, analisis risiko area, ringkasan status operasi, dan perkiraan lokasi.</p>
 
 <h2 id="s3-7">3.7 Prediksi Pergerakan Dasar</h2>
+<img src="wireframes/analytics.png" alt="Analytics Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Modul prediksi berbasis model statistik dan heuristik untuk memperkirakan kemungkinan lokasi korban.</p>
 <p><strong>Parameter input:</strong> titik terakhir diketahui (LKP), data terrain, jalur hiking, sumber air, kondisi cuaca, dan profil korban.</p>
 <p><strong>Output:</strong> peta probabilitas (<em>heat map</em>), rekomendasi area pencarian, estimasi radius jangkauan, dan saran pola pencarian.</p>
 
 <h2 id="s3-8">3.8 Integrasi Aliran Video CCTV</h2>
+<img src="wireframes/streaming.png" alt="Streaming Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Modul untuk menampilkan aliran video dari kamera CCTV pada posisi yang sesuai di peta.</p>
 <ul>
   <li>Penandaan kamera pada peta dengan ikon CCTV.</li>
@@ -218,43 +224,6 @@
   <li>Integrasi berupa <em>stream relay</em> — bukan integrasi SDK vendor spesifik.</li>
 </ul>
 <div class="callout"><div class="callout-title">Prasyarat</div><p>PIHAK KEDUA menyediakan drone dengan kemampuan streaming langsung (output RTMP/WebRTC).</p></div>
-
-<h2 id="s3-10">3.10 Antarmuka Pengguna (Wireframes)</h2>
-<p>Berikut adalah rancangan antarmuka visual (mockup) untuk berbagai fitur utama dalam platform:</p>
-<div class="wireframe-gallery" style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px;">
-  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
-    <strong>1. Dashboard Peta &amp; Pelacakan Real-time</strong><br>
-    <img src="wireframes/dashboard.png" alt="Dashboard" style="max-width: 100%; margin-top: 10px;">
-  </div>
-  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
-    <strong>2. Komunikasi Real-time (Chat)</strong><br>
-    <img src="wireframes/chat.png" alt="Chat" style="max-width: 100%; margin-top: 10px;">
-  </div>
-  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
-    <strong>3. Asisten AI (RAG)</strong><br>
-    <img src="wireframes/ai-assistant.png" alt="AI Assistant" style="max-width: 100%; margin-top: 10px;">
-  </div>
-  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
-    <strong>4. Laporan Lapangan (Field Reports)</strong><br>
-    <img src="wireframes/reports.png" alt="Field Reports" style="max-width: 100%; margin-top: 10px;">
-  </div>
-  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
-    <strong>5. Streaming Video (CCTV &amp; Drone)</strong><br>
-    <img src="wireframes/streaming.png" alt="Streaming" style="max-width: 100%; margin-top: 10px;">
-  </div>
-  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
-    <strong>6. Prediksi &amp; Analitik (Heat Maps)</strong><br>
-    <img src="wireframes/analytics.png" alt="Analytics" style="max-width: 100%; margin-top: 10px;">
-  </div>
-  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
-    <strong>7. Antarmuka Mobile (Operator Lapangan)</strong><br>
-    <img src="wireframes/mobile.png" alt="Mobile View" style="max-width: 100%; margin-top: 10px;">
-  </div>
-  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
-    <strong>8. Manajemen Pengguna (Admin)</strong><br>
-    <img src="wireframes/admin.png" alt="Admin Panel" style="max-width: 100%; margin-top: 10px;">
-  </div>
-</div>
 
 <div class="page-break"></div>
 
