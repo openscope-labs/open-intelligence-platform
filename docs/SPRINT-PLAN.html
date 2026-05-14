@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <title>Sprint Plan — Project Tracking &amp; Intelligence Platform</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  .agile-section { background-color: #f8f9fa; padding: 20px; border-left: 4px solid #0056b3; margin-bottom: 30px; border-radius: 4px; }
+  .agile-section h3 { margin-top: 0; color: #0056b3; }
+  .agile-section ul { margin-bottom: 0; }
+  .agile-section li { margin-bottom: 8px; }
+</style>
 </head>
 <body>
 
@@ -23,7 +29,23 @@
 
 <div class="document">
 
-<h1><span class="section-num">1.</span> Tim Developer</h1>
+<h1><span class="section-num">1.</span> Panduan Metode Agile Scrum</h1>
+<div class="agile-section">
+  <h3>Apa itu Agile Scrum?</h3>
+  <p>Agile Scrum adalah kerangka kerja manajemen proyek yang membagi proyek besar menjadi iterasi-iterasi kecil yang disebut <strong>Sprint</strong>. Metode ini memastikan transparansi, adaptasi yang cepat terhadap perubahan, dan pengiriman nilai secara bertahap.</p>
+  
+  <strong>Terminologi Penting untuk Tim Developer:</strong>
+  <ul>
+    <li><strong>Sprint:</strong> Siklus waktu tetap (dalam proyek ini <strong>2 minggu</strong> atau 10 hari kerja) di mana tim berfokus menyelesaikan daftar tugas (Sprint Backlog) yang sudah disepakati. "Sprint 1" berarti siklus 2 minggu pertama.</li>
+    <li><strong>Sprint Planning:</strong> Rapat di awal Sprint (2 jam) untuk menentukan task apa saja yang akan dikerjakan pada Sprint tersebut.</li>
+    <li><strong>Daily Standup:</strong> Rapat sinkronisasi harian (maksimal 15 menit) antar developer. Setiap orang menjawab: <em>Apa yang dikerjakan kemarin? Apa yang dikerjakan hari ini? Apakah ada blocker (hambatan)?</em></li>
+    <li><strong>Sprint Review:</strong> Demonstrasi hasil kerja (fitur yang sudah jalan) di akhir Sprint kepada client (1 jam).</li>
+    <li><strong>Sprint Retrospective:</strong> Rapat internal tim di akhir Sprint untuk mengevaluasi apa yang berjalan baik dan apa yang perlu diperbaiki di Sprint berikutnya (30 menit).</li>
+    <li><strong>Mandays (MD):</strong> Satuan estimasi waktu pengerjaan. 1 MD = 1 orang bekerja selama 1 hari penuh.</li>
+  </ul>
+</div>
+
+<h1><span class="section-num">2.</span> Tim Developer</h1>
 <table>
   <thead><tr><th>Nama</th><th>Primary Focus</th><th>Secondary</th><th>Area Tanggung Jawab</th></tr></thead>
   <tbody>
@@ -33,7 +55,7 @@
   </tbody>
 </table>
 
-<h1><span class="section-num">2.</span> Kapasitas &amp; Velocity</h1>
+<h1><span class="section-num">3.</span> Kapasitas &amp; Velocity</h1>
 <table>
   <thead><tr><th>Metrik</th><th>Nilai</th></tr></thead>
   <tbody>
@@ -41,18 +63,19 @@
     <tr><td>Effective days per sprint</td><td>~8.5 hari (buffer 15% untuk ceremony + bug fix)</td></tr>
     <tr><td>Capacity per sprint (3 orang)</td><td>~25.5 mandays</td></tr>
     <tr><td>Total capacity (8 sprint)</td><td>~204 mandays</td></tr>
-    <tr><td>Ceremonies</td><td>Daily standup 15min, Sprint Planning 2h, Review 1h, Retro 30min</td></tr>
   </tbody>
 </table>
 
 <div class="page-break"></div>
 
-<h1><span class="section-num">3.</span> Fase 1 — Platform Inti (Bulan 1)</h1>
+<h1><span class="section-num">4.</span> Fase 1 — Platform Inti (Bulan 1)</h1>
 
 <h2>Sprint 1: Foundation &amp; Map Core</h2>
+<p><em>Fokus: Membangun fondasi infrastruktur (server, CI/CD, database) dan antarmuka dasar peta.</em></p>
 <table>
   <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
   <tbody>
+    <tr><td>Server Provisioning &amp; Environment Setup (Dev)</td><td>—</td><td>—</td><td>2</td><td>2</td></tr>
     <tr><td>Monorepo setup + Docker Compose dev</td><td>1</td><td>1</td><td>2</td><td>4</td></tr>
     <tr><td>CI/CD pipeline (GitHub Actions)</td><td>—</td><td>—</td><td>2</td><td>2</td></tr>
     <tr><td>DB schema design + Prisma migrations</td><td>—</td><td>2</td><td>1</td><td>3</td></tr>
@@ -61,11 +84,12 @@
     <tr><td>Map dashboard: base layout + OSM + Satellite + Topo</td><td>4</td><td>—</td><td>—</td><td>4</td></tr>
     <tr><td>Nginx reverse proxy + Let's Encrypt SSL</td><td>—</td><td>—</td><td>2</td><td>2</td></tr>
     <tr><td>OpenAPI/Swagger setup</td><td>—</td><td>1</td><td>0.5</td><td>1.5</td></tr>
-    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 1 Total</td><td>7.5</td><td>8.5</td><td>7.5</td><td>23.5</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 1 Total</td><td>7.5</td><td>8.5</td><td>9.5</td><td>25.5</td></tr>
   </tbody>
 </table>
 
 <h2>Sprint 2: GPS Tracking &amp; Field Reports</h2>
+<p><em>Fokus: Aliran data geospasial dasar. Pelacakan tim lapangan dan pengiriman laporan kejadian.</em></p>
 <table>
   <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
   <tbody>
@@ -82,13 +106,14 @@
   </tbody>
 </table>
 <div class="callout"><div class="callout-title">Sprint 2 Overload</div><p>Robby &amp; Hackim sedikit over. Firly assist FE/BE tasks jika perlu.</p></div>
-<p><strong>🎯 Milestone Fase 1:</strong> Demo peta interaktif + GPS tracking + field reports berfungsi.</p>
+<p><strong>🎯 Milestone Fase 1:</strong> Demo peta interaktif + GPS tracking + field reports berfungsi (Siap untuk Termin 2).</p>
 
 <div class="page-break"></div>
 
-<h1><span class="section-num">4.</span> Fase 2 — Komunikasi &amp; Weather (Bulan 2)</h1>
+<h1><span class="section-num">5.</span> Fase 2 — Komunikasi &amp; Weather (Bulan 2)</h1>
 
 <h2>Sprint 3: Real-time Chat &amp; Weather Layers</h2>
+<p><em>Fokus: Interaktivitas antar tim dan penambahan layer cuaca eksternal.</em></p>
 <table>
   <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
   <tbody>
@@ -105,6 +130,7 @@
 </table>
 
 <h2>Sprint 4: Drawing Tools, 3D Map &amp; Admin</h2>
+<p><em>Fokus: Manajemen pengguna, rendering 3D, dan kakas visualisasi taktis di atas peta.</em></p>
 <table>
   <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
   <tbody>
@@ -120,13 +146,14 @@
   </tbody>
 </table>
 <div class="callout"><div class="callout-title">Sprint 4 Overload</div><p>Robby over-capacity. Firly bantu FE tasks (drawing tools atau mobile responsive).</p></div>
-<p><strong>🎯 Milestone Fase 2:</strong> Demo chat + seluruh weather layers + drawing tools + heat map.</p>
+<p><strong>🎯 Milestone Fase 2:</strong> Demo chat + seluruh weather layers + drawing tools + heat map (Siap untuk Termin 3).</p>
 
 <div class="page-break"></div>
 
-<h1><span class="section-num">5.</span> Fase 3 — Intelijen AI (Bulan 3)</h1>
+<h1><span class="section-num">6.</span> Fase 3 — Intelijen AI (Bulan 3)</h1>
 
 <h2>Sprint 5: AI/RAG &amp; Document Indexing</h2>
+<p><em>Fokus: Implementasi kecerdasan buatan berbasis Retrieval-Augmented Generation (RAG).</em></p>
 <table>
   <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
   <tbody>
@@ -143,6 +170,7 @@
 </table>
 
 <h2>Sprint 6: Prediction, Telco &amp; Auto Alert</h2>
+<p><em>Fokus: Engine analitik lanjutan, mapping sinyal telco, dan automasi peringatan.</em></p>
 <table>
   <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
   <tbody>
@@ -161,9 +189,10 @@
 
 <div class="page-break"></div>
 
-<h1><span class="section-num">6.</span> Fase 4 — Integrasi &amp; Deploy (Bulan 4)</h1>
+<h1><span class="section-num">7.</span> Fase 4 — Integrasi &amp; Deploy (Bulan 4)</h1>
 
 <h2>Sprint 7: CCTV, Drone &amp; Streaming</h2>
+<p><em>Fokus: Ingesti media relay dari hardware CCTV dan Drone pihak ketiga.</em></p>
 <table>
   <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
   <tbody>
@@ -179,6 +208,7 @@
 </table>
 
 <h2>Sprint 8: CV, Deploy, Testing &amp; Handover</h2>
+<p><em>Fokus: Penyelarasan akhir, stabilisasi production, dokumentasi, dan serah terima.</em></p>
 <table>
   <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
   <tbody>
@@ -192,21 +222,21 @@
     <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 8 Total</td><td>6</td><td>9.5</td><td>10</td><td>25.5</td></tr>
   </tbody>
 </table>
-<p><strong>🎯 Milestone Fase 4:</strong> Serah terima sistem production-ready.</p>
+<p><strong>🎯 Milestone Fase 4:</strong> Serah terima sistem production-ready (Termin 4).</p>
 
 <div class="page-break"></div>
 
-<h1><span class="section-num">7.</span> Ringkasan Mandays</h1>
+<h1><span class="section-num">8.</span> Ringkasan Mandays</h1>
 
 <h3>Per Fase</h3>
 <table>
   <thead><tr><th>Fase</th><th>Sprint</th><th>Robby</th><th>Hackim</th><th>Firly</th><th>Total MD</th></tr></thead>
   <tbody>
-    <tr><td>Fase 1 — Platform Inti</td><td>1-2</td><td>18</td><td>19.5</td><td>9.5</td><td>47</td></tr>
+    <tr><td>Fase 1 — Platform Inti</td><td>1-2</td><td>18</td><td>19.5</td><td>11.5</td><td>49</td></tr>
     <tr><td>Fase 2 — Komunikasi</td><td>3-4</td><td>22.5</td><td>17</td><td>10</td><td>49.5</td></tr>
     <tr><td>Fase 3 — Intelijen</td><td>5-6</td><td>15</td><td>25.5</td><td>8</td><td>48.5</td></tr>
     <tr><td>Fase 4 — Integrasi</td><td>7-8</td><td>14</td><td>14.5</td><td>22</td><td>50.5</td></tr>
-    <tr style="font-weight:bold;background:#f0f0f0"><td>TOTAL</td><td>1-8</td><td>69.5</td><td>76.5</td><td>49.5</td><td>195.5</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>TOTAL</td><td>1-8</td><td>69.5</td><td>76.5</td><td>51.5</td><td>197.5</td></tr>
   </tbody>
 </table>
 
@@ -216,11 +246,11 @@
   <tbody>
     <tr><td>Robby (FE)</td><td>68</td><td>69.5</td><td>102%</td><td>⚠️ Sedikit over — Firly assist di Sprint 4</td></tr>
     <tr><td>Hackim (BE)</td><td>68</td><td>76.5</td><td>112%</td><td>⚠️ Over — Robby/Firly assist di Sprint 5-6</td></tr>
-    <tr><td>Firly (DevOps)</td><td>68</td><td>49.5</td><td>73%</td><td>✅ Buffer untuk assist tim + unexpected</td></tr>
+    <tr><td>Firly (DevOps)</td><td>68</td><td>51.5</td><td>76%</td><td>✅ Buffer untuk assist tim + unexpected</td></tr>
   </tbody>
 </table>
 
-<h1><span class="section-num">8.</span> Legend</h1>
+<h1><span class="section-num">9.</span> Legend</h1>
 <table>
   <thead><tr><th>Tanda</th><th>Arti</th></tr></thead>
   <tbody>
@@ -233,7 +263,7 @@
 
 <div class="doc-footer">
   <p>Sprint Plan &mdash; Project Tracking &amp; Intelligence Platform</p>
-  <p>Internal Document &bull; Versi 1.0 &bull; 14 Mei 2026</p>
+  <p>Internal Document &bull; Versi 1.1 &bull; 14 Mei 2026</p>
 </div>
 
 </div>
