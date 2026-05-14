@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>ERD — Project Tracking &amp; Intelligence Platform</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral', er:{useMaxWidth:true}});</script>
+</head>
+<body>
+
+<div class="cover-page">
+  <div class="cover-doc-type">Entity Relationship Diagram</div>
+  <h1 class="cover-title">Project Tracking &amp;<br>Intelligence Platform</h1>
+  <p class="cover-subtitle">Database Schema — PostgreSQL 16 + PostGIS</p>
+  <hr class="cover-divider">
+  <div class="cover-meta">
+    <div class="cover-meta-item"><span class="cover-meta-label">ORM</span><span class="cover-meta-value">Prisma</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Database</span><span class="cover-meta-value">PostgreSQL 16 + PostGIS (Port 5112)</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Vector DB</span><span class="cover-meta-value">Qdrant (Port 6333)</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Versi</span><span class="cover-meta-value">1.0</span></div>
+  </div>
+  <div class="cover-footer">INTERNAL — OPENSCOPELABS</div>
+</div>
+
+<div class="document">
+
+<h1><span class="section-num">1.</span> Entity Relationship Diagram</h1>
+
+<div class="mermaid">
+erDiagram
+    Users {
+        uuid id PK
+        string username UK
+        string email UK
+        string password_hash
+        enum role "Admin | Commander | FieldOperator | Viewer"
+        boolean is_active
+        string avatar
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    Sessions {
+        uuid id PK
+        uuid user_id FK
+        string token
+        string device_info
+        timestamp expires_at
+        timestamp created_at
+    }
+
+    Missions {
+        uuid id PK
+        string name
+        text description
+        geography last_known_position
+        enum status "Planning | Active | Completed | Suspended"
+        uuid created_by FK
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    Targets {
+        uuid id PK
+        uuid mission_id FK
+        string name
+        text description
+        text profile
+        timestamp last_seen_at
+        enum status "Missing | Found | Rescued"
+    }
+
+    TrackingData {
+        uuid id PK
+        uuid user_id FK
+        uuid mission_id FK
+        geography position
+        float altitude
+        float speed
+        float heading
+        timestamp timestamp
+    }
+
+    FieldReports {
+        uuid id PK
+        uuid user_id FK
+        uuid mission_id FK
+        geography location
+        enum category "Jejak | Barang | Tanda | Bahaya | Istirahat"
+        text description
+        jsonb attachments
+        timestamp created_at
+    }
+
+    MapDrawings {
+        uuid id PK
+        uuid mission_id FK
+        uuid user_id FK
+        enum type "Marker | Polyline | Polygon | Circle"
+        jsonb geometry
+        jsonb style
+        string label
+        timestamp created_at
+    }
+
+    ChatRooms {
+        uuid id PK
+        uuid mission_id FK
+        string name
+        enum type "Mission | Team | Direct"
+        timestamp created_at
+    }
+
+    ChatMessages {
+        uuid id PK
+        uuid room_id FK
+        uuid user_id FK
+        text content
+        enum type "Text | Image | File | Location | Audio"
+        jsonb metadata
+        geography location
+        timestamp created_at
+    }
+
+    StreamSources {
+        uuid id PK
+        string name
+        enum type "CCTV | Drone"
+        string stream_url
+        geography location
+        enum status "Online | Offline | Error"
+        jsonb config
+    }
+
+    AlertRules {
+        uuid id PK
+        uuid mission_id FK
+        enum type "Geofence | Speed | Inactivity | Custom"
+        jsonb condition
+        float threshold
+        boolean is_active
+    }
+
+    AlertLogs {
+        uuid id PK
+        uuid rule_id FK
+        timestamp triggered_at
+        jsonb data
+        boolean acknowledged
+    }
+
+    TelcoDevices {
+        uuid id PK
+        string msisdn
+        string imsi
+        string imei
+        string device_name
+        timestamp last_seen
+    }
+
+    TelcoPositions {
+        uuid id PK
+        uuid device_id FK
+        string cid
+        string tower_name
+        geography location
+        string band
+        timestamp timestamp
+    }
+
+    Documents {
+        uuid id PK
+        string title
+        string file_path
+        string file_type
+        uuid uploaded_by FK
+        boolean indexed
+        timestamp indexed_at
+        timestamp created_at
+    }
+
+    DocumentChunks {
+        uuid id PK
+        uuid document_id FK
+        text content
+        string embedding_id "Ref Qdrant"
+        int chunk_index
+    }
+
+    Users ||--o{ Sessions : "has"
+    Users ||--o{ TrackingData : "sends"
+    Users ||--o{ FieldReports : "submits"
+    Users ||--o{ ChatMessages : "writes"
+    Users ||--o{ MapDrawings : "creates"
+    Users ||--o{ Documents : "uploads"
+
+    Missions ||--o{ Targets : "tracks"
+    Missions ||--o{ TrackingData : "contains"
+    Missions ||--o{ FieldReports : "collects"
+    Missions ||--o{ ChatRooms : "has"
+    Missions ||--o{ MapDrawings : "contains"
+    Missions ||--o{ AlertRules : "defines"
+
+    ChatRooms ||--o{ ChatMessages : "contains"
+    AlertRules ||--o{ AlertLogs : "triggers"
+    TelcoDevices ||--o{ TelcoPositions : "located_at"
+    Documents ||--o{ DocumentChunks : "split_into"
+</div>
+
+<div class="page-break"></div>
+
+<h1><span class="section-num">2.</span> Ringkasan Entitas</h1>
+<table>
+  <thead><tr><th>Entitas</th><th>Jumlah Kolom</th><th>Tipe Spasial</th><th>Fase</th></tr></thead>
+  <tbody>
+    <tr><td>Users</td><td>8</td><td>—</td><td>1</td></tr>
+    <tr><td>Sessions</td><td>5</td><td>—</td><td>1</td></tr>
+    <tr><td>Missions</td><td>7</td><td>geography (LKP)</td><td>1</td></tr>
+    <tr><td>Targets</td><td>6</td><td>—</td><td>1</td></tr>
+    <tr><td>TrackingData</td><td>7</td><td>geography (position)</td><td>1</td></tr>
+    <tr><td>FieldReports</td><td>7</td><td>geography (location)</td><td>1</td></tr>
+    <tr><td>MapDrawings</td><td>7</td><td>jsonb (geometry)</td><td>2</td></tr>
+    <tr><td>ChatRooms</td><td>4</td><td>—</td><td>2</td></tr>
+    <tr><td>ChatMessages</td><td>7</td><td>geography (location)</td><td>2</td></tr>
+    <tr><td>AlertRules</td><td>6</td><td>—</td><td>3</td></tr>
+    <tr><td>AlertLogs</td><td>5</td><td>—</td><td>3</td></tr>
+    <tr><td>StreamSources</td><td>6</td><td>geography (location)</td><td>4</td></tr>
+    <tr><td>TelcoDevices</td><td>5</td><td>—</td><td>3</td></tr>
+    <tr><td>TelcoPositions</td><td>6</td><td>geography (location)</td><td>3</td></tr>
+    <tr><td>Documents</td><td>7</td><td>—</td><td>3</td></tr>
+    <tr><td>DocumentChunks</td><td>4</td><td>—</td><td>3</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>TOTAL</td><td>16 entitas, 97 kolom</td><td>6 kolom geospasial</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<h1><span class="section-num">3.</span> Indeks yang Direncanakan</h1>
+<table>
+  <thead><tr><th>Tabel</th><th>Kolom</th><th>Tipe Indeks</th><th>Alasan</th></tr></thead>
+  <tbody>
+    <tr><td>TrackingData</td><td>position</td><td>GiST (spatial)</td><td>Query geospasial cepat</td></tr>
+    <tr><td>TrackingData</td><td>user_id + timestamp</td><td>B-tree composite</td><td>Trail query per user</td></tr>
+    <tr><td>FieldReports</td><td>location</td><td>GiST (spatial)</td><td>Query area pencarian</td></tr>
+    <tr><td>TelcoPositions</td><td>location</td><td>GiST (spatial)</td><td>Tower proximity search</td></tr>
+    <tr><td>TelcoPositions</td><td>device_id + timestamp</td><td>B-tree composite</td><td>Device movement timeline</td></tr>
+    <tr><td>ChatMessages</td><td>room_id + created_at</td><td>B-tree composite</td><td>Chat history pagination</td></tr>
+    <tr><td>Users</td><td>email</td><td>B-tree unique</td><td>Login lookup</td></tr>
+    <tr><td>Documents</td><td>file_type + indexed</td><td>B-tree</td><td>Indexing pipeline filter</td></tr>
+  </tbody>
+</table>
+
+<div class="doc-footer">
+  <p>ERD &mdash; Project Tracking &amp; Intelligence Platform</p>
+  <p>Internal Document &bull; Versi 1.0 &bull; 14 Mei 2026</p>
+</div>
+
+</div>
+</body>
+</html>

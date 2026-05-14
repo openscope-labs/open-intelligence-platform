@@ -60,8 +60,7 @@
 <ul>
   <li>Dashboard peta interaktif sebagai pusat kendali operasi.</li>
   <li>8 (delapan) layer peta: Simple Map (OSM), Satelit, Topografi, Cuaca real-time, Heat Map, Petir, Awan, dan Prediksi Cuaca.</li>
-  <li>Perangkat menggambar (<em>drawing tools</em>) untuk penandaan area: marker, polyline, polygon, circle, dilengkapi karvak terkustomisasi.</li>
-  <li>Perangkat pengukuran (<em>measurement tools</em>) untuk jarak dan luas area.</li>
+  <li>Perangkat menggambar (<em>drawing tools</em>) untuk penandaan area: marker, polyline, polygon, circle, dilengkapi karva terkustomisasi.</li>
   <li>Mode layar penuh dan tema gelap untuk pusat kendali.</li>
 </ul>
 
@@ -135,8 +134,8 @@
 <h3>K. Deployment Produksi</h3>
 <ul>
   <li>Deployment ke server PIHAK KEDUA menggunakan Docker dan Kubernetes.</li>
-  <li>Konfigurasi Nginx reverse proxy dan SSL/HTTPS.</li>
-  <li>Pengaturan monitoring dan logging dasar.</li>
+  <li>Konfigurasi Nginx reverse proxy dan SSL/HTTPS (Let's Encrypt).</li>
+  <li>Pengaturan monitoring (Grafana + Prometheus) dan logging dasar.</li>
 </ul>
 
 <div class="page-break"></div>
@@ -166,9 +165,9 @@
   <thead><tr><th>No</th><th>Deliverable</th><th>Format</th></tr></thead>
   <tbody>
     <tr><td>1</td><td>Kode sumber lengkap</td><td>Git repository</td></tr>
-    <tr><td>2</td><td>Dokumentasi teknis (README, dokumentasi API)</td><td>Markdown, Postman</td></tr>
-    <tr><td>3</td><td>Skema database dan skrip migrasi</td><td>SQL / ORM migration</td></tr>
-    <tr><td>4</td><td>Konfigurasi deployment (Docker Compose dan Kubernetes)</td><td>YAML</td></tr>
+    <tr><td>2</td><td>Dokumentasi teknis (README, dokumentasi API)</td><td>Markdown, Postman, OpenAPI V3</td></tr>
+    <tr><td>3</td><td>Skema database dan skrip migrasi</td><td>Prisma schema / SQL migration</td></tr>
+    <tr><td>4</td><td>Konfigurasi deployment (Docker Compose dan Kubernetes)</td><td>YAML / Helm Charts</td></tr>
     <tr><td>5</td><td>Sistem ter-deploy dan berjalan di server PIHAK KEDUA</td><td>Running application</td></tr>
     <tr><td>6</td><td>Panduan konfigurasi environment</td><td>Markdown</td></tr>
   </tbody>
@@ -189,14 +188,14 @@
 
 <div class="page-break"></div>
 <h1 id="s7"><span class="section-num">7.</span> Pembayaran</h1>
-<p><strong>Total nilai kontrak: Rp 60.000.000,-</strong> (Enam Puluh Juta Rupiah), merupakan biaya jasa pengembangan perangkat lunak. Seluruh biaya infrastruktur, server, layanan API pihak ketiga, dan perangkat keras menjadi tanggung jawab PIHAK KEDUA.</p>
+<p><strong>Total nilai kontrak: Rp 100.000.000,-</strong> (Seratus Juta Rupiah), merupakan biaya jasa pengembangan perangkat lunak. Seluruh biaya infrastruktur, server, layanan API pihak ketiga, dan perangkat keras menjadi tanggung jawab PIHAK KEDUA.</p>
 <table>
   <thead><tr><th>Termin</th><th>Waktu Pembayaran</th><th>Persentase</th><th>Nominal</th><th>Kondisi</th></tr></thead>
   <tbody>
-    <tr><td>Termin 1</td><td>Penandatanganan kontrak</td><td>30%</td><td>Rp 18.000.000</td><td>Sebelum pekerjaan dimulai</td></tr>
-    <tr><td>Termin 2</td><td>Penyelesaian Fase 1</td><td>25%</td><td>Rp 15.000.000</td><td>Demonstrasi dan persetujuan milestone 1</td></tr>
-    <tr><td>Termin 3</td><td>Penyelesaian Fase 2</td><td>25%</td><td>Rp 15.000.000</td><td>Demonstrasi dan persetujuan milestone 2</td></tr>
-    <tr><td>Termin 4</td><td>Serah terima akhir</td><td>20%</td><td>Rp 12.000.000</td><td>Serah terima dan penerimaan</td></tr>
+    <tr><td>Termin 1</td><td>Penandatanganan kontrak</td><td>30%</td><td>Rp 30.000.000</td><td>Sebelum pekerjaan dimulai</td></tr>
+    <tr><td>Termin 2</td><td>Penyelesaian Fase 1</td><td>25%</td><td>Rp 25.000.000</td><td>Demonstrasi dan persetujuan milestone 1</td></tr>
+    <tr><td>Termin 3</td><td>Penyelesaian Fase 2</td><td>25%</td><td>Rp 25.000.000</td><td>Demonstrasi dan persetujuan milestone 2</td></tr>
+    <tr><td>Termin 4</td><td>Serah terima akhir</td><td>20%</td><td>Rp 20.000.000</td><td>Serah terima dan penerimaan</td></tr>
   </tbody>
 </table>
 <p>Pembayaran dilakukan via transfer bank. Jatuh tempo: <strong>7 hari kalender</strong> setelah penerbitan invoice. Keterlambatan melebihi 14 hari kalender memberikan hak kepada PIHAK PERTAMA untuk menghentikan sementara seluruh pekerjaan.</p>
@@ -209,7 +208,7 @@
   <li>Melaksanakan demonstrasi di setiap pencapaian milestone.</li>
   <li>Memperbaiki cacat perangkat lunak selama masa pengembangan dan garansi.</li>
   <li>Menyerahkan kode sumber dan dokumentasi teknis.</li>
-  <li>Melakukan deployment ke server PIHAK KEDUA.</li>
+  <li>Melakukan deployment ke server PIHAK KEDUA ketika pembayaran termin telah terpenuhi.</li>
 </ol>
 <h3>8.2 PIHAK KEDUA (Cakra Inteligence)</h3>
 <ol>
@@ -228,7 +227,7 @@
   <li>PIHAK KEDUA mengajukan permintaan perubahan secara <strong>tertulis</strong>.</li>
   <li>PIHAK PERTAMA melakukan analisis dampak dalam <strong>3 (tiga) hari kerja</strong>.</li>
   <li>PIHAK PERTAMA menyampaikan estimasi biaya tambahan dan dampak terhadap timeline.</li>
-  <li>Biaya tambahan dihitung berdasarkan tarif <strong>Rp 750.000,-/orang/hari kerja</strong>.</li>
+  <li>Biaya tambahan dihitung berdasarkan tarif <strong>Rp 500.000,-/orang x hari kerja</strong>.</li>
   <li>Pekerjaan tambahan dimulai setelah <strong>addendum SOW</strong> ditandatangani oleh Para Pihak.</li>
 </ol>
 
@@ -257,7 +256,7 @@
 <h1 id="s12"><span class="section-num">12.</span> Hak Kekayaan Intelektual</h1>
 <ul>
   <li>Kode sumber menjadi <strong>milik PIHAK KEDUA</strong> setelah seluruh pembayaran per termin dilunasi (Deliverable per termin).</li>
-  <li>PIHAK KEDUA berhak memodifikasi dan mengembangkan kode sumber.</li>
+  <li>PIHAK KEDUA berhak memodifikasi dan mengembangkan kode sumber sesuai dengan pembayaran termin.</li>
   <li>Komponen sumber terbuka mengikuti lisensi masing-masing.</li>
   <li>PIHAK PERTAMA berhak mencantumkan proyek dalam portofolio tanpa informasi sensitif.</li>
   <li>Selama pembayaran belum lunas, kode sumber tetap menjadi milik PIHAK PERTAMA.</li>
@@ -287,7 +286,7 @@
 
 <div class="doc-footer">
   <p>Statement of Work &mdash; Project Tracking &amp; Intelligence Platform</p>
-  <p>SOW/OSL/DLA/2026-001 &bull; Versi 2.0 &bull; 14 Mei 2026</p>
+  <p>SOW/OSL/DLA/2026-001 &bull; Versi 2.3 &bull; 14 Mei 2026</p>
 </div>
 
 </div>

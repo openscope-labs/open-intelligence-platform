@@ -1,0 +1,13 @@
+Cakra Geo-Spatial
+
+
+
+Referensi :
+- Contoh aplikasi referensi : https://www.palantir.com/
+- Vantor Integrasi Data dan Drone : https://www.youtube.com/watch?v=VZRqj9Gv5PY&pp=ygUGdmFudG9y
+- Palantir Data dan Geospasial : https://www.youtube.com/watch?v=XEM5qz__HOU&t=119s
+
+Contoh resource data:
+- DATETIME : 2026-04-30 08:23:50  MSISDN : 6285250937682 ConnectedReachableForPaging  AGE : 0 CID : 510-10-719037-65 IMSI : 510105042937682 BAND : 4G  TOWERNAME : E_SON037M41_Sp2Sorong-DMT  KEL. MARIYAI  KEC : MARIAT  KAB/KOTA : SORONG  PROV : PAPUA BARAT  IMEI : 8609370508998953  DEVICE : VIVO Y01  LOC : http://maps.google.com/maps?q=-1.018730,131.319270 
+* nanti ini 510-10-719037-65 ada konversinya jadi MCC MNC LAC 	CID ada jsonnya buat confersinya
+

@@ -17,7 +17,7 @@
     <div class="cover-meta-item"><span class="cover-meta-label">Pihak Kedua</span><span class="cover-meta-value">Cakra Inteligence</span></div>
     <div class="cover-meta-item"><span class="cover-meta-label">Nomor Dokumen</span><span class="cover-meta-value">SDD/OSL/DLA/2026-001</span></div>
     <div class="cover-meta-item"><span class="cover-meta-label">Tanggal</span><span class="cover-meta-value">14 Mei 2026</span></div>
-    <div class="cover-meta-item"><span class="cover-meta-label">Versi</span><span class="cover-meta-value">2.0</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Versi</span><span class="cover-meta-value">2.3</span></div>
     <div class="cover-meta-item"><span class="cover-meta-label">Klasifikasi</span><span class="cover-meta-value">Confidential</span></div>
   </div>
   <div class="cover-footer">CONFIDENTIAL</div>
@@ -43,7 +43,7 @@
     <li class="toc-sub"><a href="#s3-9">Integrasi Drone</a></li>
     <li><a href="#s4">Model Data</a></li>
     <li><a href="#s5">Keamanan Sistem</a></li>
-    <li><a href="#s6">Persyaratan Non-Fungsional</a></li>
+    <li><a href="#s6">Layanan Eksternal</a></li>
     <li><a href="#s7">Asumsi dan Batasan</a></li>
     <li><a href="#s8">Analisis Risiko</a></li>
   </ol>
@@ -94,16 +94,21 @@
 <table>
   <thead><tr><th>Lapisan</th><th>Teknologi</th><th>Justifikasi</th></tr></thead>
   <tbody>
-    <tr><td>Frontend</td><td>React.js + Vite</td><td>Performa tinggi, ekosistem matang, berbasis komponen</td></tr>
-    <tr><td>Mesin Peta</td><td>Leaflet.js / MapLibre GL</td><td>Sumber terbuka, dukungan multi-layer, extensible</td></tr>
-    <tr><td>Backend</td><td>Node.js + Express/Fastify</td><td>Non-blocking I/O, mendukung komunikasi real-time</td></tr>
+    <tr><td>Frontend</td><td>React.js + Vite + TypeScript</td><td>Performa tinggi, type-safe, ekosistem matang</td></tr>
+    <tr><td>Mesin Peta</td><td>MapLibre GL JS</td><td>Sumber terbuka, dukungan 3D/tilted view, multi-layer, WebGL</td></tr>
+    <tr><td>Backend</td><td>NestJS + TypeScript</td><td>Modular, dependency injection, enterprise-grade</td></tr>
+    <tr><td>ORM</td><td>Prisma + PostGIS extension</td><td>Type-safe database access, migration tools</td></tr>
     <tr><td>Real-time</td><td>Socket.IO</td><td>WebSocket dengan mekanisme fallback, arsitektur berbasis ruang</td></tr>
-    <tr><td>Database</td><td>PostgreSQL + PostGIS</td><td>Kueri geospasial native, matang, dan reliabel</td></tr>
-    <tr><td>Cache</td><td>Redis</td><td>Performa in-memory, pub/sub untuk broadcast data</td></tr>
-    <tr><td>AI/LLM</td><td>LangChain + LLM API (Token)</td><td>Framework RAG yang fleksibel</td></tr>
-    <tr><td>Penyimpanan Vektor</td><td>pgvector / ChromaDB (Qdrant)</td><td>Penyimpanan embedding untuk pencarian pengetahuan</td></tr>
+    <tr><td>Database</td><td>PostgreSQL 16 + PostGIS</td><td>Kueri geospasial native, matang, dan reliabel</td></tr>
+    <tr><td>Cache</td><td>Redis 7</td><td>Performa in-memory, pub/sub untuk broadcast data</td></tr>
+    <tr><td>AI/LLM</td><td>OpenAI GPT-4o-mini (Token)</td><td>Kualitas RAG tinggi, latensi rendah, harga efisien</td></tr>
+    <tr><td>Embedding</td><td>OpenAI text-embedding-3-small</td><td>Embedding berkualitas tinggi untuk pencarian semantik</td></tr>
+    <tr><td>Penyimpanan Vektor</td><td>Qdrant (self-hosted)</td><td>Open-source, performa tinggi, REST API</td></tr>
     <tr><td>Server Media</td><td>Node-Media-Server</td><td>Relay aliran RTSP/RTMP ke HLS/WebRTC</td></tr>
-    <tr><td>Kontainerisasi</td><td>Docker + Docker Compose (Kubernetes dan CI/CD)</td><td>Deployment yang reproducible dan terisolasi</td></tr>
+    <tr><td>Kontainerisasi</td><td>Docker + Kubernetes</td><td>Orkestrasi produksi, auto-scaling, reproducible</td></tr>
+    <tr><td>CI/CD</td><td>GitHub Actions</td><td>Integrasi dengan repository, free tier</td></tr>
+    <tr><td>Monitoring</td><td>Grafana + Prometheus</td><td>Observabilitas sistem, alerting, dashboard</td></tr>
+    <tr><td>SSL</td><td>Let's Encrypt + Certbot</td><td>Sertifikat SSL gratis, auto-renewal</td></tr>
   </tbody>
 </table>
 
@@ -112,12 +117,14 @@
 <table>
   <thead><tr><th>Layanan</th><th>Kontainer</th><th>Port Internal</th></tr></thead>
   <tbody>
-    <tr><td>Reverse Proxy + SSL</td><td>Nginx</td><td>80, 443</td></tr>
+    <tr><td>Reverse Proxy + SSL</td><td>Nginx + Certbot</td><td>80, 443</td></tr>
     <tr><td>Frontend (Statis)</td><td>Nginx / Node</td><td>3000</td></tr>
-    <tr><td>Backend API + WebSocket</td><td>Node.js</td><td>4000</td></tr>
-    <tr><td>Database</td><td>PostgreSQL + PostGIS</td><td>5432</td></tr>
-    <tr><td>Cache</td><td>Redis</td><td>6379</td></tr>
+    <tr><td>Backend API + WebSocket</td><td>NestJS (TypeScript)</td><td>4000</td></tr>
+    <tr><td>Database</td><td>PostgreSQL 16 + PostGIS</td><td>5112</td></tr>
+    <tr><td>Cache</td><td>Redis 7</td><td>6379</td></tr>
+    <tr><td>Vector Database</td><td>Qdrant</td><td>6333</td></tr>
     <tr><td>Server Media</td><td>Node-Media-Server</td><td>1935, 8000</td></tr>
+    <tr><td>Monitoring</td><td>Grafana + Prometheus</td><td>3001, 9090</td></tr>
   </tbody>
 </table>
 
@@ -130,7 +137,7 @@
   <li>Mekanisme login/logout dengan JWT access token dan refresh token.</li>
   <li>Kontrol akses berbasis peran — 4 tingkat akses.</li>
   <li>Manajemen profil pengguna dan pengelolaan sesi.</li>
-  <li>Pengamanan kata sandi menggunakan bcrypt (Argon).</li>
+  <li>Pengamanan kata sandi menggunakan Argon.</li>
 </ul>
 
 <h2 id="s3-2">3.2 Dashboard Peta Real-time dan Multi-Layer Map</h2>
@@ -139,17 +146,17 @@
   <thead><tr><th>Layer</th><th>Sumber Data</th><th>Deskripsi</th></tr></thead>
   <tbody>
     <tr><td>Simple Map</td><td>OpenStreetMap</td><td>Peta dasar: jalan, bangunan, dan landmark</td></tr>
-    <tr><td>Satelit</td><td>Mapbox / Esri Satellite</td><td>Citra satelit area operasi</td></tr>
+    <tr><td>Satelit</td><td>MapTiler Satellite</td><td>Citra satelit area operasi</td></tr>
     <tr><td>Topografi</td><td>OpenTopoMap</td><td>Kontur elevasi — kritis untuk operasi pegunungan</td></tr>
     <tr><td>Cuaca</td><td>OpenWeatherMap</td><td>Kondisi cuaca real-time</td></tr>
     <tr><td>Heat Map</td><td>Generated internal</td><td>Visualisasi area yang telah pencarian dicakup tim</td></tr>
     <tr><td>Petir</td><td>Blitzortung / OWM</td><td>Deteksi aktivitas petir real-time</td></tr>
     <tr><td>Awan</td><td>OpenWeatherMap</td><td>Visualisasi tutupan awan</td></tr>
-    <tr><td>Angin</td><td>OpenWeatherMap</td><td>Visualisasi arah dan kecepatan angin</td></tr>
+    <tr><td>Angin</td><td>OpenWeatherMap</td><td>Visualisasi arah angin</td></tr>
     <tr><td>Prediksi Cuaca</td><td>OpenWeatherMap Forecast</td><td>Prakiraan cuaca hingga 5 hari</td></tr>
   </tbody>
 </table>
-<p><strong>Fitur tambahan:</strong> Toggle layer, drawing tools, measurement tools, marker clustering dengan karvak terkustomisasi, mode layar penuh, dan tema gelap.</p>
+<p><strong>Fitur tambahan:</strong> Toggle layer, drawing tools, measurement tools, marker clustering dengan karva terkustomisasi, mode layar penuh, dan tema gelap.</p>
 
 <h2 id="s3-3">3.3 Pelacakan GPS Real-time</h2>
 <p>Modul pelacakan posisi seluruh anggota tim lapangan secara real-time melalui WebSocket, dengan visualisasi trail dan indikator status pada peta.</p>
@@ -213,57 +220,78 @@
 
 <div class="page-break"></div>
 <h1 id="s4"><span class="section-num">4.</span> Model Data</h1>
+
+<h3>4.1 Entitas dan Relasi</h3>
 <table>
   <thead><tr><th>Entitas</th><th>Atribut Utama</th><th>Relasi</th></tr></thead>
   <tbody>
-    <tr><td>Users</td><td>id, username, email, password_hash, role, is_active</td><td>Memiliki: TrackingData, FieldReports, ChatMessages</td></tr>
-    <tr><td>Missions</td><td>id, name, description, last_known_position, status</td><td>Memiliki: TrackingData, FieldReports, ChatRooms</td></tr>
-    <tr><td>Target</td><td>—</td><td>—</td></tr>
-    <tr><td>TrackingData</td><td>id, user_id, mission_id, position, altitude, speed, heading</td><td>Milik: Users, Missions</td></tr>
+    <tr><td>Users</td><td>id, username, email, password_hash, role, is_active, avatar</td><td>Memiliki: TrackingData, FieldReports, ChatMessages, Sessions</td></tr>
+    <tr><td>Sessions</td><td>id, user_id, token, expires_at, device_info</td><td>Milik: Users</td></tr>
+    <tr><td>Missions</td><td>id, name, description, last_known_position, status, created_by</td><td>Memiliki: Targets, TrackingData, FieldReports, ChatRooms, MapDrawings, AlertRules</td></tr>
+    <tr><td>Targets</td><td>id, mission_id, name, description, last_seen_at, profile, status</td><td>Milik: Missions</td></tr>
+    <tr><td>TrackingData</td><td>id, user_id, mission_id, position, altitude, speed, heading, timestamp</td><td>Milik: Users, Missions</td></tr>
     <tr><td>FieldReports</td><td>id, user_id, mission_id, location, category, description, attachments</td><td>Milik: Users, Missions</td></tr>
+    <tr><td>MapDrawings</td><td>id, mission_id, user_id, type, geometry, style, label</td><td>Milik: Missions, Users</td></tr>
     <tr><td>ChatRooms</td><td>id, mission_id, name, type</td><td>Milik: Missions; Memiliki: ChatMessages</td></tr>
-    <tr><td>ChatMessages</td><td>id, room_id, user_id, content, type, metadata</td><td>Milik: ChatRooms, Users</td></tr>
-    <tr><td>StreamSources</td><td>id, name, type, stream_url, location, status</td><td>Mandiri</td></tr>
+    <tr><td>ChatMessages</td><td>id, room_id, user_id, content, type, metadata, location</td><td>Milik: ChatRooms, Users</td></tr>
+    <tr><td>StreamSources</td><td>id, name, type (cctv/drone), stream_url, location, status</td><td>Mandiri</td></tr>
+    <tr><td>AlertRules</td><td>id, mission_id, type, condition, threshold, is_active</td><td>Milik: Missions; Memiliki: AlertLogs</td></tr>
+    <tr><td>AlertLogs</td><td>id, rule_id, triggered_at, data, acknowledged</td><td>Milik: AlertRules</td></tr>
+    <tr><td>TelcoDevices</td><td>id, msisdn, imsi, imei, device_name, last_seen</td><td>Memiliki: TelcoPositions</td></tr>
+    <tr><td>TelcoPositions</td><td>id, device_id, cid, tower_name, location, band, timestamp</td><td>Milik: TelcoDevices</td></tr>
+    <tr><td>Documents</td><td>id, title, file_path, file_type, uploaded_by, indexed_at</td><td>Memiliki: DocumentChunks</td></tr>
+    <tr><td>DocumentChunks</td><td>id, document_id, content, embedding_id, chunk_index</td><td>Milik: Documents; Ref: Qdrant</td></tr>
   </tbody>
 </table>
-<p>Database menggunakan PostgreSQL dengan ekstensi PostGIS untuk tipe data geospasial dan kueri spasial.</p>
+<p>Database menggunakan PostgreSQL 16 dengan ekstensi PostGIS. Semua kolom <code>position</code> dan <code>location</code> menggunakan tipe <code>geography(Point, 4326)</code>. ORM Prisma digunakan untuk type-safe database access dan migrasi skema.</p>
 
 <h1 id="s5"><span class="section-num">5.</span> Keamanan Sistem</h1>
 <table>
   <thead><tr><th>Area</th><th>Implementasi</th></tr></thead>
   <tbody>
-    <tr><td>Autentikasi</td><td>JWT dengan access + refresh token, bcrypt password hashing</td></tr>
-    <tr><td>Otorisasi</td><td>Kontrol akses berbasis peran pada setiap endpoint</td></tr>
-    <tr><td>Transportasi</td><td>HTTPS/WSS (enkripsi TLS) untuk seluruh komunikasi</td></tr>
-    <tr><td>Validasi Input</td><td>Validasi sisi server, sanitisasi, parameterized queries</td></tr>
-    <tr><td>Proteksi API</td><td>Rate limiting dan konfigurasi CORS</td></tr>
+    <tr><td>Autentikasi</td><td>JWT (access + refresh token), Argon2 password hashing</td></tr>
+    <tr><td>Otorisasi</td><td>RBAC pada setiap endpoint dan WebSocket event</td></tr>
+    <tr><td>Transportasi</td><td>HTTPS/WSS — TLS 1.3 via Let's Encrypt</td></tr>
+    <tr><td>Validasi Input</td><td>class-validator + class-transformer (NestJS), parameterized queries via Prisma</td></tr>
+    <tr><td>Proteksi API</td><td>Rate limiting (@nestjs/throttler), Helmet.js, CORS whitelist</td></tr>
     <tr><td>Akses Streaming</td><td>Otorisasi berbasis token untuk akses aliran video</td></tr>
+    <tr><td>Secrets</td><td>Environment variables, Kubernetes Secrets</td></tr>
   </tbody>
 </table>
 
-<h1 id="s6"><span class="section-num">6.</span> Persyaratan Non-Fungsional</h1>
+<h1 id="s6"><span class="section-num">6.</span> Layanan Eksternal</h1>
+<p>Seluruh layanan berbayar disediakan oleh PIHAK KEDUA. Openscopelabs menerima kredensial (API key) yang sudah aktif.</p>
 <table>
-  <thead><tr><th>Persyaratan</th><th>Target</th></tr></thead>
+  <thead><tr><th>Layanan</th><th>Rekomendasi</th><th>Alternatif Gratis</th><th>Catatan</th></tr></thead>
   <tbody>
-    <tr><td>Waktu respons API</td><td>&lt; 200 milidetik (P95)</td></tr>
-    <tr><td>Waktu muat peta</td><td>&lt; 3 detik</td></tr>
-    <tr><td>Latensi pembaruan GPS</td><td>&lt; 2 detik end-to-end</td></tr>
-    <tr><td>Pengguna simultan</td><td>Minimum 50 pengguna</td></tr>
-    <tr><td>Aliran video simultan</td><td>Minimum 4 aliran</td></tr>
-    <tr><td>Ketersediaan sistem</td><td>99% (bergantung pada infrastruktur server)</td></tr>
-    <tr><td>Dukungan peramban</td><td>Chrome, Firefox, Safari, Edge — 2 versi terakhir</td></tr>
-    <tr><td>Dukungan mobile</td><td>Responsif, minimum viewport 360px</td></tr>
+    <tr><td>LLM</td><td><strong>OpenAI GPT-4o-mini ★</strong></td><td>Ollama + Llama 3.1 (butuh GPU)</td><td>Rekomendasi: akurasi RAG dan Bahasa Indonesia jauh lebih baik</td></tr>
+    <tr><td>Embedding</td><td><strong>OpenAI text-embedding-3-small ★</strong></td><td>Ollama + nomic-embed</td><td>Rekomendasi: kualitas pencarian semantik lebih tinggi</td></tr>
+    <tr><td>Tile Satelit</td><td><strong>MapTiler (free tier) ★</strong></td><td>OpenStreetMap (tanpa satelit)</td><td>Free tier 100K tiles/bulan cukup untuk production kecil</td></tr>
+    <tr><td>Cuaca</td><td><strong>OpenWeatherMap (free tier)</strong></td><td>—</td><td>Gratis, 1000 calls/hari</td></tr>
+    <tr><td>Petir</td><td><strong>Blitzortung (gratis)</strong></td><td>—</td><td>Open source network</td></tr>
+    <tr><td>Traffic</td><td><strong>Google Maps Platform ★</strong></td><td>—</td><td>$200 free credit/bulan, biasanya cukup</td></tr>
+    <tr><td>Computer Vision</td><td><strong>Model dari Tim Data Cakra</strong></td><td>—</td><td>Disediakan PIHAK KEDUA</td></tr>
+    <tr><td>SSL</td><td><strong>Let's Encrypt (gratis)</strong></td><td>—</td><td>Production-ready, auto-renewal</td></tr>
   </tbody>
 </table>
+<p><strong>★</strong> = Layanan berbayar yang direkomendasikan karena kualitas lebih baik untuk production.</p>
 
 <h1 id="s7"><span class="section-num">7.</span> Asumsi dan Batasan</h1>
 <h3>7.1 Asumsi</h3>
 <ol>
-  <li>Server yang disediakan memiliki spesifikasi minimum: 8 CPU cores, 16 GB RAM, 100 GB SSD.</li>
+  <li>Server yang disediakan memiliki spesifikasi minimum:
+    <ul>
+      <li>8 CPU cores, 32 GB RAM, 100 GB SSD (untuk pengembangan backend)</li>
+      <li>8 CPU cores, 8 GB RAM, 100 GB SSD (untuk pengembangan frontend)</li>
+      <li>8 CPU cores, 8 GB RAM, 300 GB SSD (untuk database khusus)</li>
+      <li>8 CPU cores, 8 GB RAM, 300 GB SSD (untuk monitoring tools Grafana)</li>
+    </ul>
+  </li>
   <li>Server memiliki akses internet stabil untuk koneksi ke layanan API eksternal.</li>
-  <li>Perangkat CCTV dan drone yang disediakan telah memiliki kemampuan streaming (RTSP/RTMP/HLS/Protokol lainnya).</li>
+  <li>Perangkat CCTV dan drone yang disediakan telah memiliki kemampuan streaming (RTSP/RTMP/HLS).</li>
   <li>Tim lapangan menggunakan perangkat dengan peramban modern dan modul GPS aktif.</li>
-  <li>Koneksi internet di area operasi tersedia minimal pada level 2G/3G/4G/Band Lainnya.</li>
+  <li>Koneksi internet di area operasi tersedia minimal pada level 2G/3G/4G.</li>
+  <li>PIHAK KEDUA menyediakan seluruh API key dan kredensial layanan berbayar sebelum fase terkait dimulai.</li>
 </ol>
 <h3>7.2 Batasan</h3>
 <ol>
@@ -271,23 +299,27 @@
   <li>Prediksi pergerakan menggunakan model statistik/heuristik — bukan <em>deep learning</em>.</li>
   <li>Integrasi drone terbatas pada <em>stream relay</em> — bukan integrasi SDK vendor.</li>
   <li>Fitur offline terbatas pada antrean pengiriman data.</li>
+  <li>Kendali drone jarak jauh bersifat <em>experimental</em> — terbatas pada kontrol kamera jika didukung perangkat.</li>
+  <li>Integrasi radio HT bergantung pada ketersediaan perangkat dan protokol yang didukung.</li>
 </ol>
 
 <h1 id="s8"><span class="section-num">8.</span> Analisis Risiko</h1>
 <table>
   <thead><tr><th>Risiko</th><th>Dampak</th><th>Probabilitas</th><th>Strategi Mitigasi</th></tr></thead>
   <tbody>
-    <tr><td>Keterbatasan koneksi internet di area pegunungan</td><td>Tinggi</td><td>Tinggi</td><td>Antrean offline, sinkronisasi otomatis saat koneksi pulih</td></tr>
+    <tr><td>Keterbatasan koneksi internet di area operasi</td><td>Tinggi</td><td>Tinggi</td><td>Antrean offline, sinkronisasi otomatis saat koneksi pulih</td></tr>
     <tr><td>Latensi tinggi pada aliran video</td><td>Sedang</td><td>Sedang</td><td>Adaptive bitrate, fallback ke snapshot</td></tr>
     <tr><td>Perubahan ruang lingkup di luar kesepakatan</td><td>Tinggi</td><td>Sedang</td><td>Prosedur Perubahan Ruang Lingkup sesuai SOW</td></tr>
     <tr><td>Spesifikasi server tidak memadai</td><td>Tinggi</td><td>Rendah</td><td>Dokumentasi spesifikasi minimum, pengujian beban</td></tr>
     <tr><td>Inkompatibilitas protokol CCTV/drone</td><td>Sedang</td><td>Sedang</td><td>Verifikasi kompatibilitas di awal fase integrasi</td></tr>
+    <tr><td>Keterlambatan penyediaan API key/hardware</td><td>Tinggi</td><td>Sedang</td><td>Checklist resource per fase, reminder 2 minggu sebelum</td></tr>
+    <tr><td>Model CV dari Tim Data belum siap</td><td>Sedang</td><td>Sedang</td><td>Integrasi menggunakan mock API, switch ke real saat ready</td></tr>
   </tbody>
 </table>
 
 <div class="doc-footer">
   <p>Solutions Design Document &mdash; Project Tracking &amp; Intelligence Platform</p>
-  <p>SDD/OSL/DLA/2026-001 &bull; Versi 2.0 &bull; 14 Mei 2026</p>
+  <p>SDD/OSL/DLA/2026-001 &bull; Versi 2.3 &bull; 14 Mei 2026</p>
 </div>
 
 </div>

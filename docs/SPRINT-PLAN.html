@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Sprint Plan — Project Tracking &amp; Intelligence Platform</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cover-page">
+  <div class="cover-doc-type">Sprint Plan</div>
+  <h1 class="cover-title">Project Tracking &amp;<br>Intelligence Platform</h1>
+  <p class="cover-subtitle">Rencana Sprint Agile — 3 Developer × 8 Sprint</p>
+  <hr class="cover-divider">
+  <div class="cover-meta">
+    <div class="cover-meta-item"><span class="cover-meta-label">Metode</span><span class="cover-meta-value">Agile Scrum (2 minggu/sprint)</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Total Sprint</span><span class="cover-meta-value">8 Sprint (4 Bulan)</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Tim</span><span class="cover-meta-value">3 Developer</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Tanggal</span><span class="cover-meta-value">14 Mei 2026</span></div>
+  </div>
+  <div class="cover-footer">INTERNAL — OPENSCOPELABS</div>
+</div>
+
+<div class="document">
+
+<h1><span class="section-num">1.</span> Tim Developer</h1>
+<table>
+  <thead><tr><th>Nama</th><th>Primary Focus</th><th>Secondary</th><th>Area Tanggung Jawab</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Robby</strong></td><td>Frontend</td><td>Fullstack</td><td>UI/UX, MapLibre GL, Dashboard, Mobile Responsive</td></tr>
+    <tr><td><strong>Hackim</strong></td><td>Backend</td><td>Fullstack</td><td>NestJS API, Database, Auth, AI/RAG, Business Logic</td></tr>
+    <tr><td><strong>Firly</strong></td><td>Backend &amp; DevOps</td><td>Fullstack</td><td>Docker/K8s, CI/CD, Streaming, Monitoring, Infrastructure</td></tr>
+  </tbody>
+</table>
+
+<h1><span class="section-num">2.</span> Kapasitas &amp; Velocity</h1>
+<table>
+  <thead><tr><th>Metrik</th><th>Nilai</th></tr></thead>
+  <tbody>
+    <tr><td>Durasi sprint</td><td>2 minggu (10 hari kerja)</td></tr>
+    <tr><td>Effective days per sprint</td><td>~8.5 hari (buffer 15% untuk ceremony + bug fix)</td></tr>
+    <tr><td>Capacity per sprint (3 orang)</td><td>~25.5 mandays</td></tr>
+    <tr><td>Total capacity (8 sprint)</td><td>~204 mandays</td></tr>
+    <tr><td>Ceremonies</td><td>Daily standup 15min, Sprint Planning 2h, Review 1h, Retro 30min</td></tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<h1><span class="section-num">3.</span> Fase 1 — Platform Inti (Bulan 1)</h1>
+
+<h2>Sprint 1: Foundation &amp; Map Core</h2>
+<table>
+  <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><td>Monorepo setup + Docker Compose dev</td><td>1</td><td>1</td><td>2</td><td>4</td></tr>
+    <tr><td>CI/CD pipeline (GitHub Actions)</td><td>—</td><td>—</td><td>2</td><td>2</td></tr>
+    <tr><td>DB schema design + Prisma migrations</td><td>—</td><td>2</td><td>1</td><td>3</td></tr>
+    <tr><td>Auth: JWT + Argon2 (register/login/refresh)</td><td>2</td><td>3</td><td>—</td><td>5</td></tr>
+    <tr><td>RBAC middleware (4 roles)</td><td>0.5</td><td>1.5</td><td>—</td><td>2</td></tr>
+    <tr><td>Map dashboard: base layout + OSM + Satellite + Topo</td><td>4</td><td>—</td><td>—</td><td>4</td></tr>
+    <tr><td>Nginx reverse proxy + Let's Encrypt SSL</td><td>—</td><td>—</td><td>2</td><td>2</td></tr>
+    <tr><td>OpenAPI/Swagger setup</td><td>—</td><td>1</td><td>0.5</td><td>1.5</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 1 Total</td><td>7.5</td><td>8.5</td><td>7.5</td><td>23.5</td></tr>
+  </tbody>
+</table>
+
+<h2>Sprint 2: GPS Tracking &amp; Field Reports</h2>
+<table>
+  <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><td>GPS tracking: WebSocket server + Redis pub/sub</td><td>—</td><td>3</td><td>1</td><td>4</td></tr>
+    <tr><td>GPS tracking: Map UI (markers, trail, speed)</td><td>3</td><td>—</td><td>—</td><td>3</td></tr>
+    <tr><td>Geofencing alerts (backend rules + UI notification)</td><td>1</td><td>2</td><td>—</td><td>3</td></tr>
+    <tr><td>Field report form (photo, text, category)</td><td>3</td><td>—</td><td>—</td><td>3</td></tr>
+    <tr><td>Field report API + file storage</td><td>—</td><td>2.5</td><td>1</td><td>3.5</td></tr>
+    <tr><td>Auto-pin reports on map + category icons</td><td>1</td><td>1</td><td>—</td><td>2</td></tr>
+    <tr><td>Offline queue (IndexedDB + auto-sync)</td><td>1.5</td><td>1.5</td><td>—</td><td>3</td></tr>
+    <tr><td>GPX/KML export</td><td>—</td><td>1</td><td>—</td><td>1</td></tr>
+    <tr><td>Dark theme + fullscreen mode</td><td>1</td><td>—</td><td>—</td><td>1</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 2 Total</td><td>10.5 ⚠️</td><td>11 ⚠️</td><td>2</td><td>23.5</td></tr>
+  </tbody>
+</table>
+<div class="callout"><div class="callout-title">Sprint 2 Overload</div><p>Robby &amp; Hackim sedikit over. Firly assist FE/BE tasks jika perlu.</p></div>
+<p><strong>🎯 Milestone Fase 1:</strong> Demo peta interaktif + GPS tracking + field reports berfungsi.</p>
+
+<div class="page-break"></div>
+
+<h1><span class="section-num">4.</span> Fase 2 — Komunikasi &amp; Weather (Bulan 2)</h1>
+
+<h2>Sprint 3: Real-time Chat &amp; Weather Layers</h2>
+<table>
+  <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><td>Chat: Socket.IO room architecture + API</td><td>—</td><td>4</td><td>—</td><td>4</td></tr>
+    <tr><td>Chat: UI (rooms, messages, search, file share)</td><td>4</td><td>—</td><td>—</td><td>4</td></tr>
+    <tr><td>Chat: share location + auto-pin on map</td><td>1</td><td>1.5</td><td>—</td><td>2.5</td></tr>
+    <tr><td>Weather layer (OpenWeatherMap)</td><td>1.5</td><td>1.5</td><td>—</td><td>3</td></tr>
+    <tr><td>Cloud + Lightning + Wind layers</td><td>2</td><td>1</td><td>—</td><td>3</td></tr>
+    <tr><td>Weather forecast layer (5-day)</td><td>1</td><td>1</td><td>—</td><td>2</td></tr>
+    <tr><td>Monitoring setup (Grafana + Prometheus)</td><td>—</td><td>—</td><td>4</td><td>4</td></tr>
+    <tr><td>K8s cluster setup (dev)</td><td>—</td><td>—</td><td>3</td><td>3</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 3 Total</td><td>9.5 ⚠️</td><td>9</td><td>7</td><td>25.5</td></tr>
+  </tbody>
+</table>
+
+<h2>Sprint 4: Drawing Tools, 3D Map &amp; Admin</h2>
+<table>
+  <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><td>Drawing tools (marker, polyline, polygon, circle)</td><td>3</td><td>1</td><td>—</td><td>4</td></tr>
+    <tr><td>Custom karva markers + save/load drawings</td><td>2</td><td>1.5</td><td>—</td><td>3.5</td></tr>
+    <tr><td>Heat map layer (search coverage)</td><td>2</td><td>1.5</td><td>—</td><td>3.5</td></tr>
+    <tr><td>🟡 Map 3D / Tilted view (MapLibre GL terrain)</td><td>2.5</td><td>—</td><td>—</td><td>2.5</td></tr>
+    <tr><td>User management admin panel</td><td>1.5</td><td>2</td><td>—</td><td>3.5</td></tr>
+    <tr><td>Mobile responsive optimization</td><td>2</td><td>—</td><td>—</td><td>2</td></tr>
+    <tr><td>Bidirectional map data (realtime pinning)</td><td>—</td><td>2</td><td>1</td><td>3</td></tr>
+    <tr><td>Backend performance testing</td><td>—</td><td>—</td><td>2</td><td>2</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 4 Total</td><td>13 ⚠️</td><td>8</td><td>3</td><td>24</td></tr>
+  </tbody>
+</table>
+<div class="callout"><div class="callout-title">Sprint 4 Overload</div><p>Robby over-capacity. Firly bantu FE tasks (drawing tools atau mobile responsive).</p></div>
+<p><strong>🎯 Milestone Fase 2:</strong> Demo chat + seluruh weather layers + drawing tools + heat map.</p>
+
+<div class="page-break"></div>
+
+<h1><span class="section-num">5.</span> Fase 3 — Intelijen AI (Bulan 3)</h1>
+
+<h2>Sprint 5: AI/RAG &amp; Document Indexing</h2>
+<table>
+  <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><td>Qdrant setup + ingestion pipeline</td><td>—</td><td>2</td><td>2</td><td>4</td></tr>
+    <tr><td>Document extraction (PDF/Word/TXT → chunks)</td><td>—</td><td>3</td><td>1</td><td>4</td></tr>
+    <tr><td>Embedding pipeline (OpenAI text-embedding-3-small)</td><td>—</td><td>2</td><td>—</td><td>2</td></tr>
+    <tr><td>RAG pipeline: query → retrieve → GPT-4o-mini → answer</td><td>—</td><td>3</td><td>—</td><td>3</td></tr>
+    <tr><td>AI chat UI (conversation, streaming response)</td><td>4</td><td>—</td><td>—</td><td>4</td></tr>
+    <tr><td>Natural language data query (missions, tracking)</td><td>1</td><td>2</td><td>—</td><td>3</td></tr>
+    <tr><td>Document upload &amp; management UI</td><td>2</td><td>—</td><td>—</td><td>2</td></tr>
+    <tr><td>K8s staging deployment</td><td>—</td><td>—</td><td>3</td><td>3</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 5 Total</td><td>7</td><td>12 ⚠️</td><td>6</td><td>25</td></tr>
+  </tbody>
+</table>
+
+<h2>Sprint 6: Prediction, Telco &amp; Auto Alert</h2>
+<table>
+  <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><td>Prediction engine (heuristic model)</td><td>—</td><td>4</td><td>—</td><td>4</td></tr>
+    <tr><td>Probability heat map + area recommendation UI</td><td>3</td><td>1</td><td>—</td><td>4</td></tr>
+    <tr><td>🟡 Telco geospatial: CID parser + tower mapping</td><td>1</td><td>2</td><td>—</td><td>3</td></tr>
+    <tr><td>🟡 Telco: device position timeline UI</td><td>2</td><td>1</td><td>—</td><td>3</td></tr>
+    <tr><td>Auto Alert engine (rule-based triggers)</td><td>1</td><td>2</td><td>1</td><td>4</td></tr>
+    <tr><td>🟡 Google Maps traffic integration</td><td>1</td><td>2</td><td>—</td><td>3</td></tr>
+    <tr><td>AI knowledge base: import docs + chat history</td><td>—</td><td>1.5</td><td>1</td><td>2.5</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 6 Total</td><td>8</td><td>13.5 ⚠️</td><td>2</td><td>23.5</td></tr>
+  </tbody>
+</table>
+<div class="callout"><div class="callout-title">Sprint 5-6 Overload</div><p>Hackim heavy load pada AI/prediction. Robby &amp; Firly bantu backend tasks.</p></div>
+<p><strong>🎯 Milestone Fase 3:</strong> Demo AI assistant + prediction heat map + auto alert.</p>
+
+<div class="page-break"></div>
+
+<h1><span class="section-num">6.</span> Fase 4 — Integrasi &amp; Deploy (Bulan 4)</h1>
+
+<h2>Sprint 7: CCTV, Drone &amp; Streaming</h2>
+<table>
+  <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><td>🟡 Media server setup (Node-Media-Server)</td><td>—</td><td>—</td><td>3</td><td>3</td></tr>
+    <tr><td>🟡 CCTV: RTSP relay → HLS/WebRTC</td><td>—</td><td>1</td><td>3</td><td>4</td></tr>
+    <tr><td>🟡 CCTV: map markers + popup/panel video</td><td>3</td><td>1</td><td>—</td><td>4</td></tr>
+    <tr><td>🟡 Drone stream relay (custom driver)</td><td>—</td><td>1</td><td>3</td><td>4</td></tr>
+    <tr><td>🟡 Drone: map tracking + video display</td><td>2</td><td>—</td><td>1</td><td>3</td></tr>
+    <tr><td>🔴 Drone/CCTV camera control (experimental)</td><td>1</td><td>1</td><td>2</td><td>4</td></tr>
+    <tr><td>Entity position projection visualization</td><td>2</td><td>1</td><td>—</td><td>3</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 7 Total</td><td>8</td><td>5</td><td>12 ⚠️</td><td>25</td></tr>
+  </tbody>
+</table>
+
+<h2>Sprint 8: CV, Deploy, Testing &amp; Handover</h2>
+<table>
+  <thead><tr><th>Task</th><th>Robby (FE)</th><th>Hackim (BE)</th><th>Firly (DevOps)</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><td>🟡 CV model integration (dari Tim Data Cakra)</td><td>1</td><td>3</td><td>—</td><td>4</td></tr>
+    <tr><td>🔴 Radio HT integration (best effort)</td><td>—</td><td>2</td><td>2</td><td>4</td></tr>
+    <tr><td>K8s production deployment</td><td>—</td><td>—</td><td>3</td><td>3</td></tr>
+    <tr><td>SSL + domain + Nginx production config</td><td>—</td><td>—</td><td>1.5</td><td>1.5</td></tr>
+    <tr><td>E2E testing + bug fixes</td><td>3</td><td>2</td><td>1</td><td>6</td></tr>
+    <tr><td>Documentation (README, API docs, env guide)</td><td>1</td><td>1.5</td><td>1.5</td><td>4</td></tr>
+    <tr><td>Demo preparation + handover</td><td>1</td><td>1</td><td>1</td><td>3</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>Sprint 8 Total</td><td>6</td><td>9.5</td><td>10</td><td>25.5</td></tr>
+  </tbody>
+</table>
+<p><strong>🎯 Milestone Fase 4:</strong> Serah terima sistem production-ready.</p>
+
+<div class="page-break"></div>
+
+<h1><span class="section-num">7.</span> Ringkasan Mandays</h1>
+
+<h3>Per Fase</h3>
+<table>
+  <thead><tr><th>Fase</th><th>Sprint</th><th>Robby</th><th>Hackim</th><th>Firly</th><th>Total MD</th></tr></thead>
+  <tbody>
+    <tr><td>Fase 1 — Platform Inti</td><td>1-2</td><td>18</td><td>19.5</td><td>9.5</td><td>47</td></tr>
+    <tr><td>Fase 2 — Komunikasi</td><td>3-4</td><td>22.5</td><td>17</td><td>10</td><td>49.5</td></tr>
+    <tr><td>Fase 3 — Intelijen</td><td>5-6</td><td>15</td><td>25.5</td><td>8</td><td>48.5</td></tr>
+    <tr><td>Fase 4 — Integrasi</td><td>7-8</td><td>14</td><td>14.5</td><td>22</td><td>50.5</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>TOTAL</td><td>1-8</td><td>69.5</td><td>76.5</td><td>49.5</td><td>195.5</td></tr>
+  </tbody>
+</table>
+
+<h3>Kapasitas vs Beban</h3>
+<table>
+  <thead><tr><th>Developer</th><th>Capacity (68 MD)</th><th>Assigned</th><th>Utilization</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>Robby (FE)</td><td>68</td><td>69.5</td><td>102%</td><td>⚠️ Sedikit over — Firly assist di Sprint 4</td></tr>
+    <tr><td>Hackim (BE)</td><td>68</td><td>76.5</td><td>112%</td><td>⚠️ Over — Robby/Firly assist di Sprint 5-6</td></tr>
+    <tr><td>Firly (DevOps)</td><td>68</td><td>49.5</td><td>73%</td><td>✅ Buffer untuk assist tim + unexpected</td></tr>
+  </tbody>
+</table>
+
+<h1><span class="section-num">8.</span> Legend</h1>
+<table>
+  <thead><tr><th>Tanda</th><th>Arti</th></tr></thead>
+  <tbody>
+    <tr><td>🟢 (tanpa tanda)</td><td>Committed — pasti delivered</td></tr>
+    <tr><td>🟡</td><td>Butuh konfirmasi/resource dari client sebelum dikerjakan</td></tr>
+    <tr><td>🔴</td><td>Experimental / Best Effort — mungkin tidak 100% selesai</td></tr>
+    <tr><td>⚠️</td><td>Overload — butuh bantuan dari developer lain</td></tr>
+  </tbody>
+</table>
+
+<div class="doc-footer">
+  <p>Sprint Plan &mdash; Project Tracking &amp; Intelligence Platform</p>
+  <p>Internal Document &bull; Versi 1.0 &bull; 14 Mei 2026</p>
+</div>
+
+</div>
+</body>
+</html>
