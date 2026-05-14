@@ -159,10 +159,16 @@
   </tbody>
 </table>
 <p><strong>Fitur tambahan:</strong> Toggle layer, drawing tools, measurement tools, marker clustering dengan karva terkustomisasi, mode layar penuh, dan tema gelap.</p>
+<p><strong>Kontrol Layer dan Drawing Tools:</strong></p>
+<img src="wireframes/map-layers.png" alt="Layer Control & Drawing Tools" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 10px 0;">
+<p><strong>Layer Cuaca dan Meteorologi:</strong></p>
+<img src="wireframes/weather-layers.png" alt="Weather & Meteorology Layers" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 10px 0;">
 
 <h2 id="s3-3">3.3 Pelacakan GPS Real-time</h2>
-<p>Modul pelacakan posisi seluruh anggota tim lapangan secara real-time melalui WebSocket, dengan visualisasi trail dan indikator status pada peta. Tampilan mobile untuk operator lapangan:</p>
-<img src="wireframes/mobile.png" alt="Mobile Mockup" style="width: 50%; border: 1px solid #ccc; border-radius: 4px; margin: 15px auto; display: block;">
+<p>Modul pelacakan posisi seluruh anggota tim lapangan secara real-time melalui WebSocket, dengan visualisasi trail dan indikator status pada peta.</p>
+<img src="wireframes/gps-tracking.png" alt="GPS Tracking Detail" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 10px 0;">
+<p><strong>Tampilan mobile untuk operator lapangan:</strong></p>
+<img src="wireframes/mobile.png" alt="Mobile Mockup" style="width: 50%; border: 1px solid #ccc; border-radius: 4px; margin: 10px auto; display: block;">
 <ul>
   <li>Pelacakan posisi langsung pada peta dengan interval pembaruan 5–30 detik (dapat dikonfigurasi).</li>
   <li>Visualisasi riwayat rute (<em>trail</em>) pergerakan tim.</li>
@@ -174,6 +180,8 @@
 <h2 id="s3-4">3.4 Pengiriman Data Lapangan</h2>
 <img src="wireframes/reports.png" alt="Field Reports Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Mekanisme pengiriman data dan temuan dari lapangan yang otomatis ditandai pada peta berdasarkan koordinat GPS perangkat pengirim atau berdasarkan input operator pusat operasi.</p>
+<p><strong>Formulir Pengiriman Laporan (Foto, Video, Suara, Dokumen):</strong></p>
+<img src="wireframes/field-report-form.png" alt="Field Report Form" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 10px 0;">
 <ul>
   <li>Formulir pengiriman: lokasi, foto, video, suara, dan catatan deskriptif.</li>
   <li>Penandaan otomatis pada peta dengan ikon sesuai kategori.</li>
@@ -185,6 +193,8 @@
 <h2 id="s3-5">3.5 Komunikasi Real-time</h2>
 <img src="wireframes/chat.png" alt="Chat Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Sistem percakapan teks real-time berbasis ruang untuk koordinasi antar tim.</p>
+<p><strong>Detail Komunikasi (Teks, Foto, Video, Suara, Lokasi, Dokumen, Radio HT):</strong></p>
+<img src="wireframes/chat-detail.png" alt="Chat Detail" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 10px 0;">
 <ul>
   <li>Arsitektur berbasis ruang (<em>room-based</em>) — kanal per misi atau per tim.</li>
   <li>Pesan teks real-time melalui WebSocket.</li>
@@ -208,6 +218,8 @@
 <h2 id="s3-8">3.8 Integrasi Aliran Video CCTV</h2>
 <img src="wireframes/streaming.png" alt="Streaming Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Modul untuk menampilkan aliran video dari kamera CCTV pada posisi yang sesuai di peta.</p>
+<p><strong>Flow Integrasi CCTV dan Drone (Protokol dan Arsitektur):</strong></p>
+<img src="wireframes/cctv-drone-flow.png" alt="CCTV & Drone Integration Flow" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 10px 0;">
 <ul>
   <li>Penandaan kamera pada peta dengan ikon CCTV.</li>
   <li>Aliran video langsung dalam popup atau panel samping.</li>
@@ -315,8 +327,6 @@
     <tr><td>Perubahan ruang lingkup di luar kesepakatan</td><td>Tinggi</td><td>Sedang</td><td>Prosedur Perubahan Ruang Lingkup sesuai SOW</td></tr>
     <tr><td>Spesifikasi server tidak memadai</td><td>Tinggi</td><td>Rendah</td><td>Dokumentasi spesifikasi minimum, pengujian beban</td></tr>
     <tr><td>Inkompatibilitas protokol CCTV/drone</td><td>Sedang</td><td>Sedang</td><td>Verifikasi kompatibilitas di awal fase integrasi</td></tr>
-    <tr><td>Keterlambatan penyediaan API key/hardware</td><td>Tinggi</td><td>Sedang</td><td>Checklist resource per fase, reminder 2 minggu sebelum</td></tr>
-    <tr><td>Model CV dari Tim Data belum siap</td><td>Sedang</td><td>Sedang</td><td>Integrasi menggunakan mock API, switch ke real saat ready</td></tr>
   </tbody>
 </table>
 
