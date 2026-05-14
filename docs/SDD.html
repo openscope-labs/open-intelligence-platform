@@ -14,10 +14,10 @@
   <hr class="cover-divider">
   <div class="cover-meta">
     <div class="cover-meta-item"><span class="cover-meta-label">Pihak Pertama</span><span class="cover-meta-value">Openscopelabs</span></div>
-    <div class="cover-meta-item"><span class="cover-meta-label">Pihak Kedua</span><span class="cover-meta-value">Datalink Analysis</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Pihak Kedua</span><span class="cover-meta-value">Cakra Inteligence</span></div>
     <div class="cover-meta-item"><span class="cover-meta-label">Nomor Dokumen</span><span class="cover-meta-value">SDD/OSL/DLA/2026-001</span></div>
-    <div class="cover-meta-item"><span class="cover-meta-label">Tanggal</span><span class="cover-meta-value">12 Mei 2026</span></div>
-    <div class="cover-meta-item"><span class="cover-meta-label">Versi</span><span class="cover-meta-value">1.0</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Tanggal</span><span class="cover-meta-value">14 Mei 2026</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Versi</span><span class="cover-meta-value">2.0</span></div>
     <div class="cover-meta-item"><span class="cover-meta-label">Klasifikasi</span><span class="cover-meta-value">Confidential</span></div>
   </div>
   <div class="cover-footer">CONFIDENTIAL</div>
@@ -52,11 +52,11 @@
 <div class="document">
 
 <h1 id="s1"><span class="section-num">1.</span> Ringkasan Eksekutif</h1>
-<p><strong>Project Tracking &amp; Intelligence Platform</strong> adalah platform perangkat lunak berbasis web yang dirancang untuk mendukung operasi <em>Search and Rescue</em> (SAR), khususnya pelacakan dan pencarian orang hilang di area pegunungan. Platform ini mengintegrasikan teknologi pelacakan geolokasi real-time, peta interaktif multi-layer, analisis berbasis kecerdasan buatan, dan komunikasi terpadu dalam satu antarmuka.</p>
+<p><strong>Project Tracking &amp; Intelligence Platform</strong> adalah platform perangkat lunak berbasis web yang dirancang untuk mendukung operasi pelacakan, pencarian, komunikasi, monitoring, dan analisis data pada wilayah atau area tertentu. Platform ini mengintegrasikan teknologi pelacakan geolokasi real-time, auto alert, analitik data, peta interaktif multi-layer, analisis berbasis kecerdasan buatan, dan komunikasi terpadu dalam satu antarmuka.</p>
 
 <h3>1.1 Tujuan Sistem</h3>
 <ul>
-  <li>Menyediakan <em>Common Operating Picture</em> (COP) real-time untuk koordinasi operasi SAR.</li>
+  <li>Menyediakan <em>Common Operating Picture</em> (COP) real-time untuk koordinasi operasi pelacakan, pencarian, komunikasi, monitoring, dan analisis data pada wilayah atau area tertentu.</li>
   <li>Melacak posisi seluruh anggota tim lapangan secara real-time pada peta interaktif multi-layer.</li>
   <li>Mengintegrasikan data dari berbagai sumber — GPS, CCTV, dan drone — dalam satu antarmuka terpadu.</li>
   <li>Memanfaatkan kecerdasan buatan untuk analisis terrain, rekomendasi pola pencarian, dan prediksi pergerakan.</li>
@@ -69,7 +69,7 @@
   <tbody>
     <tr><td>Admin</td><td>Administrator sistem</td><td>Penuh — seluruh fitur dan konfigurasi</td></tr>
     <tr><td>Commander</td><td>Koordinator operasi</td><td>Dashboard, pelacakan, komunikasi, AI, streaming</td></tr>
-    <tr><td>Field Operator</td><td>Anggota tim lapangan</td><td>Pengiriman lokasi, komunikasi, pelaporan temuan</td></tr>
+    <tr><td>Field Operator</td><td>Anggota tim lapangan</td><td>Pengiriman lokasi, komunikasi, pelaporan temuan, AI, Streaming, Pelacakan</td></tr>
     <tr><td>Viewer</td><td>Pemantau dan pemangku kepentingan</td><td>Hanya melihat dashboard (baca saja)</td></tr>
   </tbody>
 </table>
@@ -82,9 +82,9 @@
 <table>
   <thead><tr><th>Lapisan</th><th>Komponen</th><th>Fungsi</th></tr></thead>
   <tbody>
-    <tr><td>Lapisan Antarmuka</td><td>Dashboard Desktop, Antarmuka Mobile</td><td>Antarmuka pengguna untuk pusat kendali dan tim lapangan</td></tr>
+    <tr><td>Lapisan Antarmuka</td><td>Dashboard Desktop, Antarmuka Mobile (Web App)</td><td>Antarmuka pengguna untuk pusat kendali dan tim lapangan</td></tr>
     <tr><td>Lapisan API</td><td>REST API, WebSocket Server</td><td>Routing, autentikasi, dan komunikasi real-time</td></tr>
-    <tr><td>Lapisan Aplikasi</td><td>Layanan Autentikasi, Pelacakan, Peta, Komunikasi, AI/RAG, Streaming, Cuaca</td><td>Logika bisnis seluruh modul</td></tr>
+    <tr><td>Lapisan Aplikasi</td><td>Layanan Autentikasi, Pelacakan, Peta, Komunikasi, AI/RAG, Streaming, Cuaca, Google Maps API, Computer Vision, Visualisasi Rute, rekomendasi area rekayasa cuaca/hujan buatan</td><td>Logika bisnis seluruh modul</td></tr>
     <tr><td>Lapisan Data</td><td>PostgreSQL + PostGIS, Redis, Vector Database</td><td>Penyimpanan geospasial, cache, dan embedding AI</td></tr>
     <tr><td>Layanan Eksternal</td><td>API Cuaca, Penyedia Tile Peta, API LLM, Aliran CCTV/Drone</td><td>Integrasi layanan pihak ketiga</td></tr>
   </tbody>
@@ -100,15 +100,15 @@
     <tr><td>Real-time</td><td>Socket.IO</td><td>WebSocket dengan mekanisme fallback, arsitektur berbasis ruang</td></tr>
     <tr><td>Database</td><td>PostgreSQL + PostGIS</td><td>Kueri geospasial native, matang, dan reliabel</td></tr>
     <tr><td>Cache</td><td>Redis</td><td>Performa in-memory, pub/sub untuk broadcast data</td></tr>
-    <tr><td>AI/LLM</td><td>LangChain + LLM API</td><td>Framework RAG yang fleksibel</td></tr>
-    <tr><td>Penyimpanan Vektor</td><td>pgvector / ChromaDB</td><td>Penyimpanan embedding untuk pencarian pengetahuan</td></tr>
+    <tr><td>AI/LLM</td><td>LangChain + LLM API (Token)</td><td>Framework RAG yang fleksibel</td></tr>
+    <tr><td>Penyimpanan Vektor</td><td>pgvector / ChromaDB (Qdrant)</td><td>Penyimpanan embedding untuk pencarian pengetahuan</td></tr>
     <tr><td>Server Media</td><td>Node-Media-Server</td><td>Relay aliran RTSP/RTMP ke HLS/WebRTC</td></tr>
-    <tr><td>Kontainerisasi</td><td>Docker + Docker Compose</td><td>Deployment yang reproducible dan terisolasi</td></tr>
+    <tr><td>Kontainerisasi</td><td>Docker + Docker Compose (Kubernetes dan CI/CD)</td><td>Deployment yang reproducible dan terisolasi</td></tr>
   </tbody>
 </table>
 
 <h2 id="s2-3">2.3 Arsitektur Deployment</h2>
-<p>Seluruh komponen di-deploy pada server yang disediakan oleh PIHAK KEDUA menggunakan kontainerisasi Docker. Nginx berfungsi sebagai reverse proxy dengan SSL termination.</p>
+<p>Seluruh komponen di-deploy pada server yang disediakan oleh PIHAK KEDUA menggunakan kontainerisasi Docker dan orkestrasi Kubernetes. Nginx berfungsi sebagai reverse proxy dengan SSL termination.</p>
 <table>
   <thead><tr><th>Layanan</th><th>Kontainer</th><th>Port Internal</th></tr></thead>
   <tbody>
@@ -130,7 +130,7 @@
   <li>Mekanisme login/logout dengan JWT access token dan refresh token.</li>
   <li>Kontrol akses berbasis peran — 4 tingkat akses.</li>
   <li>Manajemen profil pengguna dan pengelolaan sesi.</li>
-  <li>Pengamanan kata sandi menggunakan bcrypt.</li>
+  <li>Pengamanan kata sandi menggunakan bcrypt (Argon).</li>
 </ul>
 
 <h2 id="s3-2">3.2 Dashboard Peta Real-time dan Multi-Layer Map</h2>
@@ -142,13 +142,14 @@
     <tr><td>Satelit</td><td>Mapbox / Esri Satellite</td><td>Citra satelit area operasi</td></tr>
     <tr><td>Topografi</td><td>OpenTopoMap</td><td>Kontur elevasi — kritis untuk operasi pegunungan</td></tr>
     <tr><td>Cuaca</td><td>OpenWeatherMap</td><td>Kondisi cuaca real-time</td></tr>
-    <tr><td>Heat Map</td><td>Generated internal</td><td>Visualisasi area yang telah dicakup tim pencarian</td></tr>
+    <tr><td>Heat Map</td><td>Generated internal</td><td>Visualisasi area yang telah pencarian dicakup tim</td></tr>
     <tr><td>Petir</td><td>Blitzortung / OWM</td><td>Deteksi aktivitas petir real-time</td></tr>
     <tr><td>Awan</td><td>OpenWeatherMap</td><td>Visualisasi tutupan awan</td></tr>
+    <tr><td>Angin</td><td>OpenWeatherMap</td><td>Visualisasi arah dan kecepatan angin</td></tr>
     <tr><td>Prediksi Cuaca</td><td>OpenWeatherMap Forecast</td><td>Prakiraan cuaca hingga 5 hari</td></tr>
   </tbody>
 </table>
-<p><strong>Fitur tambahan:</strong> Toggle layer, drawing tools, measurement tools, marker clustering, mode layar penuh, dan tema gelap.</p>
+<p><strong>Fitur tambahan:</strong> Toggle layer, drawing tools, measurement tools, marker clustering dengan karvak terkustomisasi, mode layar penuh, dan tema gelap.</p>
 
 <h2 id="s3-3">3.3 Pelacakan GPS Real-time</h2>
 <p>Modul pelacakan posisi seluruh anggota tim lapangan secara real-time melalui WebSocket, dengan visualisasi trail dan indikator status pada peta.</p>
@@ -161,11 +162,12 @@
 </ul>
 
 <h2 id="s3-4">3.4 Pengiriman Data Lapangan</h2>
-<p>Mekanisme pengiriman data dan temuan dari lapangan yang otomatis ditandai pada peta berdasarkan koordinat GPS perangkat pengirim.</p>
+<p>Mekanisme pengiriman data dan temuan dari lapangan yang otomatis ditandai pada peta berdasarkan koordinat GPS perangkat pengirim atau berdasarkan input operator pusat operasi.</p>
 <ul>
-  <li>Formulir pengiriman: lokasi, foto, dan catatan deskriptif.</li>
+  <li>Formulir pengiriman: lokasi, foto, video, suara, dan catatan deskriptif.</li>
   <li>Penandaan otomatis pada peta dengan ikon sesuai kategori.</li>
   <li>Kategori: Jejak, Barang, Tanda, Titik Bahaya, Titik Istirahat.</li>
+  <li>Integrasi saluran komunikasi radio atau alat komunikasi lain yang digunakan dalam operasi.</li>
   <li>Antrean offline — data tersimpan secara lokal dan terkirim otomatis saat koneksi tersedia.</li>
 </ul>
 
@@ -180,9 +182,9 @@
 </ul>
 
 <h2 id="s3-6">3.6 Asisten AI dan RAG</h2>
-<p>Asisten kecerdasan buatan terintegrasi yang menggunakan arsitektur <em>Retrieval-Augmented Generation</em> (RAG) untuk menjawab pertanyaan berdasarkan basis pengetahuan operasi SAR.</p>
-<p><strong>Sumber basis pengetahuan:</strong> prosedur standar operasi SAR, data topografi, panduan survival di lingkungan pegunungan, log operasi sebelumnya, dan data cuaca historis.</p>
-<p><strong>Kapabilitas:</strong> antarmuka percakapan, kueri data dengan bahasa natural, rekomendasi pola pencarian, analisis risiko area, dan ringkasan status operasi.</p>
+<p>Asisten kecerdasan buatan terintegrasi yang menggunakan arsitektur <em>Retrieval-Augmented Generation</em> (RAG) untuk menjawab pertanyaan berdasarkan basis pengetahuan operasi SAR dan bentuk operasi lainnya.</p>
+<p><strong>Sumber basis pengetahuan:</strong> prosedur standar operasi SAR, data topografi, panduan survival di lingkungan pegunungan, log operasi sebelumnya, segala dokumen, pesan dan informasi yang dilaporkan, dan data cuaca historis.</p>
+<p><strong>Kapabilitas:</strong> antarmuka percakapan, kueri data dengan bahasa natural, rekomendasi pola pencarian, analisis risiko area, ringkasan status operasi, dan perkiraan lokasi.</p>
 
 <h2 id="s3-7">3.7 Prediksi Pergerakan Dasar</h2>
 <p>Modul prediksi berbasis model statistik dan heuristik untuk memperkirakan kemungkinan lokasi korban.</p>
@@ -197,13 +199,14 @@
   <li>Input: aliran RTSP/HLS dari perangkat yang disediakan PIHAK KEDUA.</li>
   <li>Dukungan minimum 4 aliran simultan.</li>
 </ul>
-<div class="callout"><div class="callout-title">Prasyarat</div><p>PIHAK KEDUA menyediakan kamera CCTV yang telah terkoneksi jaringan dan dapat diakses melalui protokol RTSP atau HLS.</p></div>
+<div class="callout"><div class="callout-title">Prasyarat</div><p>PIHAK KEDUA menyediakan kamera atau link streaming CCTV yang telah terkoneksi jaringan dan dapat diakses melalui protokol RTSP, HLS, atau format lainnya.</p></div>
 
 <h2 id="s3-9">3.9 Integrasi Aliran Video Drone</h2>
 <p>Modul untuk menampilkan aliran video langsung dari drone pada peta, termasuk pelacakan posisi drone jika data telemetri tersedia.</p>
 <ul>
   <li>Tampilan aliran video drone langsung pada peta.</li>
   <li>Input: aliran RTMP/WebRTC dari drone yang disediakan PIHAK KEDUA.</li>
+  <li>Kontrol CCTV dan drone jarak jauh.</li>
   <li>Integrasi berupa <em>stream relay</em> — bukan integrasi SDK vendor spesifik.</li>
 </ul>
 <div class="callout"><div class="callout-title">Prasyarat</div><p>PIHAK KEDUA menyediakan drone dengan kemampuan streaming langsung (output RTMP/WebRTC).</p></div>
@@ -215,6 +218,7 @@
   <tbody>
     <tr><td>Users</td><td>id, username, email, password_hash, role, is_active</td><td>Memiliki: TrackingData, FieldReports, ChatMessages</td></tr>
     <tr><td>Missions</td><td>id, name, description, last_known_position, status</td><td>Memiliki: TrackingData, FieldReports, ChatRooms</td></tr>
+    <tr><td>Target</td><td>—</td><td>—</td></tr>
     <tr><td>TrackingData</td><td>id, user_id, mission_id, position, altitude, speed, heading</td><td>Milik: Users, Missions</td></tr>
     <tr><td>FieldReports</td><td>id, user_id, mission_id, location, category, description, attachments</td><td>Milik: Users, Missions</td></tr>
     <tr><td>ChatRooms</td><td>id, mission_id, name, type</td><td>Milik: Missions; Memiliki: ChatMessages</td></tr>
@@ -257,9 +261,9 @@
 <ol>
   <li>Server yang disediakan memiliki spesifikasi minimum: 8 CPU cores, 16 GB RAM, 100 GB SSD.</li>
   <li>Server memiliki akses internet stabil untuk koneksi ke layanan API eksternal.</li>
-  <li>Perangkat CCTV dan drone yang disediakan telah memiliki kemampuan streaming (RTSP/RTMP/HLS).</li>
+  <li>Perangkat CCTV dan drone yang disediakan telah memiliki kemampuan streaming (RTSP/RTMP/HLS/Protokol lainnya).</li>
   <li>Tim lapangan menggunakan perangkat dengan peramban modern dan modul GPS aktif.</li>
-  <li>Koneksi internet di area operasi tersedia minimal pada level 3G/4G.</li>
+  <li>Koneksi internet di area operasi tersedia minimal pada level 2G/3G/4G/Band Lainnya.</li>
 </ol>
 <h3>7.2 Batasan</h3>
 <ol>
@@ -283,7 +287,7 @@
 
 <div class="doc-footer">
   <p>Solutions Design Document &mdash; Project Tracking &amp; Intelligence Platform</p>
-  <p>SDD/OSL/DLA/2026-001 &bull; Versi 1.0 &bull; 12 Mei 2026</p>
+  <p>SDD/OSL/DLA/2026-001 &bull; Versi 2.0 &bull; 14 Mei 2026</p>
 </div>
 
 </div>

@@ -14,9 +14,9 @@
   <hr class="cover-divider">
   <div class="cover-meta">
     <div class="cover-meta-item"><span class="cover-meta-label">Pihak Pertama</span><span class="cover-meta-value">Openscopelabs</span></div>
-    <div class="cover-meta-item"><span class="cover-meta-label">Pihak Kedua</span><span class="cover-meta-value">Datalink Analysis</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Pihak Kedua</span><span class="cover-meta-value">Cakra Inteligence</span></div>
     <div class="cover-meta-item"><span class="cover-meta-label">Nomor Dokumen</span><span class="cover-meta-value">SOW/OSL/DLA/2026-001</span></div>
-    <div class="cover-meta-item"><span class="cover-meta-label">Tanggal</span><span class="cover-meta-value">12 Mei 2026</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Tanggal</span><span class="cover-meta-value">14 Mei 2026</span></div>
   </div>
   <div class="cover-footer">CONFIDENTIAL</div>
 </div>
@@ -42,7 +42,7 @@
 <div class="document">
 
 <h1 id="s1"><span class="section-num">1.</span> Pendahuluan</h1>
-<p>PIHAK KEDUA membutuhkan pengembangan platform perangkat lunak berbasis web untuk mendukung operasi pelacakan dan pencarian di area pegunungan (<em>Search and Rescue</em>). Platform dimaksud harus mampu menampilkan posisi tim lapangan secara real-time, mengintegrasikan data dari berbagai sumber, serta menyediakan kemampuan analisis berbasis kecerdasan buatan.</p>
+<p>PIHAK KEDUA membutuhkan pengembangan platform perangkat lunak berbasis web untuk mendukung operasi pelacakan, pencarian, komunikasi, monitoring, dan analisis data pada wilayah atau area tertentu. Platform dimaksud harus mampu menampilkan posisi tim lapangan secara real-time, mengintegrasikan data dari berbagai sumber, serta menyediakan kemampuan analisis berbasis kecerdasan buatan.</p>
 <p>Dokumen Statement of Work ini mendefinisikan secara mengikat ruang lingkup pekerjaan, deliverables, timeline, dan ketentuan terkait lainnya. Segala pekerjaan yang <strong>tidak tercantum</strong> dalam dokumen ini dianggap <strong>berada di luar ruang lingkup</strong> dan akan dikenakan biaya tambahan melalui prosedur Perubahan Ruang Lingkup sebagaimana diatur pada Bagian 9.</p>
 
 <h1 id="s2"><span class="section-num">2.</span> Para Pihak</h1>
@@ -50,7 +50,7 @@
   <thead><tr><th>Pihak</th><th>Nama</th><th>Peran</th></tr></thead>
   <tbody>
     <tr><td>PIHAK PERTAMA</td><td>Openscopelabs</td><td>Perancangan, pengembangan, dan deployment sistem</td></tr>
-    <tr><td>PIHAK KEDUA</td><td>Datalink Analysis</td><td>Pemilik proyek dan penyedia infrastruktur</td></tr>
+    <tr><td>PIHAK KEDUA</td><td>Cakra Inteligence</td><td>Pemilik proyek dan penyedia infrastruktur</td></tr>
   </tbody>
 </table>
 
@@ -60,7 +60,7 @@
 <ul>
   <li>Dashboard peta interaktif sebagai pusat kendali operasi.</li>
   <li>8 (delapan) layer peta: Simple Map (OSM), Satelit, Topografi, Cuaca real-time, Heat Map, Petir, Awan, dan Prediksi Cuaca.</li>
-  <li>Perangkat menggambar (<em>drawing tools</em>) untuk penandaan area: marker, polyline, polygon, circle.</li>
+  <li>Perangkat menggambar (<em>drawing tools</em>) untuk penandaan area: marker, polyline, polygon, circle, dilengkapi karvak terkustomisasi.</li>
   <li>Perangkat pengukuran (<em>measurement tools</em>) untuk jarak dan luas area.</li>
   <li>Mode layar penuh dan tema gelap untuk pusat kendali.</li>
 </ul>
@@ -84,14 +84,15 @@
 <h3>D. Komunikasi Real-time</h3>
 <ul>
   <li>Sistem percakapan berbasis ruang (<em>room-based</em>) per misi atau per tim.</li>
-  <li>Pesan teks real-time, berbagi lokasi dan foto.</li>
+  <li>Pesan teks real-time, berbagi lokasi dan foto, video, dan suara.</li>
+  <li>Integrasi Komunikasi berbasis radio atau alat komunikasi sinyal lainnya.</li>
   <li>Riwayat pesan dan fitur pencarian.</li>
 </ul>
 
 <h3>E. Asisten AI dan RAG</h3>
 <ul>
   <li>Antarmuka percakapan dengan asisten kecerdasan buatan berbasis RAG.</li>
-  <li>Basis pengetahuan: prosedur SAR, data terrain, dan panduan survival.</li>
+  <li>Basis pengetahuan: prosedur SAR, data terrain, dan panduan survival, segala dokumen, pesan dan informasi yang dilaporkan, dan data cuaca historis.</li>
   <li>Kemampuan query data operasi dengan bahasa natural dan rekomendasi pola pencarian.</li>
 </ul>
 
@@ -105,7 +106,7 @@
 <h3>G. Integrasi Aliran Video CCTV</h3>
 <ul>
   <li>Tampilan aliran video CCTV langsung pada peta dalam bentuk popup atau panel samping.</li>
-  <li>Input: aliran RTSP/HLS dari perangkat kamera milik PIHAK KEDUA.</li>
+  <li>Input: aliran RTSP/HLS dari perangkat kamera milik PIHAK KEDUA atau pihak lain yang disediakan PIHAK KEDUA.</li>
   <li>Indikator status per kamera, dukungan minimum 4 aliran simultan.</li>
 </ul>
 
@@ -113,6 +114,8 @@
 <ul>
   <li>Tampilan aliran video drone langsung dan pelacakan posisi drone pada peta.</li>
   <li>Input: aliran RTMP/WebRTC dari drone milik PIHAK KEDUA.</li>
+  <li>Projeksi camera kepada peta secara realtime.</li>
+  <li>Kendali drone jarak jauh.</li>
   <li>Integrasi berupa <em>stream relay</em> — bukan integrasi SDK vendor spesifik.</li>
 </ul>
 
@@ -131,7 +134,7 @@
 
 <h3>K. Deployment Produksi</h3>
 <ul>
-  <li>Deployment ke server PIHAK KEDUA menggunakan Docker.</li>
+  <li>Deployment ke server PIHAK KEDUA menggunakan Docker dan Kubernetes.</li>
   <li>Konfigurasi Nginx reverse proxy dan SSL/HTTPS.</li>
   <li>Pengaturan monitoring dan logging dasar.</li>
 </ul>
@@ -163,23 +166,23 @@
   <thead><tr><th>No</th><th>Deliverable</th><th>Format</th></tr></thead>
   <tbody>
     <tr><td>1</td><td>Kode sumber lengkap</td><td>Git repository</td></tr>
-    <tr><td>2</td><td>Dokumentasi teknis (README, dokumentasi API)</td><td>Markdown</td></tr>
+    <tr><td>2</td><td>Dokumentasi teknis (README, dokumentasi API)</td><td>Markdown, Postman</td></tr>
     <tr><td>3</td><td>Skema database dan skrip migrasi</td><td>SQL / ORM migration</td></tr>
-    <tr><td>4</td><td>Konfigurasi deployment (Docker Compose)</td><td>YAML</td></tr>
+    <tr><td>4</td><td>Konfigurasi deployment (Docker Compose dan Kubernetes)</td><td>YAML</td></tr>
     <tr><td>5</td><td>Sistem ter-deploy dan berjalan di server PIHAK KEDUA</td><td>Running application</td></tr>
     <tr><td>6</td><td>Panduan konfigurasi environment</td><td>Markdown</td></tr>
   </tbody>
 </table>
 
 <h1 id="s6"><span class="section-num">6.</span> Timeline dan Milestones</h1>
-<p><strong>Total durasi:</strong> 6 (enam) bulan &nbsp;&mdash;&nbsp; <strong>Estimasi mulai:</strong> Juni 2026 &nbsp;&mdash;&nbsp; <strong>Estimasi selesai:</strong> November 2026</p>
+<p><strong>Total durasi:</strong> 4 (empat) bulan &nbsp;&mdash;&nbsp; <strong>Estimasi mulai:</strong> Mei 2026 &nbsp;&mdash;&nbsp; <strong>Estimasi selesai:</strong> Agustus 2026</p>
 <table>
   <thead><tr><th>Fase</th><th>Periode</th><th>Ruang Lingkup</th><th>Milestone</th></tr></thead>
   <tbody>
-    <tr><td><span class="badge">Fase 1</span><br>Platform Inti</td><td>Bulan 1–2</td><td>Infrastruktur, autentikasi, dashboard peta multi-layer, pelacakan GPS, pengiriman data lapangan</td><td>Demonstrasi: peta interaktif dengan pelacakan GPS berfungsi</td></tr>
-    <tr><td><span class="badge">Fase 2</span><br>Komunikasi</td><td>Bulan 3–4</td><td>Percakapan real-time, layer cuaca dan overlay, heat map, prediksi cuaca</td><td>Demonstrasi: sistem percakapan dan seluruh layer peta berfungsi</td></tr>
-    <tr><td><span class="badge">Fase 3</span><br>Intelijen</td><td>Bulan 5</td><td>Asisten AI dan RAG, prediksi pergerakan dasar</td><td>Demonstrasi: asisten AI berfungsi dengan basis pengetahuan</td></tr>
-    <tr><td><span class="badge">Fase 4</span><br>Integrasi &amp; Deploy</td><td>Bulan 6</td><td>Integrasi CCTV dan drone, deployment produksi, pengujian</td><td>Serah terima: sistem siap produksi</td></tr>
+    <tr><td><span class="badge">Fase 1</span><br>Platform Inti</td><td>Bulan 1</td><td>Infrastruktur, autentikasi, dashboard peta multi-layer, pelacakan GPS dan Geolokasi, pengiriman data lapangan</td><td>Demonstrasi: peta interaktif dengan pelacakan GPS berfungsi</td></tr>
+    <tr><td><span class="badge">Fase 2</span><br>Komunikasi</td><td>Bulan 2</td><td>Percakapan real-time, layer cuaca dan overlay, heat map, prediksi cuaca</td><td>Demonstrasi: sistem percakapan dan seluruh layer peta berfungsi</td></tr>
+    <tr><td><span class="badge">Fase 3</span><br>Intelijen</td><td>Bulan 3</td><td>Asisten AI dan RAG, prediksi pergerakan dasar</td><td>Demonstrasi: asisten AI berfungsi dengan basis pengetahuan</td></tr>
+    <tr><td><span class="badge">Fase 4</span><br>Integrasi &amp; Deploy</td><td>Bulan 4</td><td>Integrasi CCTV dan drone, deployment produksi, pengujian</td><td>Serah terima: sistem siap produksi</td></tr>
   </tbody>
 </table>
 <p>Setiap akhir fase dilaksanakan demonstrasi hasil kerja. PIHAK KEDUA memiliki waktu <strong>5 (lima) hari kerja</strong> setelah demonstrasi untuk menyampaikan umpan balik. Umpan balik yang berada dalam ruang lingkup SOW akan ditindaklanjuti; umpan balik di luar ruang lingkup akan mengikuti prosedur Perubahan Ruang Lingkup.</p>
@@ -208,7 +211,7 @@
   <li>Menyerahkan kode sumber dan dokumentasi teknis.</li>
   <li>Melakukan deployment ke server PIHAK KEDUA.</li>
 </ol>
-<h3>8.2 PIHAK KEDUA (Datalink Analysis)</h3>
+<h3>8.2 PIHAK KEDUA (Cakra Inteligence)</h3>
 <ol>
   <li>Melakukan pembayaran sesuai jadwal yang disepakati.</li>
   <li>Menyediakan server untuk pengembangan dan produksi.</li>
@@ -253,7 +256,7 @@
 
 <h1 id="s12"><span class="section-num">12.</span> Hak Kekayaan Intelektual</h1>
 <ul>
-  <li>Kode sumber menjadi <strong>milik PIHAK KEDUA</strong> setelah seluruh pembayaran dilunasi.</li>
+  <li>Kode sumber menjadi <strong>milik PIHAK KEDUA</strong> setelah seluruh pembayaran per termin dilunasi (Deliverable per termin).</li>
   <li>PIHAK KEDUA berhak memodifikasi dan mengembangkan kode sumber.</li>
   <li>Komponen sumber terbuka mengikuti lisensi masing-masing.</li>
   <li>PIHAK PERTAMA berhak mencantumkan proyek dalam portofolio tanpa informasi sensitif.</li>
@@ -273,7 +276,7 @@
     </div>
     <div class="signature-card">
       <h4>Pihak Kedua</h4>
-      <div class="org-name">Datalink Analysis</div>
+      <div class="org-name">Cakra Inteligence</div>
       <div class="signature-field"><label>Nama Lengkap</label><div class="line"></div></div>
       <div class="signature-field"><label>Jabatan</label><div class="line"></div></div>
       <div class="signature-field sign-area"><label>Tanda Tangan</label><div class="line"></div></div>
@@ -284,7 +287,7 @@
 
 <div class="doc-footer">
   <p>Statement of Work &mdash; Project Tracking &amp; Intelligence Platform</p>
-  <p>SOW/OSL/DLA/2026-001 &bull; Versi 1.0 &bull; 12 Mei 2026</p>
+  <p>SOW/OSL/DLA/2026-001 &bull; Versi 2.0 &bull; 14 Mei 2026</p>
 </div>
 
 </div>
