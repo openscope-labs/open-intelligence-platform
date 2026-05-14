@@ -136,9 +136,9 @@
 <p>Sistem autentikasi berbasis JWT (<em>JSON Web Token</em>) dengan kontrol akses berbasis peran untuk mengatur hak akses setiap pengguna sesuai perannya dalam operasi.</p>
 <ul>
   <li>Mekanisme login/logout dengan JWT access token dan refresh token.</li>
-  <li>Kontrol akses berbasis peran — 4 tingkat akses.</li>
-  <li>Manajemen profil pengguna dan pengelolaan sesi.</li>
-  <li>Pengamanan kata sandi menggunakan Argon.</li>
+  <li>Kontrol akses berbasis peran (<em>Role-Based Access Control</em>) — 4 tingkat akses.</li>
+  <li>Manajemen profil pengguna dan pengelolaan sesi aktif.</li>
+  <li>Pengamanan kata sandi menggunakan algoritma Argon2.</li>
 </ul>
 
 <h2 id="s3-2">3.2 Dashboard Peta Real-time dan Multi-Layer Map</h2>
@@ -177,8 +177,8 @@
 <ul>
   <li>Formulir pengiriman: lokasi, foto, video, suara, dan catatan deskriptif.</li>
   <li>Penandaan otomatis pada peta dengan ikon sesuai kategori.</li>
-  <li>Kategori: Jejak, Barang, Tanda, Titik Bahaya, Titik Istirahat.</li>
-  <li>Integrasi saluran komunikasi radio atau alat komunikasi lain yang digunakan dalam operasi.</li>
+  <li>Kategori temuan: Jejak, Barang, Tanda, Titik Bahaya, Titik Istirahat.</li>
+  <li>Integrasi saluran komunikasi radio atau alat komunikasi lain yang digunakan dalam operasi. <small class="note">(Catatan: bergantung pada ketersediaan perangkat dan protokol yang didukung.)</small></li>
   <li>Antrean offline — data tersimpan secara lokal dan terkirim otomatis saat koneksi tersedia.</li>
 </ul>
 
@@ -196,8 +196,8 @@
 <h2 id="s3-6">3.6 Asisten AI dan RAG</h2>
 <img src="wireframes/ai-assistant.png" alt="AI Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Asisten kecerdasan buatan terintegrasi yang menggunakan arsitektur <em>Retrieval-Augmented Generation</em> (RAG) untuk menjawab pertanyaan berdasarkan basis pengetahuan operasi SAR dan bentuk operasi lainnya.</p>
-<p><strong>Sumber basis pengetahuan:</strong> prosedur standar operasi SAR, data topografi, panduan survival di lingkungan pegunungan, log operasi sebelumnya, segala dokumen, pesan dan informasi yang dilaporkan, dan data cuaca historis.</p>
-<p><strong>Kapabilitas:</strong> antarmuka percakapan, kueri data dengan bahasa natural, rekomendasi pola pencarian, analisis risiko area, ringkasan status operasi, dan perkiraan lokasi.</p>
+<p><strong>Sumber basis pengetahuan:</strong> prosedur standar operasi, data topografi, panduan survival, log operasi sebelumnya, dokumen dan laporan yang diunggah, serta data cuaca historis.</p>
+<p><strong>Kapabilitas:</strong> antarmuka percakapan, kueri data dengan bahasa natural, rekomendasi pola pencarian, analisis risiko area, ringkasan status operasi, dan estimasi lokasi.</p>
 
 <h2 id="s3-7">3.7 Prediksi Pergerakan Dasar</h2>
 <img src="wireframes/analytics.png" alt="Analytics Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">

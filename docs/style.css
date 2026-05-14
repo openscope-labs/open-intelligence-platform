@@ -336,6 +336,16 @@ li { margin-bottom: 4px; }
   color: #888;
 }
 
+.note {
+  display: block;
+  color: #1a73e8;
+  font-style: italic;
+  margin-top: 4px;
+  padding: 4px 0 4px 10px;
+  border-left: 2px solid #1a73e8;
+  font-size: 0.85em;
+}
+
 .page-break { page-break-before: always; }
 
 /* ===== PRINT ===== */

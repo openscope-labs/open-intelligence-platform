@@ -42,7 +42,7 @@
 <div class="document">
 
 <h1 id="s1"><span class="section-num">1.</span> Pendahuluan</h1>
-<p>PIHAK KEDUA membutuhkan pengembangan platform perangkat lunak berbasis web untuk mendukung operasi pelacakan, pencarian, komunikasi, monitoring, dan analisis data pada wilayah atau area tertentu. Platform dimaksud harus mampu menampilkan posisi tim lapangan secara real-time, mengintegrasikan data dari berbagai sumber, serta menyediakan kemampuan analisis berbasis kecerdasan buatan.</p>
+<p>PIHAK KEDUA membutuhkan pengembangan platform perangkat lunak berbasis web untuk mendukung operasi pelacakan, pencarian, komunikasi, monitoring, dan analisis data pada wilayah atau area tertentu. Platform ini harus mampu menampilkan posisi tim lapangan secara real-time, mengintegrasikan data dari berbagai sumber, serta menyediakan kemampuan analisis berbasis kecerdasan buatan.</p>
 <p>Dokumen Statement of Work ini mendefinisikan secara mengikat ruang lingkup pekerjaan, deliverables, timeline, dan ketentuan terkait lainnya. Segala pekerjaan yang <strong>tidak tercantum</strong> dalam dokumen ini dianggap <strong>berada di luar ruang lingkup</strong> dan akan dikenakan biaya tambahan melalui prosedur Perubahan Ruang Lingkup sebagaimana diatur pada Bagian 9.</p>
 
 <h1 id="s2"><span class="section-num">2.</span> Para Pihak</h1>
@@ -83,9 +83,9 @@
 <h3>D. Komunikasi Real-time</h3>
 <ul>
   <li>Sistem percakapan berbasis ruang (<em>room-based</em>) per misi atau per tim.</li>
-  <li>Pesan teks real-time, berbagi lokasi dan foto, video, dan suara.</li>
-  <li>Integrasi Komunikasi berbasis radio atau alat komunikasi sinyal lainnya.</li>
-  <li>Riwayat pesan dan fitur pencarian.</li>
+  <li>Pesan teks real-time dengan dukungan berbagi lokasi, foto, video, dan suara.</li>
+  <li>Integrasi komunikasi berbasis radio HT atau alat komunikasi sinyal lainnya. <small class="note">(Catatan: bersifat eksperimental — bergantung pada ketersediaan perangkat dan protokol yang didukung.)</small></li>
+  <li>Riwayat pesan dengan fitur pencarian.</li>
 </ul>
 
 <h3>E. Asisten AI dan RAG</h3>
@@ -113,9 +113,9 @@
 <ul>
   <li>Tampilan aliran video drone langsung dan pelacakan posisi drone pada peta.</li>
   <li>Input: aliran RTMP/WebRTC dari drone milik PIHAK KEDUA.</li>
-  <li>Projeksi camera kepada peta secara realtime.</li>
-  <li>Kendali drone jarak jauh.</li>
-  <li>Integrasi berupa <em>stream relay</em> — bukan integrasi SDK vendor spesifik.</li>
+  <li>Proyeksi kamera drone terhadap peta secara real-time.</li>
+  <li>Kendali drone jarak jauh. <small class="note">(Catatan: cakupan kendali terbatas pada kontrol kamera — kendali navigasi penerbangan bersifat eksperimental dan bergantung pada kompatibilitas perangkat.)</small></li>
+  <li>Integrasi berupa <em>stream relay</em> — bukan integrasi SDK vendor spesifik. <small class="note">(Catatan: driver kustom akan dikembangkan sebagai bagian dari riset awal integrasi.)</small></li>
 </ul>
 
 <h3>I. Aplikasi Web Responsif</h3>
