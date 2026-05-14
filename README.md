@@ -107,6 +107,39 @@ Detail per sprint → lihat `docs/sprint-plan.html`
 
 ---
 
+## 🖼 UI Mockups / Wireframes
+
+Berikut adalah rancangan antarmuka (wireframes) untuk platform yang akan dibangun, mencakup seluruh alur kerja utama:
+
+1. **Dashboard Utama (Peta & Tracking)**
+![Dashboard Peta](docs/wireframes/dashboard.png)
+
+2. **Panel Komunikasi (Chat)**
+![Chat & Komunikasi](docs/wireframes/chat.png)
+
+3. **Asisten AI (RAG Mode)**
+![Asisten AI](docs/wireframes/ai-assistant.png)
+
+4. **Laporan Lapangan (Field Reports)**
+![Field Reports](docs/wireframes/reports.png)
+
+5. **Streaming Video (CCTV & Drone)**
+![Video Streaming](docs/wireframes/streaming.png)
+
+6. **Prediksi & Analitik (Heat Map & Telco)**
+![Analitik Prediksi](docs/wireframes/analytics.png)
+
+7. **Tampilan Mobile (Field Operator)**
+![Mobile Web App](docs/wireframes/mobile.png)
+
+8. **Manajemen Pengguna (Admin)**
+![Admin Panel](docs/wireframes/admin.png)
+
+9. **Halaman Login**
+![Login Page](docs/wireframes/login.png)
+
+---
+
 ## 🏗 Arsitektur
 
 ```
