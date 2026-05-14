@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>PRD — CAKRA Intelligence Platform</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cover-page">
+  <div class="cover-doc-type">Product Requirements Document</div>
+  <h1 class="cover-title">CAKRA Intelligence<br>Platform</h1>
+  <p class="cover-subtitle">Dokumen Kebutuhan Produk</p>
+  <hr class="cover-divider">
+  <div class="cover-meta">
+    <div class="cover-meta-item"><span class="cover-meta-label">Pihak Pertama</span><span class="cover-meta-value">Openscopelabs</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Pihak Kedua</span><span class="cover-meta-value">Cakra Inteligence</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Nomor Dokumen</span><span class="cover-meta-value">PRD/OSL/DLA/2026-001</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Tanggal</span><span class="cover-meta-value">14 Mei 2026</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Versi</span><span class="cover-meta-value">1.0</span></div>
+  </div>
+  <div class="cover-footer">CONFIDENTIAL</div>
+</div>
+
+<div class="toc">
+  <h2>Daftar Isi</h2>
+  <ol class="toc-list">
+    <li><a href="#s1">Visi dan Tujuan Produk</a></li>
+    <li><a href="#s2">Pengguna dan Persona</a></li>
+    <li><a href="#s3">Fitur dan Kebutuhan Fungsional</a></li>
+    <li><a href="#s4">Alur Pengguna (User Flow)</a></li>
+    <li><a href="#s5">Kebutuhan Non-Fungsional</a></li>
+    <li><a href="#s6">Metrik Keberhasilan</a></li>
+    <li><a href="#s7">Prioritas dan Fase Pengembangan</a></li>
+    <li><a href="#s8">Dependensi dan Risiko</a></li>
+  </ol>
+</div>
+
+<div class="document">
+
+<!-- ============================================ -->
+<h1 id="s1"><span class="section-num">1.</span> Visi dan Tujuan Produk</h1>
+
+<h3>1.1 Pernyataan Visi</h3>
+<p><strong>CAKRA Intelligence Platform</strong> adalah platform operasi terpadu berbasis web yang menyatukan pelacakan geolokasi real-time, komunikasi tim, analisis kecerdasan buatan, dan integrasi video surveillance dalam satu antarmuka — memberikan <em>Common Operating Picture</em> (COP) kepada seluruh pemangku kepentingan operasi.</p>
+
+<h3>1.2 Masalah yang Diselesaikan</h3>
+<ul>
+  <li>Koordinasi tim lapangan masih menggunakan alat terpisah (WhatsApp, peta kertas, radio) tanpa integrasi data terpusat.</li>
+  <li>Tidak ada visualisasi posisi tim dan aset secara real-time pada satu dashboard.</li>
+  <li>Analisis data operasi (cuaca, medan, riwayat) dilakukan secara manual dan lambat.</li>
+  <li>Aliran video CCTV dan drone tidak terintegrasi dengan peta operasi.</li>
+</ul>
+
+<h3>1.3 Tujuan Bisnis</h3>
+<ul>
+  <li>Mempercepat waktu respons operasi lapangan hingga 40%.</li>
+  <li>Menyediakan satu sumber kebenaran (<em>single source of truth</em>) untuk seluruh data operasi.</li>
+  <li>Mengurangi ketergantungan pada komunikasi verbal dengan dokumentasi digital otomatis.</li>
+</ul>
+
+<!-- ============================================ -->
+<div class="page-break"></div>
+<h1 id="s2"><span class="section-num">2.</span> Pengguna dan Persona</h1>
+
+<table>
+  <thead><tr><th>Persona</th><th>Peran</th><th>Kebutuhan Utama</th><th>Platform</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Komandan Operasi</strong><br>(Commander)</td><td>Koordinator seluruh operasi dari pusat kendali</td><td>Melihat posisi semua tim, memantau progress, menerima laporan, berkomunikasi, mengambil keputusan berbasis data AI</td><td>Desktop</td></tr>
+    <tr><td><strong>Operator Lapangan</strong><br>(Field Operator)</td><td>Anggota tim di lapangan</td><td>Mengirim posisi GPS, melaporkan temuan (foto/video/suara), berkomunikasi dengan pusat, menerima arahan</td><td>Mobile Web</td></tr>
+    <tr><td><strong>Administrator</strong><br>(Admin)</td><td>Pengelola sistem dan pengguna</td><td>Mengelola akun pengguna, mengatur peran, memantau sistem, mengelola sumber video</td><td>Desktop</td></tr>
+    <tr><td><strong>Pemantau</strong><br>(Viewer)</td><td>Pemangku kepentingan yang memantau</td><td>Melihat dashboard dan status operasi secara real-time (baca saja)</td><td>Desktop/Mobile</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================================ -->
+<div class="page-break"></div>
+<h1 id="s3"><span class="section-num">3.</span> Fitur dan Kebutuhan Fungsional</h1>
+
+<h2>3.1 Dashboard Peta Utama</h2>
+<p><strong>Prioritas: P0 (Wajib)</strong> &nbsp;|&nbsp; <strong>Fase: 1</strong></p>
+<table>
+  <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
+  <tbody>
+    <tr><td>F-MAP-01</td><td>Peta interaktif sebagai pusat kendali utama</td><td>Peta dapat di-zoom, pan, dan rotate. Mendukung mode layar penuh dan tema gelap.</td></tr>
+    <tr><td>F-MAP-02</td><td>8 layer peta yang dapat di-toggle</td><td>Pengguna dapat mengaktifkan/menonaktifkan: Simple Map, Satelit, Topografi, Cuaca, Heat Map, Petir, Awan, Prediksi Cuaca.</td></tr>
+    <tr><td>F-MAP-03</td><td>Drawing tools untuk penandaan area</td><td>Tersedia 6 alat gambar: Marker, Polyline, Polygon, Circle, Ruler, Eraser. Objek gambar tersimpan per misi.</td></tr>
+    <tr><td>F-MAP-04</td><td>Mode peta 3D dan tilted view</td><td>Pengguna dapat beralih antara tampilan 2D dan 3D.</td></tr>
+    <tr><td>F-MAP-05</td><td>Pemetaan area terkustomisasi dengan karva</td><td>Pengguna dapat menggambar area dengan bentuk geometri dan skala yang ditentukan.</td></tr>
+  </tbody>
+</table>
+
+<h2>3.2 Pelacakan GPS Real-time</h2>
+<p><strong>Prioritas: P0 (Wajib)</strong> &nbsp;|&nbsp; <strong>Fase: 1</strong></p>
+<table>
+  <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
+  <tbody>
+    <tr><td>F-GPS-01</td><td>Pelacakan posisi tim lapangan secara real-time</td><td>Posisi seluruh anggota tampil di peta dengan pembaruan 5–30 detik (dapat dikonfigurasi).</td></tr>
+    <tr><td>F-GPS-02</td><td>Visualisasi riwayat rute (trail)</td><td>Trail pergerakan ditampilkan sebagai garis berwarna dengan timestamp.</td></tr>
+    <tr><td>F-GPS-03</td><td>Indikator kecepatan, arah, dan ketinggian</td><td>Informasi muncul saat klik pada marker anggota tim.</td></tr>
+    <tr><td>F-GPS-04</td><td>Peringatan geofencing</td><td>Notifikasi otomatis muncul saat anggota keluar dari zona operasi yang ditentukan.</td></tr>
+    <tr><td>F-GPS-05</td><td>Ekspor data pelacakan</td><td>Data dapat diekspor dalam format GPX dan KML.</td></tr>
+  </tbody>
+</table>
+
+<h2>3.3 Pengiriman Data Lapangan</h2>
+<p><strong>Prioritas: P0 (Wajib)</strong> &nbsp;|&nbsp; <strong>Fase: 1</strong></p>
+<table>
+  <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
+  <tbody>
+    <tr><td>F-RPT-01</td><td>Formulir pengiriman laporan dari lapangan</td><td>Form mencakup: lokasi (auto-GPS), kategori, deskripsi, dan lampiran multimedia.</td></tr>
+    <tr><td>F-RPT-02</td><td>Lampiran multimedia</td><td>Mendukung unggah: foto, video, rekaman suara, dan dokumen.</td></tr>
+    <tr><td>F-RPT-03</td><td>Kategorisasi temuan</td><td>5 kategori: Jejak, Barang, Tanda, Titik Bahaya, Titik Istirahat. Masing-masing memiliki ikon pada peta.</td></tr>
+    <tr><td>F-RPT-04</td><td>Penandaan otomatis pada peta</td><td>Laporan otomatis muncul di peta dengan ikon kategori pada koordinat pengirim.</td></tr>
+    <tr><td>F-RPT-05</td><td>Antrean offline</td><td>Data tersimpan lokal saat offline dan terkirim otomatis saat koneksi tersedia. Indikator jumlah antrian ditampilkan.</td></tr>
+  </tbody>
+</table>
+
+<h2>3.4 Komunikasi Real-time</h2>
+<p><strong>Prioritas: P0 (Wajib)</strong> &nbsp;|&nbsp; <strong>Fase: 2</strong></p>
+<table>
+  <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
+  <tbody>
+    <tr><td>F-COM-01</td><td>Percakapan berbasis ruang (room-based)</td><td>Tersedia kanal per misi dan per tim. Pengguna dapat bergabung ke beberapa ruang.</td></tr>
+    <tr><td>F-COM-02</td><td>Berbagi multimedia dalam chat</td><td>Mendukung: teks, foto, video, rekaman suara, lokasi (otomatis ditandai di peta), dan berkas dokumen.</td></tr>
+    <tr><td>F-COM-03</td><td>Riwayat pesan dan pencarian</td><td>Seluruh pesan tersimpan dan dapat dicari berdasarkan kata kunci.</td></tr>
+    <tr><td>F-COM-04</td><td>Integrasi Radio HT</td><td>Indikator frekuensi radio HT yang terhubung. <small class="note">(Catatan: bersifat eksperimental — bergantung pada ketersediaan perangkat.)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>3.5 Asisten AI dan RAG</h2>
+<p><strong>Prioritas: P1 (Penting)</strong> &nbsp;|&nbsp; <strong>Fase: 3</strong></p>
+<table>
+  <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
+  <tbody>
+    <tr><td>F-AI-01</td><td>Antarmuka percakapan dengan AI</td><td>Pengguna dapat bertanya menggunakan bahasa natural. AI merespons dengan konteks operasi.</td></tr>
+    <tr><td>F-AI-02</td><td>Basis pengetahuan (RAG)</td><td>AI menggunakan dokumen yang diunggah (SOP, panduan, log operasi, data cuaca) sebagai sumber jawaban.</td></tr>
+    <tr><td>F-AI-03</td><td>Manajemen dokumen basis pengetahuan</td><td>Pengguna dapat mengunggah, melihat daftar, dan menghapus dokumen dari basis pengetahuan.</td></tr>
+    <tr><td>F-AI-04</td><td>Referensi sumber jawaban</td><td>Setiap jawaban AI menampilkan nama dokumen sumber yang digunakan.</td></tr>
+  </tbody>
+</table>
+
+<h2>3.6 Prediksi Pergerakan dan Analitik</h2>
+<p><strong>Prioritas: P1 (Penting)</strong> &nbsp;|&nbsp; <strong>Fase: 3</strong></p>
+<table>
+  <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
+  <tbody>
+    <tr><td>F-PRD-01</td><td>Peta probabilitas (heat map)</td><td>Heat map ditampilkan berdasarkan LKP, terrain, cuaca, dan profil korban.</td></tr>
+    <tr><td>F-PRD-02</td><td>Rekomendasi area pencarian</td><td>Sistem merekomendasikan area prioritas dan estimasi radius jangkauan.</td></tr>
+    <tr><td>F-PRD-03</td><td>Riwayat perangkat telekomunikasi</td><td>Timeline koneksi Cell ID ditampilkan sebagai grafik horizontal.</td></tr>
+    <tr><td>F-PRD-04</td><td>Auto Alert kepadatan dan kerumunan</td><td>Peringatan otomatis dari data Google Maps dan model Computer Vision. <small class="note">(Catatan: model CV disediakan oleh Tim Data Cakra.)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>3.7 Integrasi Video CCTV dan Drone</h2>
+<p><strong>Prioritas: P1 (Penting)</strong> &nbsp;|&nbsp; <strong>Fase: 4</strong></p>
+<table>
+  <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
+  <tbody>
+    <tr><td>F-VID-01</td><td>Tampilan aliran CCTV pada peta</td><td>Ikon kamera pada peta, klik untuk membuka video dalam popup/panel. Min. 4 stream simultan.</td></tr>
+    <tr><td>F-VID-02</td><td>Tampilan aliran drone pada peta</td><td>Posisi drone ditampilkan pada peta dengan video feed langsung.</td></tr>
+    <tr><td>F-VID-03</td><td>Kontrol kamera jarak jauh</td><td>Pan/Tilt/Zoom untuk kamera yang mendukung. <small class="note">(Catatan: kendali navigasi drone bersifat eksperimental.)</small></td></tr>
+    <tr><td>F-VID-04</td><td>Flow integrasi stream relay</td><td>Drone (RTMP) → Raspberry Pi → Node-Media-Server → Browser. CCTV (RTSP) → Node-Media-Server → Browser.</td></tr>
+  </tbody>
+</table>
+
+<h2>3.8 Manajemen Pengguna</h2>
+<p><strong>Prioritas: P0 (Wajib)</strong> &nbsp;|&nbsp; <strong>Fase: 1</strong></p>
+<table>
+  <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
+  <tbody>
+    <tr><td>F-USR-01</td><td>Autentikasi JWT</td><td>Login/logout dengan access token dan refresh token.</td></tr>
+    <tr><td>F-USR-02</td><td>4 tingkat akses RBAC</td><td>Admin, Commander, Field Operator, Viewer — masing-masing memiliki hak akses berbeda.</td></tr>
+    <tr><td>F-USR-03</td><td>CRUD pengguna oleh Admin</td><td>Admin dapat menambah, mengedit, menonaktifkan, dan menghapus pengguna.</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================================ -->
+<div class="page-break"></div>
+<h1 id="s4"><span class="section-num">4.</span> Alur Pengguna (User Flow)</h1>
+
+<h3>4.1 Alur Komandan — Memantau Operasi</h3>
+<ol>
+  <li>Login → masuk ke <strong>Peta Utama</strong> (dashboard)</li>
+  <li>Melihat posisi seluruh tim lapangan di peta real-time</li>
+  <li>Aktifkan layer cuaca/topografi untuk analisis medan</li>
+  <li>Gambar zona pencarian menggunakan drawing tools</li>
+  <li>Buka tab <strong>Percakapan</strong> → kirim arahan ke Tim Alpha</li>
+  <li>Buka tab <strong>Asisten AI</strong> → tanyakan rekomendasi pola pencarian</li>
+  <li>Buka tab <strong>Prediksi</strong> → lihat heat map probabilitas lokasi target</li>
+  <li>Buka tab <strong>Kamera Live</strong> → pantau feed CCTV dan drone</li>
+  <li>Terima notifikasi geofencing → anggota keluar zona</li>
+</ol>
+
+<h3>4.2 Alur Operator Lapangan — Mengirim Laporan</h3>
+<ol>
+  <li>Buka aplikasi di browser mobile → login</li>
+  <li>Posisi GPS otomatis dikirim ke pusat kendali setiap 5–30 detik</li>
+  <li>Temukan bukti → buka tab <strong>Laporan</strong></li>
+  <li>Pilih kategori (Jejak/Barang/Tanda/Titik Bahaya/Titik Istirahat)</li>
+  <li>Ambil foto, rekam video atau suara → lampirkan ke laporan</li>
+  <li>Klik <strong>Kirim Laporan</strong> → data otomatis muncul di peta pusat kendali</li>
+  <li>Jika offline → data masuk antrean, terkirim otomatis saat koneksi pulih</li>
+  <li>Buka tab <strong>Percakapan</strong> → komunikasi dengan pusat kendali</li>
+  <li>Tekan tombol <strong>Darurat SOS</strong> jika diperlukan</li>
+</ol>
+
+<h3>4.3 Alur Admin — Mengelola Sistem</h3>
+<ol>
+  <li>Login → masuk ke tab <strong>Admin</strong></li>
+  <li>Lihat daftar pengguna → tambah pengguna baru dengan peran tertentu</li>
+  <li>Edit atau nonaktifkan pengguna yang tidak aktif</li>
+  <li>Kelola sumber video (tambah/edit URL stream CCTV/drone)</li>
+  <li>Unggah dokumen ke basis pengetahuan AI</li>
+</ol>
+
+<h3>4.4 Alur Data — Integrasi CCTV dan Drone</h3>
+<ol>
+  <li>CCTV mengirim aliran RTSP ke jaringan lokal</li>
+  <li>Node-Media-Server menerima dan mengonversi ke HLS</li>
+  <li>Drone mengirim aliran RTMP melalui Raspberry Pi</li>
+  <li>Node-Media-Server relay ke HLS/WebRTC</li>
+  <li>Browser menampilkan video pada peta sesuai koordinat perangkat</li>
+  <li>Operator dapat mengontrol kamera (Pan/Tilt/Zoom) dari dashboard</li>
+</ol>
+
+<!-- ============================================ -->
+<div class="page-break"></div>
+<h1 id="s5"><span class="section-num">5.</span> Kebutuhan Non-Fungsional</h1>
+
+<table>
+  <thead><tr><th>Aspek</th><th>Kebutuhan</th><th>Target</th></tr></thead>
+  <tbody>
+    <tr><td>Performa</td><td>Waktu muat halaman pertama</td><td>&lt; 3 detik pada koneksi 4G</td></tr>
+    <tr><td>Performa</td><td>Latensi pembaruan GPS</td><td>&lt; 2 detik dari perangkat ke peta</td></tr>
+    <tr><td>Performa</td><td>Latensi video streaming</td><td>&lt; 5 detik dari sumber ke browser</td></tr>
+    <tr><td>Skalabilitas</td><td>Pengguna simultan</td><td>Minimal 50 pengguna aktif secara bersamaan</td></tr>
+    <tr><td>Skalabilitas</td><td>Stream video simultan</td><td>Minimal 4 aliran CCTV/drone</td></tr>
+    <tr><td>Keamanan</td><td>Enkripsi transportasi</td><td>HTTPS/WSS dengan TLS 1.3</td></tr>
+    <tr><td>Keamanan</td><td>Autentikasi</td><td>JWT + Argon2 password hashing</td></tr>
+    <tr><td>Ketersediaan</td><td>Uptime target</td><td>99% selama jam operasi</td></tr>
+    <tr><td>Kompatibilitas</td><td>Browser</td><td>Chrome, Firefox, Safari, Edge (versi terbaru)</td></tr>
+    <tr><td>Responsivitas</td><td>Perangkat</td><td>Desktop (1920×1080+) dan Mobile (360×640+)</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================================ -->
+<h1 id="s6"><span class="section-num">6.</span> Metrik Keberhasilan</h1>
+<table>
+  <thead><tr><th>Metrik</th><th>Target</th><th>Cara Pengukuran</th></tr></thead>
+  <tbody>
+    <tr><td>Seluruh fitur P0 berfungsi</td><td>100%</td><td>Pengujian penerimaan per fase</td></tr>
+    <tr><td>Seluruh fitur P1 berfungsi</td><td>100%</td><td>Pengujian penerimaan per fase</td></tr>
+    <tr><td>GPS tracking akurat</td><td>Deviasi &lt; 10m</td><td>Uji coba lapangan</td></tr>
+    <tr><td>Offline queue berhasil sinkronisasi</td><td>100% data terkirim</td><td>Uji koneksi putus-sambung</td></tr>
+    <tr><td>AI menjawab pertanyaan relevan</td><td>Akurasi &gt; 80%</td><td>Evaluasi manual 50 pertanyaan sampel</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================================ -->
+<h1 id="s7"><span class="section-num">7.</span> Prioritas dan Fase Pengembangan</h1>
+<table>
+  <thead><tr><th>Fase</th><th>Periode</th><th>Fitur</th><th>Prioritas</th></tr></thead>
+  <tbody>
+    <tr><td><span class="badge">Fase 1</span></td><td>Bulan 1</td><td>Dashboard Peta, GPS Tracking, Laporan Lapangan, Autentikasi, Manajemen Pengguna</td><td>P0</td></tr>
+    <tr><td><span class="badge">Fase 2</span></td><td>Bulan 2</td><td>Komunikasi Real-time, Layer Cuaca/Meteorologi, Radio HT</td><td>P0</td></tr>
+    <tr><td><span class="badge">Fase 3</span></td><td>Bulan 3</td><td>Asisten AI + RAG, Prediksi Pergerakan, Analitik Telco, Auto Alert</td><td>P1</td></tr>
+    <tr><td><span class="badge">Fase 4</span></td><td>Bulan 4</td><td>Integrasi CCTV + Drone, Deployment Produksi, Pengujian Akhir</td><td>P1</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================================ -->
+<h1 id="s8"><span class="section-num">8.</span> Dependensi dan Risiko</h1>
+
+<h3>8.1 Dependensi dari PIHAK KEDUA</h3>
+<table>
+  <thead><tr><th>Item</th><th>Dibutuhkan Sebelum</th></tr></thead>
+  <tbody>
+    <tr><td>Server pengembangan dan produksi</td><td>Awal Fase 1</td></tr>
+    <tr><td>API Key OpenAI (LLM + Embedding)</td><td>Awal Fase 3</td></tr>
+    <tr><td>Akses CCTV (URL RTSP/HLS)</td><td>Awal Fase 4</td></tr>
+    <tr><td>Akses Drone (RTMP stream + Raspberry Pi)</td><td>Awal Fase 4</td></tr>
+    <tr><td>Perangkat HT untuk pengujian integrasi</td><td>Fase 2</td></tr>
+    <tr><td>Model Computer Vision dari Tim Data Cakra</td><td>Fase 3</td></tr>
+    <tr><td>Dokumen basis pengetahuan untuk AI</td><td>Awal Fase 3</td></tr>
+  </tbody>
+</table>
+
+<h3>8.2 Risiko Utama</h3>
+<table>
+  <thead><tr><th>Risiko</th><th>Dampak</th><th>Mitigasi</th></tr></thead>
+  <tbody>
+    <tr><td>Koneksi internet tidak stabil di area operasi</td><td>Tinggi</td><td>Antrean offline + sinkronisasi otomatis</td></tr>
+    <tr><td>Inkompatibilitas protokol CCTV/drone</td><td>Sedang</td><td>Verifikasi kompatibilitas di awal Fase 4</td></tr>
+    <tr><td>Keterlambatan penyediaan server/hardware</td><td>Tinggi</td><td>Checklist resource per fase + reminder 2 minggu</td></tr>
+    <tr><td>Perubahan scope di luar kesepakatan</td><td>Tinggi</td><td>Prosedur change request formal sesuai SOW</td></tr>
+  </tbody>
+</table>
+
+<div class="doc-footer">
+  <p>Product Requirements Document &mdash; CAKRA Intelligence Platform</p>
+  <p>PRD/OSL/DLA/2026-001 &bull; Versi 1.0 &bull; 14 Mei 2026</p>
+</div>
+
+</div>
+</body>
+</html>
