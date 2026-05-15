@@ -1,4 +1,4 @@
-# Project Tracking & Intelligence Platform
+# CAKRA Intelligence Platform
 
 > **Internal Document — Openscopelabs**
 > Platform intelijen geospasial untuk operasi pelacakan, pencarian, dan monitoring.
@@ -37,12 +37,12 @@
 | Backend      | NestJS + TypeScript                 | MIT           |
 | ORM          | Prisma + PostGIS extension          | Apache 2.0    |
 | Real-time    | Socket.IO                           | MIT           |
-| Database     | PostgreSQL 16 + PostGIS (port 5112) | PostgreSQL    |
+| Database     | PostgreSQL 16 + PostGIS (port 5433) | PostgreSQL    |
 | Cache        | Redis 7                             | BSD-3         |
 | LLM (prod)   | OpenAI GPT-4o-mini ★               | Paid (client) |
 | LLM (dev)    | Ollama + Llama 3.1                  | MIT/Meta      |
 | Embedding    | OpenAI text-embedding-3-small ★    | Paid (client) |
-| Vector DB    | Qdrant (self-hosted, port 6333)     | Apache 2.0    |
+| Vector DB    | Qdrant (self-hosted, port 6334)     | Apache 2.0    |
 | Media Server | Node-Media-Server                   | MIT           |
 | Container    | Docker + Kubernetes                 | Apache 2.0    |
 | CI/CD        | GitHub Actions                      | Free tier     |
@@ -59,10 +59,10 @@
 
 | Termin   | Waktu               | %   | Nominal       |
 | -------- | ------------------- | --- | ------------- |
-| Termin 1 | Penandatanganan MOU | 30% | Rp 30.000.000 |
+| Termin 1 | Penandatanganan MOU | 25% | Rp 25.000.000 |
 | Termin 2 | Penyelesaian Fase 1 | 25% | Rp 25.000.000 |
 | Termin 3 | Penyelesaian Fase 2 | 25% | Rp 25.000.000 |
-| Termin 4 | Serah terima akhir  | 20% | Rp 20.000.000 |
+| Termin 4 | Serah terima akhir  | 25% | Rp 25.000.000 |
 
 **Rate scope change**: Rp 500.000/orang/hari
 
@@ -89,15 +89,17 @@ Detail per sprint → lihat `docs/sprint-plan.html`
 | ----------------- | ------------------------------------------------------- |
 | `docs/MOU.html` | Memorandum of Understanding (kontrak legal)             |
 | `docs/SOW.html` | Statement of Work (scope, timeline, pembayaran)         |
-| `docs/SDD.html` | Solutions Design Document (arsitektur, tech stack, ERD) |
+| `docs/SDD.html` | Solutions Design Document (arsitektur, tech stack)      |
+| `docs/PRD.html` | Product Requirements Document (kebutuhan produk)       |
 
 ### Internal (tidak dikirim)
 
-| File                      | Deskripsi                                      |
-| ------------------------- | ---------------------------------------------- |
-| `docs/sprint-plan.html` | Detail sprint 1-8, task per developer, mandays |
-| `docs/erd.html`         | Mermaid ERD diagram (16 entitas, indeks)       |
-| `README.md`             | Project overview (file ini)                    |
+| File                              | Deskripsi                                      |
+| --------------------------------- | ---------------------------------------------- |
+| `docs/SPRINT-PLAN.html`         | Detail sprint 1-8, task per developer          |
+| `docs/ERD.html`                 | Mermaid ERD diagram (16 entitas)               |
+| `docs/INTERNAL-PRICING.html`    | ⚠ Breakdown harga per modul (CONFIDENTIAL)     |
+| `README.md`                     | Project overview (file ini)                    |
 
 ### Referensi
 
@@ -153,13 +155,13 @@ Berikut adalah rancangan antarmuka (wireframes) untuk platform yang akan dibangu
 │   React + Vite      │  │   NestJS (TypeScript)     │
 │   MapLibre GL JS    │  │   ├── Auth (Argon2/JWT)   │
 │   Socket.IO Client  │  │   ├── Map Module          │
-│   port 3000         │  │   ├── Tracking Module     │
+│   port 3100         │  │   ├── Tracking Module     │
 │                     │  │   ├── Chat (Socket.IO)    │
 │                     │  │   ├── AI/RAG Module       │
 │                     │  │   ├── Streaming Module    │
 │                     │  │   ├── Alert Module        │
 │                     │  │   └── Telco Module        │
-│                     │  │   port 4000               │
+│                     │  │   port 4100               │
 └─────────────────────┘  └───┬──────────┬────────────┘
                              │          │
      ┌───────────────────────┘          └─────────┐
@@ -167,13 +169,13 @@ Berikut adalah rancangan antarmuka (wireframes) untuk platform yang akan dibangu
 ┌────▼───────────┐ ┌────────┐ ┌───────────────────▼┐
 │ PostgreSQL 16  │ │ Redis 7│ │ Qdrant             │
 │ + PostGIS      │ │ Cache  │ │ Vector embeddings  │
-│ port 5112      │ │ 6379   │ │ port 6333          │
+│ port 5433      │ │ 6380   │ │ port 6334          │
 └────────────────┘ └────────┘ └────────────────────┘
          │
 ┌────────▼──────────┐  ┌──────────────────────┐
 │ Node-Media-Server │  │ Grafana + Prometheus │
 │ RTSP/RTMP relay   │  │ Monitoring           │
-│ port 1935, 8000   │  │ port 3001, 9090      │
+│ port 1936, 8100   │  │ port 3200, 9091      │
 └───────────────────┘  └──────────────────────┘
 ```
 
@@ -218,7 +220,7 @@ Detail ERD → lihat `docs/erd.html`
 ### Sebelum Sprint 1
 
 - [ ] MOU + SOW + SDD ditandatangani
-- [ ] Termin 1 dibayar (Rp 30.000.000)
+- [ ] Termin 1 dibayar (Rp 25.000.000)
 - [ ] 3 Server ready → IP + SSH credentials
 - [ ] Domain dibeli → DNS access
 - [ ] MapTiler API key (free tier)
@@ -245,9 +247,10 @@ Detail ERD → lihat `docs/erd.html`
 - MOU: https://openscope-labs.github.io/open-intelligence-platform/MOU.html
 - SDD: https://openscope-labs.github.io/open-intelligence-platform/SDD.html
 - SOW: https://openscope-labs.github.io/open-intelligence-platform/SOW.html
+- PRD: https://openscope-labs.github.io/open-intelligence-platform/PRD.html
 - ERD: https://openscope-labs.github.io/open-intelligence-platform/ERD.html
 - SPRINT-PLAN: https://openscope-labs.github.io/open-intelligence-platform/SPRINT-PLAN.html
 
 ---
 
-*Last updated: 14 Mei 2026 — Openscopelabs*
+*Last updated: 15 Mei 2026 — Openscopelabs*
