@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Internal — Breakdown Harga Proyek</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cover-page">
+  <div class="cover-doc-type" style="color:#e74c3c;">CONFIDENTIAL — INTERNAL ONLY</div>
+  <h1 class="cover-title">Breakdown Harga<br>Proyek</h1>
+  <p class="cover-subtitle">CAKRA Intelligence Platform</p>
+  <hr class="cover-divider">
+  <div class="cover-meta">
+    <div class="cover-meta-item"><span class="cover-meta-label">Nilai Kontrak</span><span class="cover-meta-value">Rp 100.000.000</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Nomor Dokumen</span><span class="cover-meta-value">INT/OSL/PRICE/2026-001</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Tanggal</span><span class="cover-meta-value">15 Mei 2026</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-label">Versi</span><span class="cover-meta-value">1.0</span></div>
+  </div>
+  <div class="cover-footer" style="color:#e74c3c;">⚠ DOKUMEN INI TIDAK UNTUK DIBERIKAN KEPADA KLIEN</div>
+</div>
+
+<div class="document">
+
+<h1><span class="section-num">1.</span> Ringkasan Nilai Kontrak</h1>
+<table>
+  <thead><tr><th>Item</th><th>Nilai</th></tr></thead>
+  <tbody>
+    <tr><td>Total Nilai Kontrak</td><td><strong>Rp 100.000.000</strong></td></tr>
+    <tr><td>Durasi Proyek</td><td>4 Bulan (16 Minggu)</td></tr>
+    <tr><td>Skema Pembayaran</td><td>4 × 25% = Rp 25.000.000 per termin</td></tr>
+  </tbody>
+</table>
+
+<h1><span class="section-num">2.</span> Breakdown per Modul / Fitur</h1>
+<table>
+  <thead><tr><th>#</th><th>Modul / Fitur</th><th>Fase</th><th>Estimasi Biaya</th><th>% Total</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Infrastruktur, CI/CD &amp; DevOps<br><small>Docker, Kubernetes, Nginx, SSL, Monitoring (Grafana+Prometheus), GitHub Actions</small></td><td>1</td><td>Rp 8.000.000</td><td>8%</td></tr>
+    <tr><td>2</td><td>Autentikasi &amp; Manajemen Pengguna<br><small>JWT, RBAC 4 role, Argon2, CRUD pengguna, sesi aktif</small></td><td>1</td><td>Rp 5.000.000</td><td>5%</td></tr>
+    <tr><td>3</td><td>Dashboard Peta &amp; Multi-Layer Map<br><small>MapLibre GL JS, 8 layer peta, drawing tools (6 alat), mode 3D, tema gelap, fullscreen</small></td><td>1</td><td>Rp 15.000.000</td><td>15%</td></tr>
+    <tr><td>4</td><td>Pelacakan GPS Real-time<br><small>WebSocket tracking, trail, geofencing, indikator kecepatan/arah/ketinggian, ekspor GPX/KML</small></td><td>1</td><td>Rp 12.000.000</td><td>12%</td></tr>
+    <tr><td>5</td><td>Pengiriman Data Lapangan<br><small>Form laporan, upload foto/video/suara/dokumen, 5 kategori, penandaan peta, offline queue</small></td><td>1–2</td><td>Rp 8.000.000</td><td>8%</td></tr>
+    <tr><td>6</td><td>Komunikasi Real-time &amp; Radio HT<br><small>Chat room-based, media sharing (teks/foto/video/suara/lokasi/file), riwayat pesan, integrasi Radio HT (eksperimental)</small></td><td>2</td><td>Rp 10.000.000</td><td>10%</td></tr>
+    <tr><td>7</td><td>Asisten AI &amp; RAG<br><small>OpenAI GPT-4o-mini, text-embedding-3-small, Qdrant, basis pengetahuan, unggah dokumen, referensi sumber</small></td><td>3</td><td>Rp 12.000.000</td><td>12%</td></tr>
+    <tr><td>8</td><td>Prediksi Pergerakan &amp; Analitik<br><small>Heat map probabilitas, analisis terrain/cuaca, riwayat telco Cell ID, auto alert kerumunan</small></td><td>3</td><td>Rp 8.000.000</td><td>8%</td></tr>
+    <tr><td>9</td><td>Integrasi CCTV<br><small>Node-Media-Server, RTSP→HLS relay, 4 stream simultan, ikon kamera pada peta</small></td><td>4</td><td>Rp 7.000.000</td><td>7%</td></tr>
+    <tr><td>10</td><td>Integrasi Drone<br><small>RTMP relay via Raspberry Pi, pelacakan posisi drone, kontrol kamera (eksperimental), driver kustom</small></td><td>4</td><td>Rp 7.000.000</td><td>7%</td></tr>
+    <tr><td>11</td><td>Aplikasi Web Responsif (Mobile)<br><small>UI adaptif untuk tim lapangan, kompatibilitas Chrome/Firefox/Safari/Edge</small></td><td>2–4</td><td>Rp 5.000.000</td><td>5%</td></tr>
+    <tr><td>12</td><td>QA, Testing &amp; Dokumentasi Teknis<br><small>UAT per fase, bug fixing, dokumentasi API, panduan pengguna</small></td><td>1–4</td><td>Rp 3.000.000</td><td>3%</td></tr>
+    <tr><td colspan="3" style="text-align:right;"><strong>TOTAL</strong></td><td><strong>Rp 100.000.000</strong></td><td><strong>100%</strong></td></tr>
+  </tbody>
+</table>
+
+<h1><span class="section-num">3.</span> Breakdown per Fase &amp; Termin Pembayaran</h1>
+<table>
+  <thead><tr><th>Fase</th><th>Periode</th><th>Modul yang Dikerjakan</th><th>Nilai Pekerjaan</th><th>Termin</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Fase 1</strong></td><td>Bulan 1</td><td>#1 Infrastruktur, #2 Auth, #3 Dashboard Peta, #4 GPS Tracking</td><td>Rp 40.000.000</td><td>Termin 1: Rp 25.000.000</td></tr>
+    <tr><td><strong>Fase 2</strong></td><td>Bulan 2</td><td>#5 Laporan Lapangan, #6 Komunikasi + Radio HT, #11 Mobile (parsial)</td><td>Rp 23.000.000</td><td>Termin 2: Rp 25.000.000</td></tr>
+    <tr><td><strong>Fase 3</strong></td><td>Bulan 3</td><td>#7 AI + RAG, #8 Prediksi + Analitik</td><td>Rp 20.000.000</td><td>Termin 3: Rp 25.000.000</td></tr>
+    <tr><td><strong>Fase 4</strong></td><td>Bulan 4</td><td>#9 CCTV, #10 Drone, #11 Mobile (final), #12 QA + Docs</td><td>Rp 17.000.000</td><td>Termin 4: Rp 25.000.000</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <div class="callout-title">Catatan Penting</div>
+  <ul>
+    <li>Nilai pekerjaan per fase <strong>tidak sama</strong> dengan termin pembayaran. Termin dibagi rata 25% untuk kemudahan administrasi.</li>
+    <li>Fase 1 memiliki nilai terbesar karena mencakup fondasi infrastruktur + 2 modul inti (Peta + GPS).</li>
+    <li>Margin keuntungan tersebar di seluruh fase, terbesar di Fase 2 dan 4.</li>
+    <li>Radio HT termasuk dalam modul #6 Komunikasi. Jika gagal karena inkompatibilitas perangkat, biaya tetap terserap oleh riset dan development driver.</li>
+  </ul>
+</div>
+
+<h1><span class="section-num">4.</span> Estimasi Alokasi Sumber Daya</h1>
+<table>
+  <thead><tr><th>Peran</th><th>Estimasi Jam</th><th>Tarif/Jam</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><td>Lead Developer / Arsitek</td><td>320 jam</td><td>Rp 150.000</td><td>Rp 48.000.000</td></tr>
+    <tr><td>Frontend Developer</td><td>200 jam</td><td>Rp 100.000</td><td>Rp 20.000.000</td></tr>
+    <tr><td>Backend Developer</td><td>200 jam</td><td>Rp 100.000</td><td>Rp 20.000.000</td></tr>
+    <tr><td>DevOps / Infra</td><td>60 jam</td><td>Rp 100.000</td><td>Rp 6.000.000</td></tr>
+    <tr><td>Overhead (tools, API, hosting dev)</td><td>—</td><td>—</td><td>Rp 6.000.000</td></tr>
+    <tr><td colspan="3" style="text-align:right;"><strong>TOTAL</strong></td><td><strong>Rp 100.000.000</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="doc-footer">
+  <p style="color:#e74c3c;">⚠ CONFIDENTIAL — INTERNAL ONLY — TIDAK UNTUK KLIEN</p>
+  <p>INT/OSL/PRICE/2026-001 &bull; Versi 1.0 &bull; 15 Mei 2026</p>
+</div>
+
+</div>
+</body>
+</html>
