@@ -86,7 +86,7 @@
     <tr><td>Lapisan API</td><td>REST API, WebSocket Server</td><td>Routing, autentikasi, dan komunikasi real-time</td></tr>
     <tr><td>Lapisan Aplikasi</td><td>Layanan Autentikasi, Pelacakan, Peta, Komunikasi, AI/RAG, Streaming, Cuaca, Google Maps API, Computer Vision, Visualisasi Rute, rekomendasi area rekayasa cuaca/hujan buatan</td><td>Logika bisnis seluruh modul</td></tr>
     <tr><td>Lapisan Data</td><td>PostgreSQL + PostGIS, Redis, Vector Database</td><td>Penyimpanan geospasial, cache, dan embedding AI</td></tr>
-    <tr><td>Layanan Eksternal</td><td>API Cuaca, Penyedia Tile Peta, API LLM, Aliran CCTV/Drone</td><td>Integrasi layanan pihak ketiga</td></tr>
+    <tr><td>Layanan Eksternal</td><td>API Cuaca, API OpenSky (Pesawat), API AIS (Kapal), Endpoint AI Pihak Kedua, CCTV/Drone</td><td>Integrasi layanan dan model AI pihak ketiga</td></tr>
   </tbody>
 </table>
 
@@ -207,13 +207,17 @@
 <img src="wireframes/ai-assistant.png" alt="AI Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
 <p>Asisten kecerdasan buatan terintegrasi yang menggunakan arsitektur <em>Retrieval-Augmented Generation</em> (RAG) untuk menjawab pertanyaan berdasarkan basis pengetahuan operasi SAR dan bentuk operasi lainnya.</p>
 <p><strong>Sumber basis pengetahuan:</strong> prosedur standar operasi, data topografi, panduan survival, log operasi sebelumnya, dokumen dan laporan yang diunggah, serta data cuaca historis.</p>
-<p><strong>Kapabilitas:</strong> antarmuka percakapan, kueri data dengan bahasa natural, rekomendasi pola pencarian, analisis risiko area, ringkasan status operasi, dan estimasi lokasi.</p>
+<p><strong>Kapabilitas:</strong> antarmuka percakapan, kueri data dengan bahasa natural, rekomendasi pola pencarian, analisis risiko area, ringkasan status operasi, estimasi lokasi, dan <strong>rekomendasi area rekayasa cuaca/hujan buatan</strong> berbasis data API Cuaca terintegrasi.</p>
 
-<h2 id="s3-7">3.7 Prediksi Pergerakan Dasar</h2>
+<h2 id="s3-7">3.7 Visualisasi Analitik, Probabilitas, dan Prediksi</h2>
 <img src="wireframes/analytics.png" alt="Analytics Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
-<p>Modul prediksi berbasis model statistik dan heuristik untuk memperkirakan kemungkinan lokasi korban.</p>
-<p><strong>Parameter input:</strong> titik terakhir diketahui (LKP), data terrain, jalur hiking, sumber air, kondisi cuaca, dan profil korban.</p>
-<p><strong>Output:</strong> peta probabilitas (<em>heat map</em>), rekomendasi area pencarian, estimasi radius jangkauan, dan saran pola pencarian.</p>
+<p>Modul ini merupakan lapis presentasi yang memvisualisasikan hasil analitik dan prediksi dari <strong>Model AI yang disediakan oleh PIHAK KEDUA</strong>.</p>
+<p><strong>Fitur Utama:</strong></p>
+<ul>
+  <li><strong>Heatmap Data Telekomunikasi:</strong> Mem-parsing dan memvisualisasikan data MSISDN/CID/Tower ke dalam bentuk <em>heatmap</em> kepadatan geospasial.</li>
+  <li><strong>Prediksi Pergerakan:</strong> Visualisasi estimasi arah dan radius pergerakan entitas (misal: orang hilang).</li>
+  <li><strong>Proyeksi Probabilitas:</strong> Peta probabilitas lokasi entitas berdasarkan analisis model eksternal PIHAK KEDUA.</li>
+</ul>
 
 <h2 id="s3-8">3.8 Integrasi Aliran Video CCTV</h2>
 <img src="wireframes/streaming.png" alt="Streaming Mockup" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 15px 0;">
@@ -223,10 +227,11 @@
 <ul>
   <li>Penandaan kamera pada peta dengan ikon CCTV.</li>
   <li>Aliran video langsung dalam popup atau panel samping.</li>
-  <li>Input: aliran RTSP/HLS dari perangkat yang disediakan PIHAK KEDUA.</li>
+  <li>Input: aliran RTSP/HLS/RTMP/Web Embed dari perangkat yang disediakan PIHAK KEDUA.</li>
+  <li>Integrasi <strong>Deteksi Keramaian</strong>: Menampilkan *auto-alert* berdasarkan output <em>endpoint Computer Vision</em> dari PIHAK KEDUA.</li>
   <li>Dukungan minimum 4 aliran simultan.</li>
 </ul>
-<div class="callout"><div class="callout-title">Prasyarat</div><p>PIHAK KEDUA menyediakan kamera atau link streaming CCTV yang telah terkoneksi jaringan dan dapat diakses melalui protokol RTSP, HLS, atau format lainnya.</p></div>
+<div class="callout"><div class="callout-title">Prasyarat</div><p>PIHAK KEDUA menyediakan kamera atau link streaming CCTV (termasuk format web embed/IFRAME) serta endpoint API Computer Vision untuk deteksi keramaian.</p></div>
 
 <h2 id="s3-9">3.9 Integrasi Aliran Video Drone</h2>
 <p>Modul untuk menampilkan aliran video langsung dari drone pada peta, termasuk pelacakan posisi drone jika data telemetri tersedia.</p>
@@ -248,6 +253,8 @@
     <tr><td>Users</td><td>Data pengguna dan autentikasi</td><td>Memiliki: TrackingData, FieldReports, ChatMessages</td></tr>
     <tr><td>Missions</td><td>Operasi atau misi yang sedang berjalan</td><td>Memiliki: Targets, TrackingData, ChatRooms, AlertRules</td></tr>
     <tr><td>Targets</td><td>Subjek atau objek pencarian dalam misi</td><td>Milik: Missions</td></tr>
+    <tr><td>FlightData</td><td>Data posisi dan rute penerbangan pesawat sementara</td><td>(Data Stream Eksternal / Cache)</td></tr>
+    <tr><td>ShipData</td><td>Data posisi dan rute kapal laut sementara</td><td>(Data Stream Eksternal / Cache)</td></tr>
     <tr><td>TrackingData</td><td>Data posisi GPS real-time tim lapangan</td><td>Milik: Users, Missions</td></tr>
     <tr><td>FieldReports</td><td>Laporan temuan dari lapangan</td><td>Milik: Users, Missions</td></tr>
     <tr><td>ChatRooms / ChatMessages</td><td>Ruang percakapan dan riwayat pesan</td><td>Milik: Missions, Users</td></tr>

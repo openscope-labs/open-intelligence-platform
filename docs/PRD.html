@@ -83,7 +83,7 @@
   <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
   <tbody>
     <tr><td>F-MAP-01</td><td>Peta interaktif sebagai pusat kendali utama</td><td>Peta dapat di-zoom, pan, dan rotate. Mendukung mode layar penuh dan tema gelap.</td></tr>
-    <tr><td>F-MAP-02</td><td>8 layer peta yang dapat di-toggle</td><td>Pengguna dapat mengaktifkan/menonaktifkan: Simple Map, Satelit, Topografi, Cuaca, Heat Map, Petir, Awan, Prediksi Cuaca.</td></tr>
+    <tr><td>F-MAP-02</td><td>10 layer peta yang dapat di-toggle</td><td>Pengguna dapat mengaktifkan/menonaktifkan: Simple Map, Satelit, Topografi, Cuaca, Heat Map, Petir, Awan, Prediksi Cuaca, <strong>Pesawat (OpenSky)</strong>, dan <strong>Kapal Laut (AIS)</strong>.</td></tr>
     <tr><td>F-MAP-03</td><td>Drawing tools untuk penandaan area</td><td>Tersedia 6 alat gambar: Marker, Polyline, Polygon, Circle, Ruler, Eraser. Objek gambar tersimpan per misi.</td></tr>
     <tr><td>F-MAP-04</td><td>Mode peta 3D dan tilted view</td><td>Pengguna dapat beralih antara tampilan 2D dan 3D.</td></tr>
     <tr><td>F-MAP-05</td><td>Pemetaan area terkustomisasi dengan karva</td><td>Pengguna dapat menggambar area dengan bentuk geometri dan skala yang ditentukan.</td></tr>
@@ -137,6 +137,7 @@
     <tr><td>F-AI-02</td><td>Basis pengetahuan (RAG)</td><td>AI menggunakan dokumen yang diunggah (SOP, panduan, log operasi, data cuaca) sebagai sumber jawaban.</td></tr>
     <tr><td>F-AI-03</td><td>Manajemen dokumen basis pengetahuan</td><td>Pengguna dapat mengunggah, melihat daftar, dan menghapus dokumen dari basis pengetahuan.</td></tr>
     <tr><td>F-AI-04</td><td>Referensi sumber jawaban</td><td>Setiap jawaban AI menampilkan nama dokumen sumber yang digunakan.</td></tr>
+    <tr><td>F-AI-05</td><td>Rekomendasi Rekayasa Cuaca</td><td>Menampilkan rekomendasi area hujan buatan dengan basis API Cuaca Pihak Ketiga.</td></tr>
   </tbody>
 </table>
 
@@ -145,10 +146,10 @@
 <table>
   <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
   <tbody>
-    <tr><td>F-PRD-01</td><td>Peta probabilitas (heat map)</td><td>Heat map ditampilkan berdasarkan LKP, terrain, cuaca, dan profil korban.</td></tr>
-    <tr><td>F-PRD-02</td><td>Rekomendasi area pencarian</td><td>Sistem merekomendasikan area prioritas dan estimasi radius jangkauan.</td></tr>
-    <tr><td>F-PRD-03</td><td>Riwayat perangkat telekomunikasi</td><td>Timeline koneksi Cell ID ditampilkan sebagai grafik horizontal.</td></tr>
-    <tr><td>F-PRD-04</td><td>Auto Alert kepadatan dan kerumunan</td><td>Peringatan otomatis dari data Google Maps dan model Computer Vision. <small class="note">(Catatan: model CV disediakan oleh Tim Data Cakra.)</small></td></tr>
+    <tr><td>F-PRD-01</td><td>Peta probabilitas posisi entitas</td><td>Visualisasi proyeksi kemungkinan posisi. (Model & Logic disediakan PIHAK KEDUA).</td></tr>
+    <tr><td>F-PRD-02</td><td>Prediksi arah pergerakan</td><td>Visualisasi estimasi pergerakan/radius entitas. (Model disediakan PIHAK KEDUA).</td></tr>
+    <tr><td>F-PRD-03</td><td>Heatmap Data Telekomunikasi</td><td>Visualisasi sebaran Telco Geospasial/Cell ID. (Data/Model/Parsing disediakan PIHAK KEDUA).</td></tr>
+    <tr><td>F-PRD-04</td><td>Auto Alert kepadatan lalu lintas</td><td>Peringatan otomatis dari data Google Maps.</td></tr>
   </tbody>
 </table>
 
@@ -157,7 +158,8 @@
 <table>
   <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
   <tbody>
-    <tr><td>F-VID-01</td><td>Tampilan aliran CCTV pada peta</td><td>Ikon kamera pada peta, klik untuk membuka video dalam popup/panel. Min. 4 stream simultan.</td></tr>
+    <tr><td>F-VID-01</td><td>Tampilan aliran CCTV pada peta</td><td>Ikon kamera pada peta, klik untuk membuka video dalam popup/panel. Min. 4 stream simultan. Mendukung berbagai format (RTSP/HLS/Web Embed).</td></tr>
+    <tr><td>F-VID-02</td><td>Deteksi Keramaian &amp; Analitik CCTV</td><td>Integrasi endpoint Computer Vision dari PIHAK KEDUA untuk auto-alert kerumunan/kepadatan pada CCTV.</td></tr>
     <tr><td>F-VID-02</td><td>Tampilan aliran drone pada peta</td><td>Posisi drone ditampilkan pada peta dengan video feed langsung.</td></tr>
     <tr><td>F-VID-03</td><td>Kontrol kamera jarak jauh</td><td>Pan/Tilt/Zoom untuk kamera yang mendukung. <small class="note">(Catatan: kendali navigasi drone bersifat eksperimental.)</small></td></tr>
     <tr><td>F-VID-04</td><td>Flow integrasi stream relay</td><td>Drone (RTMP) → Raspberry Pi → Node-Media-Server → Browser. CCTV (RTSP) → Node-Media-Server → Browser.</td></tr>

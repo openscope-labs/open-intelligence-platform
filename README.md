@@ -43,6 +43,8 @@
 | LLM (dev)    | Ollama + Llama 3.1                  | MIT/Meta      |
 | Embedding    | OpenAI text-embedding-3-small ★    | Paid (client) |
 | Vector DB    | Qdrant (self-hosted, port 6334)     | Apache 2.0    |
+| External API | OpenSky, AISStream, OpenWeather     | 3rd Party     |
+| AI Endpoint  | Endpoint Prediksi, Telco & CV       | Pihak 2       |
 | Media Server | Node-Media-Server                   | MIT           |
 | Container    | Docker + Kubernetes                 | Apache 2.0    |
 | CI/CD        | GitHub Actions                      | Free tier     |
@@ -197,10 +199,10 @@ Detail ERD → lihat `docs/erd.html`
 | Fitur                  | Status                 | Yang Dibutuhkan                |
 | ---------------------- | ---------------------- | ------------------------------ |
 | 🟡 Peta 3D             | Perlu klarifikasi      | Full terrain atau tilted view? |
-| 🟡 CCTV                | Butuh hardware         | RTSP/HLS URL dari client       |
+| 🟡 CCTV                | Butuh hardware/API     | RTSP/HLS/Web Embed dari client |
 | 🟡 Drone streaming     | Butuh hardware         | Drone + RTMP output            |
-| 🟡 CV Model            | Depends Tim Data Cakra | REST API endpoint              |
-| 🟡 Telco geospatial    | Butuh data             | CID lookup JSON dari client    |
+| 🟡 AI CCTV (Keramaian) | Menunggu Pihak 2       | REST API endpoint              |
+| 🟡 Prediksi & Telco    | Menunggu Pihak 2       | REST API endpoint probabilitas |
 | 🟡 Google Maps traffic | Butuh API key          | Client buat akun Google Cloud  |
 | 🔴 Drone control       | Experimental           | Raspberry Pi + protocol R&D    |
 | 🔴 Radio HT            | Experimental           | Hardware HT + protocol R&D     |
@@ -224,10 +226,13 @@ Detail ERD → lihat `docs/erd.html`
 - [ ] OpenAI API key (billing active)
 - [ ] Google Maps API key (billing active)
 - [ ] Dokumen knowledge base (PDF/Word)
+- [ ] Akses Endpoint Prediksi & Probabilitas (Pihak 2)
+- [ ] Akses API Cuaca / OpenSky / AISStream
 
 ### Sebelum Fase 4
 
-- [ ] CCTV terkoneksi → RTSP URL
+- [ ] CCTV terkoneksi → URL/Embed Stream
+- [ ] Akses Endpoint Deteksi Keramaian (Pihak 2)
 - [ ] Drone + streaming → RTMP URL
 - [ ] CV model dari Tim Data → API endpoint
 - [ ] Server production (jika beda dari dev)

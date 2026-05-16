@@ -59,7 +59,7 @@
 <h3>A. Dashboard Peta Real-time dan Multi-Layer Map</h3>
 <ul>
   <li>Dashboard peta interaktif sebagai pusat kendali operasi.</li>
-  <li>8 (delapan) layer peta: Simple Map (OSM), Satelit, Topografi, Cuaca real-time, Heat Map, Petir, Awan, dan Prediksi Cuaca.</li>
+  <li>10 (sepuluh) layer peta dasar: Simple Map, Satelit, Topografi, Cuaca, Heat Map, Petir, Awan, Prediksi Cuaca, <strong>Rute &amp; Posisi Penerbangan Pesawat</strong> (Open API), serta <strong>Jalur Kapal Laut</strong> (API AIS).</li>
   <li>Perangkat menggambar (<em>drawing tools</em>) untuk penandaan area: marker, polyline, polygon, circle, dilengkapi karva terkustomisasi.</li>
   <li>Mode layar penuh dan tema gelap untuk pusat kendali.</li>
 </ul>
@@ -93,20 +93,22 @@
   <li>Antarmuka percakapan dengan asisten kecerdasan buatan berbasis RAG.</li>
   <li>Basis pengetahuan: prosedur SAR, data terrain, dan panduan survival, segala dokumen, pesan dan informasi yang dilaporkan, dan data cuaca historis.</li>
   <li>Kemampuan query data operasi dengan bahasa natural dan rekomendasi pola pencarian.</li>
+  <li>Rekomendasi area potensial untuk <strong>rekayasa cuaca / hujan buatan</strong> berdasarkan agregasi data dari API pihak ketiga.</li>
 </ul>
 
-<h3>F. Prediksi Pergerakan Dasar</h3>
+<h3>F. Visualisasi Analitik, Probabilitas, dan Prediksi</h3>
 <ul>
-  <li>Peta probabilitas (<em>heat map</em>) berdasarkan titik terakhir diketahui (<em>last known position</em>).</li>
-  <li>Faktor analisis: terrain, jalur, sumber air, cuaca, dan profil korban.</li>
-  <li>Rekomendasi area pencarian prioritas dan estimasi radius jangkauan.</li>
+  <li>Visualisasi <strong>Heatmap Data Telekomunikasi Geospasial</strong> (Parsing data MSISDN/CID). Model dan pemrosesan heatmap sepenuhnya disediakan oleh PIHAK KEDUA.</li>
+  <li>Visualisasi <strong>Prediksi Pergerakan Entitas</strong> (misal: orang hilang). Model prediksi pergerakan (arah, estimasi radius) sepenuhnya disediakan oleh PIHAK KEDUA.</li>
+  <li>Visualisasi proyeksi dan <strong>probabilitas posisi entitas</strong> pada peta (Model disediakan oleh PIHAK KEDUA).</li>
+  <li>Tim PIHAK PERTAMA hanya bertanggung jawab membangun mekanisme <em>consumer</em> (API/WebSocket) dan memvisualisasikannya di antarmuka peta.</li>
 </ul>
 
 <h3>G. Integrasi Aliran Video CCTV</h3>
 <ul>
   <li>Tampilan aliran video CCTV langsung pada peta dalam bentuk popup atau panel samping.</li>
-  <li>Input: aliran RTSP/HLS dari perangkat kamera milik PIHAK KEDUA atau pihak lain yang disediakan PIHAK KEDUA.</li>
-  <li>Indikator status per kamera, dukungan minimum 4 aliran simultan.</li>
+  <li>Dukungan berbagai protokol (RTSP, HLS, RTMP, Web Embed) dari perangkat kamera milik PIHAK KEDUA atau pihak ketiga.</li>
+  <li>Integrasi <strong>Deteksi Keramaian</strong> dari aliran CCTV. (Model/Endpoint Computer Vision disediakan oleh PIHAK KEDUA).</li>
 </ul>
 
 <h3>H. Integrasi Aliran Video Drone</h3>
@@ -215,10 +217,11 @@
   <li>Melakukan pembayaran sesuai jadwal yang disepakati.</li>
   <li>Menyediakan server untuk pengembangan dan produksi.</li>
   <li>Menyediakan akses ke perangkat keras (CCTV, drone) untuk keperluan integrasi.</li>
-  <li>Menyediakan dan menanggung biaya layanan API pihak ketiga.</li>
+  <li>Menyediakan <em>endpoint</em> API atau Model AI yang telah berjalan untuk fitur: Deteksi Keramaian CCTV, Telco Heatmap Geospasial, Prediksi Pergerakan, dan Probabilitas Posisi.</li>
+  <li>Menyediakan dan menanggung biaya layanan API pihak ketiga jika ada batasan (kuota) dari layanan gratis (misal: OpenSky, AIS, OpenWeather).</li>
   <li>Menunjuk 1 (satu) penanggung jawab (<em>Person in Charge</em>).</li>
   <li>Memberikan umpan balik atau persetujuan dalam 5 hari kerja setelah demonstrasi.</li>
-  <li>Menyediakan materi untuk basis pengetahuan AI.</li>
+  <li>Menyediakan materi dasar untuk basis pengetahuan AI.</li>
 </ol>
 
 <h1 id="s9"><span class="section-num">9.</span> Prosedur Perubahan Ruang Lingkup</h1>
@@ -258,7 +261,7 @@
   <li>Kode sumber menjadi <strong>milik PIHAK KEDUA</strong> setelah seluruh pembayaran per termin dilunasi (Deliverable per termin).</li>
   <li>PIHAK KEDUA berhak memodifikasi dan mengembangkan kode sumber sesuai dengan pembayaran termin.</li>
   <li>Komponen sumber terbuka mengikuti lisensi masing-masing.</li>
-  <li>PIHAK PERTAMA berhak mencantumkan proyek dalam portofolio tanpa informasi sensitif.</li>
+  <li>PIHAK PERTAMA <strong>TIDAK DIIZINKAN</strong> mencantumkan proyek ini dalam portofolio apapun. Proyek ini dilindungi perjanjian kerahasiaan penuh (<em>Non-Disclosure Agreement</em>).</li>
   <li>Selama pembayaran belum lunas, kode sumber tetap menjadi milik PIHAK PERTAMA.</li>
 </ul>
 

@@ -1,0 +1,31 @@
+request:
+
+1. bisa ga cctv nya nanti mendeteksi untuk keramaian dll
+2. Pemetaan data telekomunikasi geospasial. ( ini hanya parsing saja nanti pihak kedua yang menyediakan resource nya untuk mendeteksi heatmap perkiraanya , jadi nanti pihak kedua menyiapkan modelnya kita tinggal implementasikan saja , iplementasinya visual seperti heatmap)
+3. prediksi pergerakan model dari pihak kedua , kegunaan untuk misal ketika orang hilang kita bisa memprediksi pergerakan dia misalnya kearah mana.
+4. Visualisasi proyeksi dan probabilitas posisi entitas pada peta. dari pihak kedua yang menyediakan modelnya
+5. pihak ketua tidak mengizinkan untuk mencantumkan project dalam portofolio
+6. penambahan terkait data penerbangan dan kapal, untuk penambahan layer terkait perjalanan kapal dan pesawat. contoh resouce data atau third party https://www.flightradar24.com/51.47,0.46/6, diutama kan opensource / free. utamanya hanya kode penerbanganya saja dan titiknya saja atau rute perjalanan, ini untuk resource kapal https://www.marinetraffic.com/en/ais/home/centerx:-12.0/centery:25.0/zoom:4, untuk ini research juga terkait harganya jika mahal bisa gunakan yang murah atau hanya mengambil data yang diperlukan saja seperti kode penerbangan dan tutuk rute perjalannya.
+7. request untuk menentukan lokasi mana kira kira yang bisa dilakukan rekayasa hujan buatan ( rekomendasi area rekayasa cuaca/hujan buatan)
+
+note :
+- untuk model tele komunikasi itu pokoknya disediakan oleh pihak kedua, jadi kita tinggal merge atau integrasikan ke system 
+
+contoh resource data untuk cctv jadi ada stream_rul yang bisa langsung diakses dari web ada yang harus lewat vlc dan ada protocol rtmp dll dan aka keamanannya masih masing yang berbeda ada yang perlu authentication dll  :
+
+_id: ObjectId('68afa477796b5f77ceec363a')
+latitude : *-5.653484"
+is_alive_icmp : "1"
+longitude: "106.570753"
+cctv_type : "G"
+name : "CSR-1330_CCTV_Kelapa_Dermaga_Pantura"
+channel id : null
+dinas_id : "g"
+kabupatenkota_id : "6"
+strean_url : "https://emtv.tachyon.co.id/CCTV_KelapaDermagaPantura/embed.html"
+project_id : null
+ttlcctv : "1"
+dinas : "DISKOMINFOTIK"
+site_name : "CCTV Dermaga Pantura / CNOOC"
+site_id : "CSR-1330"
+support_ticket_id : null

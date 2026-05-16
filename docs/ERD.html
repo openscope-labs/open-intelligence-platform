@@ -188,6 +188,32 @@ erDiagram
         int chunk_index
     }
 
+    FlightData {
+        string flight_id PK
+        string callsign
+        geography position
+        float altitude
+        float velocity
+        timestamp timestamp
+    }
+
+    ShipData {
+        string mmsi PK
+        string vessel_name
+        geography position
+        float speed
+        float heading
+        timestamp timestamp
+    }
+
+    WeatherEngineeringRules {
+        uuid id PK
+        string location_name
+        geography polygon_area
+        jsonb condition_parameters
+        boolean is_active
+    }
+
     Users ||--o{ Sessions : "has"
     Users ||--o{ TrackingData : "sends"
     Users ||--o{ FieldReports : "submits"
@@ -230,7 +256,10 @@ erDiagram
     <tr><td>TelcoPositions</td><td>6</td><td>geography (location)</td><td>3</td></tr>
     <tr><td>Documents</td><td>7</td><td>—</td><td>3</td></tr>
     <tr><td>DocumentChunks</td><td>4</td><td>—</td><td>3</td></tr>
-    <tr style="font-weight:bold;background:#f0f0f0"><td>TOTAL</td><td>16 entitas, 97 kolom</td><td>6 kolom geospasial</td><td>—</td></tr>
+    <tr><td>FlightData</td><td>6</td><td>geography (position)</td><td>1</td></tr>
+    <tr><td>ShipData</td><td>6</td><td>geography (position)</td><td>1</td></tr>
+    <tr><td>WeatherEngineeringRules</td><td>5</td><td>geography (polygon)</td><td>3</td></tr>
+    <tr style="font-weight:bold;background:#f0f0f0"><td>TOTAL</td><td>19 entitas, 114 kolom</td><td>9 kolom geospasial</td><td>—</td></tr>
   </tbody>
 </table>
 

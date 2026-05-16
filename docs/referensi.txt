@@ -11,3 +11,21 @@ Contoh resource data:
 - DATETIME : 2026-04-30 08:23:50  MSISDN : 6285250937682 ConnectedReachableForPaging  AGE : 0 CID : 510-10-719037-65 IMSI : 510105042937682 BAND : 4G  TOWERNAME : E_SON037M41_Sp2Sorong-DMT  KEL. MARIYAI  KEC : MARIAT  KAB/KOTA : SORONG  PROV : PAPUA BARAT  IMEI : 8609370508998953  DEVICE : VIVO Y01  LOC : http://maps.google.com/maps?q=-1.018730,131.319270 
 * nanti ini 510-10-719037-65 ada konversinya jadi MCC MNC LAC 	CID ada jsonnya buat confersinya
 
+
+_id: ObjectId('68afa477796b5f77ceec363a')
+latitude : *-5.653484"
+is_alive_icmp : "1"
+longitude: "106.570753"
+cctv_type : "G"
+name : "CSR-1330_CCTV_Kelapa_Dermaga_Pantura"
+channel id : null
+dinas_id : "g"
+kabupatenkota_id : "6"
+strean_url : "https://emtv.tachyon.co.id/CCTV_KelapaDermagaPantura/embed.html"
+project_id : null
+ttlcctv : "1"
+dinas : "DISKOMINFOTIK"
+site_name : "CCTV Dermaga Pantura / CNOOC"
+site_id : "CSR-1330"
+support_ticket_id : null
+
