@@ -8,9 +8,9 @@
 <body>
 
 <div class="cover-page">
-  <div class="cover-doc-type">Product Requirements Document</div>
+  <div class="cover-doc-type">Product Requirements Document (Client Version)</div>
   <h1 class="cover-title">CAKRA Intelligence<br>Platform</h1>
-  <p class="cover-subtitle">Dokumen Kebutuhan Produk</p>
+  <p class="cover-subtitle">Dokumen Kebutuhan Produk &amp; Alur Pengguna</p>
   <hr class="cover-divider">
   <div class="cover-meta">
     <div class="cover-meta-item"><span class="cover-meta-label">Pihak Pertama</span><span class="cover-meta-value">Openscopelabs</span></div>
@@ -27,12 +27,8 @@
   <ol class="toc-list">
     <li><a href="#s1">Visi dan Tujuan Produk</a></li>
     <li><a href="#s2">Pengguna dan Persona</a></li>
-    <li><a href="#s3">Fitur dan Kebutuhan Fungsional</a></li>
+    <li><a href="#s3">Fitur dan Kebutuhan Utama</a></li>
     <li><a href="#s4">Alur Pengguna (User Flow)</a></li>
-    <li><a href="#s5">Kebutuhan Non-Fungsional</a></li>
-    <li><a href="#s6">Metrik Keberhasilan</a></li>
-    <li><a href="#s7">Prioritas dan Fase Pengembangan</a></li>
-    <li><a href="#s8">Dependensi dan Risiko</a></li>
   </ol>
 </div>
 
@@ -158,11 +154,10 @@
 <table>
   <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
   <tbody>
-    <tr><td>F-VID-01</td><td>Tampilan aliran CCTV pada peta</td><td>Ikon kamera pada peta, klik untuk membuka video dalam popup/panel. Min. 4 stream simultan. Mendukung berbagai format (RTSP/HLS/Web Embed).</td></tr>
-    <tr><td>F-VID-02</td><td>Deteksi Keramaian &amp; Analitik CCTV</td><td>Integrasi endpoint Computer Vision dari PIHAK KEDUA untuk auto-alert kerumunan/kepadatan pada CCTV.</td></tr>
-    <tr><td>F-VID-02</td><td>Tampilan aliran drone pada peta</td><td>Posisi drone ditampilkan pada peta dengan video feed langsung.</td></tr>
-    <tr><td>F-VID-03</td><td>Kontrol kamera jarak jauh</td><td>Pan/Tilt/Zoom untuk kamera yang mendukung. <small class="note">(Catatan: kendali navigasi drone bersifat eksperimental.)</small></td></tr>
-    <tr><td>F-VID-04</td><td>Flow integrasi stream relay</td><td>Drone (RTMP) → Raspberry Pi → Node-Media-Server → Browser. CCTV (RTSP) → Node-Media-Server → Browser.</td></tr>
+    <tr><td>F-VID-01</td><td>Tampilan aliran CCTV pada peta</td><td>Ikon kamera pada peta, klik untuk membuka video dalam popup/panel.</td></tr>
+    <tr><td>F-VID-02</td><td>Deteksi Keramaian &amp; Analitik CCTV</td><td>Integrasi peringatan otomatis untuk kerumunan/kepadatan pada CCTV.</td></tr>
+    <tr><td>F-VID-03</td><td>Tampilan aliran drone pada peta</td><td>Posisi drone ditampilkan pada peta dengan video feed langsung.</td></tr>
+    <tr><td>F-VID-04</td><td>Kontrol kamera jarak jauh</td><td>Pan/Tilt/Zoom untuk kamera yang mendukung.</td></tr>
   </tbody>
 </table>
 
@@ -171,7 +166,7 @@
 <table>
   <thead><tr><th>ID</th><th>Kebutuhan</th><th>Kriteria Penerimaan</th></tr></thead>
   <tbody>
-    <tr><td>F-USR-01</td><td>Autentikasi JWT</td><td>Login/logout dengan access token dan refresh token.</td></tr>
+    <tr><td>F-USR-01</td><td>Sistem Masuk (Login)</td><td>Akses masuk pengguna ke dalam platform dengan aman.</td></tr>
     <tr><td>F-USR-02</td><td>4 tingkat akses RBAC</td><td>Admin, Commander, Field Operator, Viewer — masing-masing memiliki hak akses berbeda.</td></tr>
     <tr><td>F-USR-03</td><td>CRUD pengguna oleh Admin</td><td>Admin dapat menambah, mengedit, menonaktifkan, dan menghapus pengguna.</td></tr>
   </tbody>
@@ -217,87 +212,14 @@
 </ol>
 
 <h3>4.4 Alur Data — Integrasi CCTV dan Drone</h3>
-<ol>
-  <li>CCTV mengirim aliran RTSP ke jaringan lokal</li>
-  <li>Node-Media-Server menerima dan mengonversi ke HLS</li>
-  <li>Drone mengirim aliran RTMP melalui Raspberry Pi</li>
-  <li>Node-Media-Server relay ke HLS/WebRTC</li>
-  <li>Browser menampilkan video pada peta sesuai koordinat perangkat</li>
-  <li>Operator dapat mengontrol kamera (Pan/Tilt/Zoom) dari dashboard</li>
+  <li>Menerima aliran video CCTV dari lokasi operasi</li>
+  <li>Menampilkan video streaming CCTV pada titik peta yang relevan</li>
+  <li>Menerima aliran video drone dari lapangan</li>
+  <li>Menampilkan video drone secara real-time pada dashboard</li>
+  <li>Operator dapat memantau dan mengontrol kamera jika didukung</li>
 </ol>
 
-<!-- ============================================ -->
-<div class="page-break"></div>
-<h1 id="s5"><span class="section-num">5.</span> Kebutuhan Non-Fungsional</h1>
 
-<table>
-  <thead><tr><th>Aspek</th><th>Kebutuhan</th><th>Target</th></tr></thead>
-  <tbody>
-    <tr><td>Performa</td><td>Waktu muat halaman pertama</td><td>&lt; 3 detik pada koneksi 4G</td></tr>
-    <tr><td>Performa</td><td>Latensi pembaruan GPS</td><td>&lt; 2 detik dari perangkat ke peta</td></tr>
-    <tr><td>Performa</td><td>Latensi video streaming</td><td>&lt; 5 detik dari sumber ke browser</td></tr>
-    <tr><td>Skalabilitas</td><td>Pengguna simultan</td><td>Minimal 50 pengguna aktif secara bersamaan</td></tr>
-    <tr><td>Skalabilitas</td><td>Stream video simultan</td><td>Minimal 4 aliran CCTV/drone</td></tr>
-    <tr><td>Keamanan</td><td>Enkripsi transportasi</td><td>HTTPS/WSS dengan TLS 1.3</td></tr>
-    <tr><td>Keamanan</td><td>Autentikasi</td><td>JWT + Argon2 password hashing</td></tr>
-    <tr><td>Ketersediaan</td><td>Uptime target</td><td>99% selama jam operasi</td></tr>
-    <tr><td>Kompatibilitas</td><td>Browser</td><td>Chrome, Firefox, Safari, Edge (versi terbaru)</td></tr>
-    <tr><td>Responsivitas</td><td>Perangkat</td><td>Desktop (1920×1080+) dan Mobile (360×640+)</td></tr>
-  </tbody>
-</table>
-
-<!-- ============================================ -->
-<h1 id="s6"><span class="section-num">6.</span> Metrik Keberhasilan</h1>
-<table>
-  <thead><tr><th>Metrik</th><th>Target</th><th>Cara Pengukuran</th></tr></thead>
-  <tbody>
-    <tr><td>Seluruh fitur P0 berfungsi</td><td>100%</td><td>Pengujian penerimaan per fase</td></tr>
-    <tr><td>Seluruh fitur P1 berfungsi</td><td>100%</td><td>Pengujian penerimaan per fase</td></tr>
-    <tr><td>GPS tracking akurat</td><td>Deviasi &lt; 10m</td><td>Uji coba lapangan</td></tr>
-    <tr><td>Offline queue berhasil sinkronisasi</td><td>100% data terkirim</td><td>Uji koneksi putus-sambung</td></tr>
-    <tr><td>AI menjawab pertanyaan relevan</td><td>Akurasi &gt; 80%</td><td>Evaluasi manual 50 pertanyaan sampel</td></tr>
-  </tbody>
-</table>
-
-<!-- ============================================ -->
-<h1 id="s7"><span class="section-num">7.</span> Prioritas dan Fase Pengembangan</h1>
-<table>
-  <thead><tr><th>Fase</th><th>Periode</th><th>Fitur</th><th>Prioritas</th></tr></thead>
-  <tbody>
-    <tr><td><span class="badge">Fase 1</span></td><td>Bulan 1</td><td>Dashboard Peta, GPS Tracking, Laporan Lapangan, Autentikasi, Manajemen Pengguna</td><td>P0</td></tr>
-    <tr><td><span class="badge">Fase 2</span></td><td>Bulan 2</td><td>Komunikasi Real-time, Layer Cuaca/Meteorologi, Radio HT</td><td>P0</td></tr>
-    <tr><td><span class="badge">Fase 3</span></td><td>Bulan 3</td><td>Asisten AI + RAG, Prediksi Pergerakan, Analitik Telco, Auto Alert</td><td>P1</td></tr>
-    <tr><td><span class="badge">Fase 4</span></td><td>Bulan 4</td><td>Integrasi CCTV + Drone, Deployment Produksi, Pengujian Akhir</td><td>P1</td></tr>
-  </tbody>
-</table>
-
-<!-- ============================================ -->
-<h1 id="s8"><span class="section-num">8.</span> Dependensi dan Risiko</h1>
-
-<h3>8.1 Dependensi dari PIHAK KEDUA</h3>
-<table>
-  <thead><tr><th>Item</th><th>Dibutuhkan Sebelum</th></tr></thead>
-  <tbody>
-    <tr><td>Server pengembangan dan produksi</td><td>Awal Fase 1</td></tr>
-    <tr><td>API Key OpenAI (LLM + Embedding)</td><td>Awal Fase 3</td></tr>
-    <tr><td>Akses CCTV (URL RTSP/HLS)</td><td>Awal Fase 4</td></tr>
-    <tr><td>Akses Drone (RTMP stream + Raspberry Pi)</td><td>Awal Fase 4</td></tr>
-    <tr><td>Perangkat HT untuk pengujian integrasi</td><td>Fase 2</td></tr>
-    <tr><td>Model Computer Vision dari Tim Data Cakra</td><td>Fase 3</td></tr>
-    <tr><td>Dokumen basis pengetahuan untuk AI</td><td>Awal Fase 3</td></tr>
-  </tbody>
-</table>
-
-<h3>8.2 Risiko Utama</h3>
-<table>
-  <thead><tr><th>Risiko</th><th>Dampak</th><th>Mitigasi</th></tr></thead>
-  <tbody>
-    <tr><td>Koneksi internet tidak stabil di area operasi</td><td>Tinggi</td><td>Antrean offline + sinkronisasi otomatis</td></tr>
-    <tr><td>Inkompatibilitas protokol CCTV/drone</td><td>Sedang</td><td>Verifikasi kompatibilitas di awal Fase 4</td></tr>
-    <tr><td>Keterlambatan penyediaan server/hardware</td><td>Tinggi</td><td>Checklist resource per fase + reminder 2 minggu</td></tr>
-    <tr><td>Perubahan scope di luar kesepakatan</td><td>Tinggi</td><td>Prosedur change request formal sesuai SOW</td></tr>
-  </tbody>
-</table>
 
 <div class="doc-footer">
   <p>Product Requirements Document &mdash; CAKRA Intelligence Platform</p>
