@@ -85,21 +85,21 @@ Detail per sprint → lihat `docs/sprint-plan.html`
 
 ### Untuk Client (dikirim)
 
-| File              | Deskripsi                                               |
-| ----------------- | ------------------------------------------------------- |
-| `docs/MOU.html` | Memorandum of Understanding (kontrak legal)             |
-| `docs/SOW.html` | Statement of Work (scope, timeline, pembayaran)         |
-| `docs/SDD.html` | Solutions Design Document (arsitektur, tech stack)      |
-| `docs/PRD.html` | Product Requirements Document (kebutuhan produk)       |
+| File              | Deskripsi                                          |
+| ----------------- | -------------------------------------------------- |
+| `docs/MOU.html` | Memorandum of Understanding (kontrak legal)        |
+| `docs/SOW.html` | Statement of Work (scope, timeline, pembayaran)    |
+| `docs/SDD.html` | Solutions Design Document (arsitektur, tech stack) |
+| `docs/PRD.html` | Product Requirements Document (kebutuhan produk)   |
 
 ### Internal (tidak dikirim)
 
-| File                              | Deskripsi                                      |
-| --------------------------------- | ---------------------------------------------- |
-| `docs/SPRINT-PLAN.html`         | Detail sprint 1-8, task per developer          |
-| `docs/ERD.html`                 | Mermaid ERD diagram (16 entitas)               |
-| `docs/INTERNAL-PRICING.html`    | ⚠ Breakdown harga per modul (CONFIDENTIAL)     |
-| `README.md`                     | Project overview (file ini)                    |
+| File                           | Deskripsi                                   |
+| ------------------------------ | ------------------------------------------- |
+| `docs/SPRINT-PLAN.html`      | Detail sprint 1-8, task per developer       |
+| `docs/ERD.html`              | Mermaid ERD diagram (16 entitas)            |
+| `docs/INTERNAL-PRICING.html` | ⚠ Breakdown harga per modul (CONFIDENTIAL) |
+| `README.md`                  | Project overview (file ini)                 |
 
 ### Referensi
 
@@ -114,31 +114,23 @@ Detail per sprint → lihat `docs/sprint-plan.html`
 Berikut adalah rancangan antarmuka (wireframes) untuk platform yang akan dibangun, mencakup seluruh alur kerja utama:
 
 1. **Dashboard Utama (Peta & Tracking)**
-![Dashboard Peta](docs/wireframes/dashboard.png)
-
+   ![Dashboard Peta](docs/wireframes/dashboard.png)
 2. **Panel Komunikasi (Chat)**
-![Chat & Komunikasi](docs/wireframes/chat.png)
-
+   ![Chat & Komunikasi](docs/wireframes/chat.png)
 3. **Asisten AI (RAG Mode)**
-![Asisten AI](docs/wireframes/ai-assistant.png)
-
+   ![Asisten AI](docs/wireframes/ai-assistant.png)
 4. **Laporan Lapangan (Field Reports)**
-![Field Reports](docs/wireframes/reports.png)
-
+   ![Field Reports](docs/wireframes/reports.png)
 5. **Streaming Video (CCTV & Drone)**
-![Video Streaming](docs/wireframes/streaming.png)
-
+   ![Video Streaming](docs/wireframes/streaming.png)
 6. **Prediksi & Analitik (Heat Map & Telco)**
-![Analitik Prediksi](docs/wireframes/analytics.png)
-
+   ![Analitik Prediksi](docs/wireframes/analytics.png)
 7. **Tampilan Mobile (Field Operator)**
-![Mobile Web App](docs/wireframes/mobile.png)
-
+   ![Mobile Web App](docs/wireframes/mobile.png)
 8. **Manajemen Pengguna (Admin)**
-![Admin Panel](docs/wireframes/admin.png)
-
+   ![Admin Panel](docs/wireframes/admin.png)
 9. **Halaman Login**
-![Login Page](docs/wireframes/login.png)
+   ![Login Page](docs/wireframes/login.png)
 
 ---
 
@@ -250,6 +242,7 @@ Detail ERD → lihat `docs/erd.html`
 - PRD: https://openscope-labs.github.io/open-intelligence-platform/PRD.html
 - ERD: https://openscope-labs.github.io/open-intelligence-platform/ERD.html
 - SPRINT-PLAN: https://openscope-labs.github.io/open-intelligence-platform/SPRINT-PLAN.html
+- PRICING: https://openscope-labs.github.io/open-intelligence-platform/PRICING.html
 
 ---
 
